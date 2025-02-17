@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+<footer class="bg-black/30 py-16 px-8">
+	<div class="container mx-auto flex flex-col md:flex-row justify-between items-start mb-12 space-y-8 md:space-y-0">
+	  <div class="footer-brand md:w-1/2">
+		<img src="/images/logo-kreadium.webp" class="h-8 my-2" alt="kreadium">
+		<p class="text-white text-sm md:text-base leading-relaxed">
+		  Diseñamos y desarrollamos soluciones digitales excepcionales.<br>
+		  Convierte tu visión en una realidad.
+		</p>
+	  </div>
+  
+	  <div class="social-links flex flex-col md:flex-row gap-4 md:gap-6">
+		<div class="flex gap-2 items-center">
+		  <Icon name="facebook"/>
+		  <a href="#" aria-label="Facebook" class="text-white hover:text-gray-400 transition-colors text-sm md:text-base">Facebook</a>
+		</div>
+		<div class="flex gap-2 items-center">
+		  <Icon name="Instagram_dark"/>
+		  <a href="#" aria-label="Instagram" class="text-white hover:text-gray-400 transition-colors text-sm md:text-base">Instagram</a>
+		</div>
+	  </div>
+	</div>
+  
+	<div class="container mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-6 md:space-y-0">
+	  <p class="text-white/80 text-sm md:text-base">&copy; 2025 Kreadium. Todos los derechos reservados.</p>
+	  <nav class="flex flex-wrap justify-center md:justify-start gap-6">
+		<a href="#inicio" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Inicio</a>
+		<a href="#servicios" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Servicios</a>
+		<a href="#cotizar" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Cotizar</a>
+		<a href="#contacto" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Contacto</a>
+	  </nav>
+	</div>
+  </footer>
