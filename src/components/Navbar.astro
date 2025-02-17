@@ -2,37 +2,65 @@
 import CallToAction from '../components/buttons/CallToAction.astro'
 ---
 
-<nav class="fixed w-full z-20 top-0 start-0 backdrop-blur-md px-8">
-    <div class="container mx-auto flex flex-wrap items-center justify-between py-4">
+<nav id="menu" class="fixed w-full z-20 top-0 start-0 backdrop-blur-md transition-all duration-[0.2s] px-8">
+  <div class="container mx-auto flex flex-wrap items-center justify-between py-4">
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="/images/logo-kreadium.webp" class="h-5 md:h-8" alt="kreadium"> 
+      <img src="/images/logo-kreadium.webp" class="h-5 md:h-8" alt="kreadium"> 
     </a>
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <div class="relative group"><CallToAction text="Cotizar Ahora"></div>
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white bg-black border border-white rounded-lg md:hidden hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-          </svg>
-        </button>       
+      <div class="relative group">
+        <CallToAction text="Cotizar Ahora" />
+      </div>
+      <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white bg-black border-2 border-white rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only">Abrir menú principal</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>       
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul class="flex flex-col py-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-                <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300" aria-current="page">Inicio</a>
-            </li>
-            <li>
-              <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Servicios</a>
-            </li>
-            
-            <li>
-              <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Testimonios</a>
-            </li>
-            <li>
-              <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Contacto</a>
-            </li>
-          </ul>
+      <ul class="flex flex-col py-2 gap-2 md:p-0 mt-4 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <li>
+        <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300" aria-current="page">Inicio</a>
+        </li>
+        <li>
+          <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Servicios</a>
+        </li>
+        <li>
+          <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Testimonios</a>
+        </li>
+        <li>
+          <a href="#" class="relative after:absolute after:bg-gray-200 after:bottom-[-10px] after:left-0 after:h-[4px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300">Contacto</a>
+        </li>
+      </ul>
     </div>
-    </div>
-  </nav>
-  
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+    const mobileMenu = document.getElementById('navbar-sticky');
+    const menu = document.getElementById('menu');
+
+    // Manejador del click en el botón del menú
+    toggleButton?.addEventListener('click', () => {
+      menu?.classList.toggle('bg-black');
+      mobileMenu?.classList.toggle('hidden');
+      const isExpanded = toggleButton.getAttribute('aria-expanded') === 'true';
+      toggleButton.setAttribute('aria-expanded', String(!isExpanded));
+    });
+
+    // Manejador para cuando se redimensiona la ventana
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 768px)').matches) {
+        // Remueve la clase bg-black cuando la resolución sea mayor a 768px
+        menu?.classList.remove('bg-black');
+      }else{
+        // Oculta el menú cuando la resolución sea menor a 768px
+        mobileMenu?.classList.add('hidden');
+        toggleButton?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>
