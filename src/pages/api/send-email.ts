@@ -9,34 +9,56 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // Parsear datos del formulario
     const data = await request.json();
-    const { name, email, phone, message } = data;
+    const {
+      name,
+      email,
+      phone,
+      company,
+      message,
+      proposito,
+      identidad,
+      soporte,
+      tiempo,
+    } = data;
 
-    // Validar los campos del formulario
-    if (!name || !email || !phone || !message) {
+    // Validar los campos obligatorios
+    if (!name || !email || !proposito || !identidad || !soporte || !tiempo) {
       return new Response(
         JSON.stringify({
-          error:
-            "Todos los campos (name, email, phone, message) son obligatorios.",
+          error: "Todos los campos obligatorios deben estar completos.",
         }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+        { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    // Enviar el correo utilizando Resend
+    // Enviar el correo con Resend
     const { data: emailData, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "contacto@kreadium.cl", // cambiar por el email de la empresa
-      subject: `(Sitio web) Nuevo mensaje de contacto de ${name}`,
+      to: "contacto@kreadium.cl", // Cambiar por el email real
+      subject: `📩 Nueva solicitud de cotización de ${name}`,
       html: `
-        <h2>Nuevo mensaje de contacto sitio web</h2>
+        <h2>📌 Nueva solicitud de cotización desde el sitio web</h2>
+        <h3>¿Cuál es el propósito principal de tu sitio web?</h3>
+        <p>${proposito}</p>
+
+        <h3>¿Tienes algún diseño o identidad visual definida?</h3>
+        <p>${identidad}</p>
+
+        <h3>¿Necesitas soporte o mantenimiento después del lanzamiento?</h3>
+        <p>${soporte}</p>
+
+        <h3>¿En qué plazo necesitas tu sitio web?</h3>
+        <p>${tiempo}</p>
+
+        <hr>
+        <h2>📞 Datos de Contacto</h2>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
+        <p><strong>Teléfono:</strong> ${phone || "No proporcionado"}</p>
+        <p><strong>Empresa:</strong> ${company || "No proporcionado"}</p>
+
+        <h3>📩 Mensaje adicional:</h3>
+        <p>${message || "Sin comentarios adicionales"}</p>
       `,
     });
 
@@ -55,13 +77,10 @@ export const POST: APIRoute = async ({ request }) => {
     });
   } catch (error) {
     // Manejo de errores generales
-    console.error("Error interno:", error);
+    console.error("Error interno del servidor:", error);
     return new Response(
       JSON.stringify({ error: "Error interno del servidor" }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 };

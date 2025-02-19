@@ -6,7 +6,7 @@ import testimonials from "../data/testimonials.json"
 const comments = testimonials.comments;
 
 ---
-    <div class="container mx-auto">
+    <div class="container mx-auto py-[100px] px-8" id="testimonials">
       <h2 class="text-3xl text-white sm:text-4xl md:text-6xl text-center">Testimonios</h2>
         <p class="mt-4 text-lg text-gray-400 text-center mb-5">Esto es lo que nuestros clientes opinan de nosotros.</p>
       <CommentCarousel comments={comments} client:load />

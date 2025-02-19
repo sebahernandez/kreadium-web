@@ -64,7 +64,7 @@ const ContactForm = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/send-quote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,9 +93,12 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-8 text-white py-10 bg-box px-5 my-10 rounded-lg">
+    <div
+      className="container mx-auto flex flex-col md:flex-row gap-8 text-white py-10 bg-box px-5 my-10 rounded-lg"
+      id="contact"
+    >
       <div className="md:w-1/2 space-y-6">
-        <h2 className="text-3xl md:text-6xl font-bold">
+        <h2 className="text-3xl md:text-4xl font-bold">
           ¿Por qué elegir Kreadium?
         </h2>
         <p className="text-gray-400">
@@ -127,6 +130,7 @@ const ContactForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="md:w-1/2 space-y-4 rounded-lg">
+        <h3 className="text-xl">Si necesitas más información, escríbenos</h3>
         <input
           type="text"
           name="name"
