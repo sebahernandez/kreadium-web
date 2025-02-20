@@ -23,6 +23,9 @@ importers:
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
+      canvas-confetti:
+        specifier: ^1.9.3
+        version: 1.9.3
       glob:
         specifier: ^11.0.1
         version: 11.0.1
@@ -897,6 +900,9 @@ packages:
 
   caniuse-lite@1.0.30001700:
     resolution: {integrity: sha512-2S6XIXwaE7K7erT8dY+kLQcpa5ms63XlRkMkReXjle+kf6c5g38vyMl+Z5y8dSxOFDhcFe+nxnn261PLxBSQsQ==}
+
+  canvas-confetti@1.9.3:
+    resolution: {integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3544,6 +3550,8 @@ snapshots:
   camelcase@8.0.0: {}
 
   caniuse-lite@1.0.30001700: {}
+
+  canvas-confetti@1.9.3: {}
 
   ccount@2.0.1: {}
 

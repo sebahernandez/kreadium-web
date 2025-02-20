@@ -16,6 +16,7 @@
     "@astrojs/vercel": "^8.0.7",
     "astro": "^5.3.0",
     "astro-icon": "^1.1.5",
+    "canvas-confetti": "^1.9.3",
     "glob": "^11.0.1",
     "lru-cache": "^11.0.2",
     "notyf": "^3.10.0",
@@ -28,6 +29,7 @@
     "uuid": "^11.0.5"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/react": "^19.0.9",
     "@types/react-dom": "^19.0.3"
   }
