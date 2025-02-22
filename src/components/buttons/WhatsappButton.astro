@@ -1,0 +1,47 @@
+<!-- Chat Button with WhatsApp Number Selector -->
+---
+import { Icon } from 'astro-icon/components'
+---
+<div class="fixed bottom-6 right-6 z-50">
+    <!-- Main Chat Button -->
+    <button id="chatToggle" class="fixed bottom-6 right-6 bg-white hover:bg-white text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-105">
+      <Icon name="whatsapp" />
+    </button>
+    <!-- Dropdown Menu for WhatsApp Numbers -->
+    <div id="chatOptions" class="hidden absolute bottom-20 right-0 bg-white rounded-xl shadow-lg p-4 space-y-2 w-64">
+      <p class="text-gray-700 font-semibold text-center">¿Con quién deseas hablar?</p>
+      <a href="https://wa.me/56979044361" target="_blank" class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition">
+        <span class="text-green-600 text-xl">🛠️</span>
+        <span class="ml-3 text-gray-800">Número de Soporte</span>
+      </a>
+      <a href="https://wa.me/56946441506" target="_blank" class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition">
+        <span class="text-green-600 text-xl"></span>
+        <span class="ml-3 text-gray-800">Atención al Cliente</span>
+      </a>
+    </div>
+  </div>
+
+
+  <style>
+    [data-icon="whatsapp"] {
+        font-size: 2.4rem;
+    }
+    </style>
+  
+
+  <script>
+    const chatToggle = document.getElementById('chatToggle');
+    const chatOptions = document.getElementById('chatOptions');
+  
+    chatToggle?.addEventListener('click', () => {
+      chatOptions?.classList.toggle('hidden');
+    });
+  
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+    const target = e.target as Node; 
+    if (!chatToggle?.contains(target) && !chatOptions?.contains(target)) {
+      chatOptions?.classList.add('hidden');
+    }
+  });
+  </script>
