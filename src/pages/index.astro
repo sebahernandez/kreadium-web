@@ -9,6 +9,7 @@ import ContactForm from '../components/contact-form/ContactForm';
 import Footer from '../components/Footer.astro';
 import Aurora from '../components/hero/Aurora.jsx';
 import Hero from '../components/Hero.astro';
+import ScrollVelocity from '../components/scroll-velocity/ScrollVelocity';
 ---
 
 <Layout title="Kreadium - Construimos tu presencia digital">
@@ -24,9 +25,17 @@ import Hero from '../components/Hero.astro';
 		/>
 		
 		<Hero />
-	  </div>
-	
+	</div>
+	   
 		<ServicesItems />
+		<div class="py-0 md:py-[100px]">
+			<ScrollVelocity
+				client:only
+				texts={['Desarrollamos experiencias únicas', 'Para que tu marca destaque']} 
+				velocity={100}
+				className="custom-scroll-text"
+			/>
+		</div>
 		<ServiceSelector />
 		<Testimonials />
 	<ContactForm client:only/> 
