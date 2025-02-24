@@ -86,7 +86,7 @@ const CommentCarousel = ({ comments, interval = 3000 }) => {
             </div>
             <div className="w-full flex flex-col">
               <h3 style={styles.name}>{comment.name}</h3>
-              <p className="text-gray-400" style={styles.description}>
+              <p className="text-gray-400 text-sm" style={styles.description}>
                 {comment.description}
               </p>
               <RatingStars rating={comment.rating} />
