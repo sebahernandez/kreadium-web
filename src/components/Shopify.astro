@@ -1,0 +1,134 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="container mx-auto py-[100px] px-8" id="shopify">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    <div class="order-2 md:order-1">
+      <div class="flex items-center mb-6">
+        <img src="/images/shopify-partner-badge.webp" alt="Shopify Partner Badge" class="h-12 mr-3" 
+             onerror="this.src='/images/logo-kreadium.webp'; this.onerror=null;">
+        <span class="text-xl font-medium text-gray-300">Shopify Partner Oficial</span>
+      </div>
+      
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Expertos en desarrollo <span class="bg-gradient-to-r from-[#95BF47] to-[#5E8E3E] bg-clip-text text-transparent">Shopify</span></h2>
+      
+      <p class="text-gray-300 text-lg mb-6">
+        Somos partners oficiales de Shopify y nos especializamos en crear experiencias de compra excepcionales para tu negocio. Desde tiendas personalizadas hasta soluciones complejas de comercio electrónico, tenemos la experiencia para impulsar tus ventas online.
+      </p>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="code" class="w-5 h-5 text-[#95BF47]" />
+            </div>
+            <h3 class="font-medium text-xl">Tiendas personalizadas</h3>
+          </div>
+          <p class="text-gray-400">Diseños únicos que reflejan la identidad de tu marca y mejoran la experiencia de usuario.</p>
+        </div>
+        
+        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="tool" class="w-5 h-5 text-[#95BF47]" />
+            </div>
+            <h3 class="font-medium text-xl">Apps y extensiones</h3>
+          </div>
+          <p class="text-gray-400">Desarrollamos funcionalidades específicas para tu tienda adaptadas a tus necesidades.</p>
+        </div>
+        
+        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="cart" class="w-5 h-5 text-[#95BF47]" />
+            </div>
+            <h3 class="font-medium text-xl">Optimización de conversión</h3>
+          </div>
+          <p class="text-gray-400">Mejoramos el rendimiento de tu tienda para aumentar las tasas de conversión y ventas.</p>
+        </div>
+        
+        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="chat" class="w-5 h-5 text-[#95BF47]" />
+            </div>
+            <h3 class="font-medium text-xl">Soporte especializado</h3>
+          </div>
+          <p class="text-gray-400">Te acompañamos con soporte técnico y asesoría continua para tu tienda Shopify.</p>
+        </div>
+      </div>
+      
+      <a href="#cotizar" class="inline-flex items-center px-6 py-3 bg-[#5E8E3E] hover:bg-[#4a7032] transition-colors rounded-lg text-white font-medium">
+        Consulta nuestros servicios Shopify
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+    
+    <div class="order-1 md:order-2 relative">
+      <div class="absolute -top-20 -left-20 w-40 h-40 bg-[#95BF47] opacity-20 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-10 -right-10 w-60 h-60 bg-[#5E8E3E] opacity-20 rounded-full blur-3xl"></div>
+      
+      <img 
+        src="/images/shopify-mockup.webp" 
+        alt="Shopify Store Example" 
+        class="rounded-lg shadow-2xl relative z-10 w-full"
+        onerror="this.src='/images/bg-kreadium.webp'; this.onerror=null;"
+      >
+    </div>
+  </div>
+  
+  <div class="mt-20 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-8 text-center">
+    <h3 class="text-2xl md:text-3xl font-bold mb-4">¿Por qué elegir Shopify para tu ecommerce?</h3>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+      <div class="flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h4 class="font-medium">Seguridad</h4>
+        <p class="text-gray-400 text-sm mt-2">Plataforma segura y confiable para tus transacciones.</p>
+      </div>
+      
+      <div class="flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h4 class="font-medium">Rendimiento</h4>
+        <p class="text-gray-400 text-sm mt-2">Tiendas rápidas y optimizadas para dispositivos móviles.</p>
+      </div>
+      
+      <div class="flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+        </div>
+        <h4 class="font-medium">Escalabilidad</h4>
+        <p class="text-gray-400 text-sm mt-2">Crece tu negocio sin preocuparte por limitaciones técnicas.</p>
+      </div>
+      
+      <div class="flex flex-col items-center">
+        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+          </svg>
+        </div>
+        <h4 class="font-medium">Personalización</h4>
+        <p class="text-gray-400 text-sm mt-2">Adapta tu tienda a las necesidades específicas de tu negocio.</p>
+      </div>
+    </div>
+    
+    <p class="text-gray-300 mt-10 max-w-3xl mx-auto">
+      Como partners oficiales de Shopify, te ofrecemos soluciones de comercio electrónico de alto nivel 
+      que maximizan tus resultados online. Nuestro equipo está certificado para brindarte el mejor 
+      servicio y las mejores prácticas en desarrollo de tiendas Shopify.
+    </p>
+  </div>
+</section>
