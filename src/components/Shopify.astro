@@ -6,9 +6,7 @@ import { Icon } from 'astro-icon/components';
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
     <div class="order-2 md:order-1">
       <div class="flex items-center mb-6">
-        <img src="/images/shopify-partner-badge.webp" alt="Shopify Partner Badge" class="h-12 mr-3" 
-             onerror="this.src='/images/logo-kreadium.webp'; this.onerror=null;">
-        <span class="text-xl font-medium text-gray-300">Shopify Partner Oficial</span>
+        <span class="text-xl font-medium text-gray-300">Shopify Partner</span>
       </div>
       
       <h2 class="text-3xl md:text-5xl font-bold mb-6">Expertos en desarrollo <span class="bg-gradient-to-r from-[#95BF47] to-[#5E8E3E] bg-clip-text text-transparent">Shopify</span></h2>
@@ -71,12 +69,18 @@ import { Icon } from 'astro-icon/components';
       <div class="absolute -top-20 -left-20 w-40 h-40 bg-[#95BF47] opacity-20 rounded-full blur-3xl"></div>
       <div class="absolute -bottom-10 -right-10 w-60 h-60 bg-[#5E8E3E] opacity-20 rounded-full blur-3xl"></div>
       
-      <img 
-        src="/images/shopify-mockup.webp" 
-        alt="Shopify Store Example" 
-        class="rounded-lg shadow-2xl relative z-10 w-full"
-        onerror="this.src='/images/bg-kreadium.webp'; this.onerror=null;"
-      >
+      <div class="relative z-10 rounded-xl overflow-hidden bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)]">
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline
+          class="w-full h-auto"
+        >
+          <source src="/videos/shopify-kreadium.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
     </div>
   </div>
   
