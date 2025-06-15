@@ -17,11 +17,24 @@ const { title } = Astro.props;
 		<meta name="description" content="Kreadium - Construimos tu presencia digital" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
 		<title>{title}</title>
-	</head>
+
+		<!-- Google tag (gtag.js) -->
+	   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TN1ZFJYB0X"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-TN1ZFJYB0X');
+		</script>
+		</head>
 	<body>
 		<WhatsappButton />
 		<slot />
+
+
+		
 	</body>
 </html>
 <style is:global>
