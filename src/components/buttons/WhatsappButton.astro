@@ -5,20 +5,20 @@ import { Icon } from 'astro-icon/components'
 <div class="fixed bottom-6 right-6 z-50">
     <!-- Main Chat Button -->
     <button id="chatToggle" class="fixed bottom-6 right-6 bg-white hover:bg-white text-white p-3 rounded-full shadow-lg transition-transform transform hover:scale-105">
-      <Icon name="whatsapp" />
+      <Icon name="whatsapp" class="text-green-600" />
     </button>
     <!-- Dropdown Menu for WhatsApp Numbers -->
     <div id="chatOptions" class="hidden absolute bottom-20 right-0 bg-white rounded-xl shadow-lg p-4 space-y-2 w-64">
       <p class="text-gray-700 font-semibold text-center">¿Con quién deseas hablar?</p>
       <a href="https://wa.me/56979044361" target="_blank" class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition">
         <span class="text-green-600 text-xl">
-            <Icon name="tool" />
+            <Icon name="tool" class="text-green-600" />
         </span>
         <span class="ml-3 text-gray-800">Soporte Clientes</span>
       </a>
       <a href="https://wa.me/56946441506" target="_blank" class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition">
         <span class="text-green-600 text-xl">
-            <Icon name="chat">
+            <Icon name="chat" class="text-green-600" />
         </span>
         <span class="ml-3 text-gray-800">Atención al Cliente</span>
       </a>
