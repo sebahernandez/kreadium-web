@@ -11,6 +11,7 @@ import Aurora from '../components/hero/Aurora.jsx';
 import Hero from '../components/Hero.astro';
 import ScrollVelocity from '../components/scroll-velocity/ScrollVelocity';
 import Shopify from '../components/Shopify.astro';
+import Integrations from '../components/Integrations.astro';
 ---
 
 <Layout title="Kreadium - Construimos tu presencia digital">
@@ -37,9 +38,11 @@ import Shopify from '../components/Shopify.astro';
 				className="custom-scroll-text"
 			/>
 		</div>
-		
-		<ServiceSelector />
+	<!-- 	
+		<ServiceSelector /> -->
 		<Shopify />
+		<Integrations />
+		
 		<Testimonials />
 	<ContactForm client:only/> 
 	<Footer />

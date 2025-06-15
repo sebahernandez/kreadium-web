@@ -1,0 +1,118 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="relative py-[100px] px-8 overflow-hidden" id="integraciones">
+  <!-- Efectos de fondo divisorios más visibles -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(76,214,192,0.08)] to-transparent"></div>
+  <div class="absolute top-32 left-16 w-32 h-32 bg-[#4CD6C0] opacity-[0.15] rounded-full blur-[100px]"></div>
+  <div class="absolute bottom-32 right-16 w-40 h-40 bg-[#09b397] opacity-[0.15] rounded-full blur-[100px]"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#4CD6C0] opacity-[0.08] rounded-full blur-[120px]"></div>
+  
+  <!-- Línea divisoria superior - haz pequeño -->
+  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-[1px] bg-gradient-to-r from-transparent via-[rgba(76,214,192,0.8)] to-transparent"></div>
+  
+  <!-- Línea divisoria inferior - haz pequeño -->
+  <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-[1px] bg-gradient-to-r from-transparent via-[rgba(76,214,192,0.8)] to-transparent"></div>
+
+  <div class="container mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">
+        Integraciones de <span class="bg-gradient-to-r from-[#4CD6C0] to-[#09b397] bg-clip-text text-transparent">Pasarelas de Pago</span>
+      </h2>
+      <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+        Conectamos tu tienda con las principales pasarelas de pago para ofrecerte máxima flexibilidad y conversión en tus ventas online.
+      </p>
+    </div>
+
+    <!-- Grid de pasarelas de pago -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <!-- Venti -->
+      <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">Venti</h3>
+        <p class="text-gray-400 text-sm mb-4">Pasarela de pagos chilena con múltiples opciones de pago y fácil integración.</p>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Tarjetas de crédito y débito</div>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Transferencias bancarias</div>
+      </div>
+
+      <!-- Mercado Pago -->
+      <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">Mercado Pago</h3>
+        <p class="text-gray-400 text-sm mb-4">La pasarela líder en Latinoamérica con máxima confianza y reconocimiento.</p>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Pagos en cuotas</div>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Punto de venta</div>
+      </div>
+
+      <!-- Flow -->
+      <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">Flow</h3>
+        <p class="text-gray-400 text-sm mb-4">Plataforma de pagos chilena con altos estándares de seguridad y facilidad de uso.</p>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Webpay Plus</div>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Klarna</div>
+      </div>
+
+      <!-- Finctoc -->
+      <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-white">Finctoc</h3>
+        <p class="text-gray-400 text-sm mb-4">Solución de pagos moderna con tecnología avanzada y excelente experiencia de usuario.</p>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ API moderna</div>
+        <div class="text-xs text-[#4CD6C0] font-medium">✓ Pagos recurrentes</div>
+      </div>
+    </div>
+
+    <!-- Sección de beneficios -->
+    <div class="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-8">
+      <h3 class="text-2xl md:text-3xl font-bold text-center mb-10">¿Por qué integrar múltiples pasarelas de pago?</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+            <Icon name="chart" class="w-8 h-8 text-[#4CD6C0]" />
+          </div>
+          <h4 class="text-xl font-medium mb-3">Mayor Conversión</h4>
+          <p class="text-gray-400">Ofrece múltiples opciones de pago para que tus clientes elijan su método preferido y completen la compra.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+            <Icon name="code" class="w-8 h-8 text-[#4CD6C0]" />
+          </div>
+          <h4 class="text-xl font-medium mb-3">Redundancia</h4>
+          <p class="text-gray-400">Si una pasarela tiene problemas técnicos, tus ventas continúan funcionando con las alternativas disponibles.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
+            <Icon name="browser" class="w-8 h-8 text-[#4CD6C0]" />
+          </div>
+          <h4 class="text-xl font-medium mb-3">Flexibilidad</h4>
+          <p class="text-gray-400">Adapta los métodos de pago según tu mercado objetivo y las preferencias de tus clientes.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
+          Implementamos las integraciones de forma segura y optimizada, asegurándonos de que cada transacción sea rápida y confiable para tus clientes.
+        </p>
+        <a href="#cotizar" class="inline-flex items-center px-6 py-3 bg-[#4CD6C0] hover:bg-[#09b397] transition-colors rounded-lg text-black font-medium">
+          Consulta sobre integraciones
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

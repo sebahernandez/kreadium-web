@@ -93,86 +93,149 @@ const ContactForm = () => {
   };
 
   return (
-    <div
-      className="container mx-auto flex flex-col md:flex-row gap-8 text-white py-10 bg-box px-5 my-10 rounded-lg"
-      id="contact"
-    >
-      <div className="md:w-1/2 space-y-6">
-        <h2 className="text-3xl md:text-4xl font-bold">
-          ¿Por qué elegir Kreadium?
+    <div className="container mx-auto py-16 px-6" id="contact">
+      {/* Header Section */}
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          ¿Listo para crear algo{" "}
+          <span className="bg-gradient-to-r from-[#4CD6C0] to-[#09b397] bg-clip-text text-transparent">
+            increíble
+          </span>
+          ?
         </h2>
-        <p className="text-gray-400">
-          Porque en <strong className="text-white">Kreadium</strong> no solo
-          creamos proyectos, sino experiencias que inspiran y conectan. Nos
-          enfocamos en comprender tu visión, personalizar cada detalle y superar
-          expectativas con soluciones innovadoras. Nuestra pasión por el diseño
-          y la creatividad nos impulsa a entregar resultados que marcan la
-          diferencia.{" "}
-          <strong className="text-white">
-            ¡Haz que tu proyecto brille con nosotros!
-          </strong>
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          Cuéntanos sobre tu proyecto y trabajemos juntos para hacerlo realidad.
         </p>
-        <ul className="space-y-3">
-          {itemsServices.map((item) => (
-            <li
-              key={item.id}
-              className="flex items-center space-x-2 text-lg text-gray-200"
-            >
-              <img
-                src={item.icon}
-                alt={`${item.title} icon`}
-                className="w-6 h-6"
-              />
-              <span>{item.title}</span>
-            </li>
-          ))}
-        </ul>
       </div>
 
-      <form onSubmit={handleSubmit} className="md:w-1/2 space-y-4 rounded-lg">
-        <h3 className="text-xl">Si necesitas más información, escríbenos</h3>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Nombre"
-          className="w-full p-3 bg-gray-100 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
-          required
-        />
-        <input
-          type="text"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="Teléfono"
-          className="w-full p-3 bg-gray-100 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          className="w-full p-3 bg-gray-100 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
-          required
-        />
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Mensaje"
-          className="w-full p-3 bg-gray-100 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
-          required
-        />
-        <button
-          type="submit"
-          className="w-full p-3 bg-[var(--accent)] hover:bg-[var(--accent-hover)] rounded-lg text-black font-bold"
-        >
-          Enviar Mensaje
-        </button>
-      </form>
+      <div className="flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto">
+        {/* Left Column - Benefits */}
+        <div className="lg:w-2/5 space-y-8">
+          <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-6">
+              ¿Por qué elegir Kreadium?
+            </h3>
+            <p className="text-gray-300 mb-8 leading-relaxed">
+              Porque en <strong className="text-[#4CD6C0]">Kreadium</strong> no
+              solo creamos proyectos, sino experiencias que inspiran y conectan.
+              Nos enfocamos en comprender tu visión, personalizar cada detalle y
+              superar expectativas con soluciones innovadoras.
+            </p>
+            <ul className="space-y-4">
+              {itemsServices.map((item) => (
+                <li
+                  key={item.id}
+                  className="flex items-start space-x-3 text-gray-200"
+                >
+                  <div className="w-6 h-6 rounded-full bg-[#4CD6C0] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg
+                      className="w-3 h-3 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <span className="leading-relaxed">{item.title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Right Column - Form */}
+        <div className="lg:w-3/5">
+          <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 backdrop-blur-sm">
+            <h3 className="text-2xl font-semibold text-white mb-8">
+              Cuéntanos sobre tu proyecto
+            </h3>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name and Phone Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300 block">
+                    Nombre completo
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Tu nombre"
+                    className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-300 block">
+                    Teléfono
+                  </label>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="+56 9 1234 5678"
+                    className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-300 block">
+                  Correo electrónico
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="tu@email.com"
+                  className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
+                  required
+                />
+              </div>
+
+              {/* Message */}
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-300 block">
+                  Cuéntanos sobre tu proyecto
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Describe tu proyecto, objetivos, presupuesto aproximado y cualquier detalle relevante..."
+                  rows="6"
+                  className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)] resize-none"
+                  required
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full py-4 px-6 bg-gradient-to-r from-[#4CD6C0] to-[#09b397] hover:from-[#09b397] hover:to-[#4CD6C0] text-black font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg hover:shadow-[#4CD6C0]/20 focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:ring-offset-2 focus:ring-offset-transparent"
+              >
+                Enviar mensaje
+              </button>
+
+              {/* Privacy Note */}
+              <p className="text-xs text-gray-400 text-center mt-4">
+                Al enviar este formulario, aceptas que nos contactemos contigo
+                para discutir tu proyecto.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
