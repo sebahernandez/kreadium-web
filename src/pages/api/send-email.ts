@@ -3,10 +3,27 @@ import { Resend } from "resend";
 
 export const prerender = false;
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
+const API_KEY = import.meta.env.RESEND_API_KEY;
+
+if (!API_KEY) {
+  console.error("RESEND_API_KEY is not configured");
+}
+
+const resend = API_KEY ? new Resend(API_KEY) : null;
 
 export const POST: APIRoute = async ({ request }) => {
   try {
+    // Verificar que Resend esté configurado
+    if (!resend) {
+      console.error("Resend not configured - missing API key");
+      return new Response(
+        JSON.stringify({
+          error: "Email service not configured.",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     // Parsear datos del formulario
     const data = await request.json();
     const {
@@ -78,8 +95,9 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error) {
     // Manejo de errores generales
     console.error("Error interno del servidor:", error);
+    const errorMessage = error instanceof Error ? error.message : "Error interno del servidor";
     return new Response(
-      JSON.stringify({ error: "Error interno del servidor" }),
+      JSON.stringify({ error: errorMessage }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }

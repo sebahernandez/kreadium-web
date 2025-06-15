@@ -2,9 +2,19 @@ import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
-const resend = new Resend("re_DNdvnh8M_D9AuRPTbqAXZrQ9NAv12S9tY");
+const API_KEY = "re_DNdvnh8M_D9AuRPTbqAXZrQ9NAv12S9tY";
+const resend = new Resend(API_KEY) ;
 const POST = async ({ request }) => {
   try {
+    if (!resend) {
+      console.error("Resend not configured - missing API key");
+      return new Response(
+        JSON.stringify({
+          error: "Email service not configured."
+        }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
     const data = await request.json();
     const { name, email, phone, message } = data;
     if (!name || !email || !phone || !message) {
@@ -44,8 +54,9 @@ const POST = async ({ request }) => {
     });
   } catch (error) {
     console.error("Error interno:", error);
+    const errorMessage = error instanceof Error ? error.message : "Error interno del servidor";
     return new Response(
-      JSON.stringify({ error: "Error interno del servidor" }),
+      JSON.stringify({ error: errorMessage }),
       {
         status: 500,
         headers: { "Content-Type": "application/json" }
