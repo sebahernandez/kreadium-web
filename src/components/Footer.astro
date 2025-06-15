@@ -1,40 +1,120 @@
 ---
 import { Icon } from 'astro-icon/components'
 ---
-<footer class="bg-black/30 py-16 px-8">
-	<div class="container mx-auto flex flex-col md:flex-row justify-between items-start mb-12 space-y-8 md:space-y-0">
-	  <div class="footer-brand md:w-1/2">
-		<img src="/images/logo-kreadium.webp" class="h-8 my-2" alt="kreadium">
-		<p class="text-white text-sm md:text-base leading-relaxed">
-		  Diseñamos y desarrollamos soluciones digitales excepcionales.<br>
-		  Convierte tu visión en una realidad.
-		</p>
-		<div class="py-5">
-		<h2 class="text-md font-bold">Kreadium SpA</h2>	
-		<p class="text-sm">Santiago de Chile.</p>
-	    <a href="mailto:contacto@kreadium.cl" class="text-sm">contacto@kreadium.cl</a>
-		</div>
-	  </div>
+
+<footer class="relative bg-gradient-to-br from-black/95 via-gray-900/85 to-black/95 backdrop-blur-lg py-24 px-8 overflow-hidden">
+  <!-- Efectos de fondo ultra prominentes -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-gray-900/50 to-gray-800/30"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-[#4CD6C0]/8 via-transparent to-[#09b397]/12"></div>
+  <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-[#4CD6C0]/3 to-transparent"></div>
   
-	  <div class="social-links flex flex-col md:flex-row gap-4 md:gap-6">
-		<div class="flex gap-2 items-center">
-		  <Icon name="linkedin"/>
-		  <a href="#" aria-label="Linkedin" class="text-white hover:text-gray-400 transition-colors text-sm md:text-base">Linkedin</a>
-		</div>
-		<div class="flex gap-2 items-center">
-		  <Icon name="Instagram_dark"/>
-		  <a href="https://www.instagram.com/kreadium/" target="_blank" aria-label="Instagram" class="text-white hover:text-gray-400 transition-colors text-sm md:text-base">Instagram</a>
-		</div>
-	  </div>
-	</div>
+  <!-- Círculos de fondo súper prominentes -->
+  <div class="absolute top-10 left-10 w-48 h-48 bg-[#4CD6C0] opacity-[0.18] rounded-full blur-[140px]"></div>
+  <div class="absolute bottom-10 right-10 w-64 h-64 bg-[#09b397] opacity-[0.20] rounded-full blur-[180px]"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#4CD6C0] opacity-[0.08] rounded-full blur-[250px]"></div>
+  <div class="absolute top-20 right-1/4 w-32 h-32 bg-[#09b397] opacity-[0.12] rounded-full blur-[100px]"></div>
   
-	<div class="container mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-6 md:space-y-0">
-	  <p class="text-white/80 text-sm md:text-base">&copy; 2025 Kreadium. Todos los derechos reservados.</p>
-	  <nav class="flex flex-wrap justify-center md:justify-start gap-6">
-		<a href="#inicio" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Inicio</a>
-		<a href="#servicios" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Servicios</a>
-		<a href="#cotizar" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Cotizar</a>
-		<a href="#contacto" class="text-white/80 hover:text-white transition-colors text-sm md:text-base">Contacto</a>
-	  </nav>
-	</div>
-  </footer>
+  <!-- Patrón de puntos más visible -->
+  <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, rgba(76,214,192,0.9) 1px, transparent 0); background-size: 20px 20px;"></div>
+  
+  <!-- Líneas de luz sutiles -->
+  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#4CD6C0]/40 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#09b397]/30 to-transparent"></div>
+
+  <div class="container mx-auto relative z-10">
+    <!-- Sección principal -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+      
+      <!-- Columna de marca -->
+      <div class="lg:col-span-2 space-y-8">
+        <div class="space-y-6">
+          <img src="/images/logo-kreadium.webp" class="h-10" alt="Kreadium">
+          <p class="text-gray-300 text-lg leading-relaxed max-w-2xl">
+            Diseñamos y desarrollamos soluciones digitales excepcionales que transforman ideas en experiencias extraordinarias. 
+            <span class="text-[#4CD6C0] font-medium">Convierte tu visión en una realidad digital.</span>
+          </p>
+        </div>
+        
+        <!-- Información de contacto -->
+        <div class="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6">
+          <h3 class="text-lg font-semibold text-white mb-4">Kreadium SpA</h3>
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+              <div class="w-5 h-5 rounded-full bg-[rgba(76,214,192,0.2)] flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-[#4CD6C0]"></div>
+              </div>
+              <span class="text-gray-300">Santiago de Chile</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="w-5 h-5 rounded-full bg-[rgba(76,214,192,0.2)] flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-[#4CD6C0]"></div>
+              </div>
+              <a href="mailto:contacto@kreadium.cl" class="text-gray-300 hover:text-[#4CD6C0] transition-colors">
+                contacto@kreadium.cl
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna de redes sociales -->
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Síguenos</h3>
+          <div class="space-y-4">
+            <a href="#" class="group flex items-center space-x-4 p-4 rounded-xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.06)] hover:border-[rgba(76,214,192,0.3)] transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-[rgba(76,214,192,0.1)] flex items-center justify-center group-hover:bg-[rgba(76,214,192,0.2)] transition-colors">
+                <Icon name="linkedin" class="w-5 h-5 text-[#4CD6C0]"/>
+              </div>
+              <div>
+                <span class="text-white font-medium">LinkedIn</span>
+                <p class="text-gray-400 text-sm">Conecta profesionalmente</p>
+              </div>
+            </a>
+            
+            <a href="https://www.instagram.com/kreadium/" target="_blank" class="group flex items-center space-x-4 p-4 rounded-xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.06)] hover:border-[rgba(76,214,192,0.3)] transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-[rgba(76,214,192,0.1)] flex items-center justify-center group-hover:bg-[rgba(76,214,192,0.2)] transition-colors">
+                <Icon name="instagram" class="w-5 h-5 text-[#4CD6C0]"/>
+              </div>
+              <div>
+                <span class="text-white font-medium">Instagram</span>
+                <p class="text-gray-400 text-sm">Síguenos para inspiración</p>
+              </div>
+            </a>
+            
+            <a href="#" class="group flex items-center space-x-4 p-4 rounded-xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.06)] hover:border-[rgba(76,214,192,0.3)] transition-all duration-300">
+              <div class="w-10 h-10 rounded-xl bg-[rgba(76,214,192,0.1)] flex items-center justify-center group-hover:bg-[rgba(76,214,192,0.2)] transition-colors">
+                <Icon name="tiktok" class="w-5 h-5 text-[#4CD6C0]"/>
+              </div>
+              <div>
+                <span class="text-white font-medium">TikTok</span>
+                <p class="text-gray-400 text-sm">Contenido creativo diario</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección inferior sin separador -->
+    <div class="pt-12 mt-8">
+      <div class="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
+        
+        <!-- Copyright -->
+        <div class="text-center lg:text-left">
+          <p class="text-gray-400">&copy; 2025 Kreadium SpA. Todos los derechos reservados.</p>
+          <p class="text-gray-500 text-sm mt-1">Diseñando el futuro digital, hoy.</p>
+        </div>
+
+        <!-- Navegación -->
+        <nav class="flex flex-wrap justify-center gap-8">
+          <a href="#inicio" class="text-gray-400 hover:text-[#4CD6C0] transition-colors font-medium">Inicio</a>
+          <a href="#servicios" class="text-gray-400 hover:text-[#4CD6C0] transition-colors font-medium">Servicios</a>
+          <a href="#integraciones" class="text-gray-400 hover:text-[#4CD6C0] transition-colors font-medium">Integraciones</a>
+          <a href="#cotizar" class="text-gray-400 hover:text-[#4CD6C0] transition-colors font-medium">Cotizar</a>
+          <a href="#contacto" class="text-gray-400 hover:text-[#4CD6C0] transition-colors font-medium">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>

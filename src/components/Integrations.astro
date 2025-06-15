@@ -6,14 +6,8 @@ import { Icon } from 'astro-icon/components';
   <!-- Efectos de fondo divisorios más visibles -->
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(76,214,192,0.08)] to-transparent"></div>
   <div class="absolute top-32 left-16 w-32 h-32 bg-[#4CD6C0] opacity-[0.15] rounded-full blur-[100px]"></div>
-  <div class="absolute bottom-32 right-16 w-40 h-40 bg-[#09b397] opacity-[0.15] rounded-full blur-[100px]"></div>
-  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#4CD6C0] opacity-[0.08] rounded-full blur-[120px]"></div>
-  
-  <!-- Línea divisoria superior - haz pequeño -->
-  <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-[1px] bg-gradient-to-r from-transparent via-[rgba(76,214,192,0.8)] to-transparent"></div>
-  
-  <!-- Línea divisoria inferior - haz pequeño -->
-  <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-[1px] bg-gradient-to-r from-transparent via-[rgba(76,214,192,0.8)] to-transparent"></div>
+  <div class="absolute bottom-32 right-16 w-40 h-40 bg-[#09b397] opacity-[0.10] rounded-full blur-[100px]"></div>
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#4CD6C0] opacity-[0.05] rounded-full blur-[120px]"></div>
 
   <div class="container mx-auto relative z-10">
     <div class="text-center mb-16">
@@ -29,10 +23,9 @@ import { Icon } from 'astro-icon/components';
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
       <!-- Venti -->
       <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
-          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        <div class="w-32 h-20 mx-auto mb-4 rounded-lg bg-[rgba(76,214,192,0.1)] flex items-center justify-center p-4">
+          <img src="/icons/venti.svg" alt="Venti" class="w-full h-full object-contain" />
         </div>
-        <h3 class="text-xl font-bold mb-3 text-white">Venti</h3>
         <p class="text-gray-400 text-sm mb-4">Pasarela de pagos chilena con múltiples opciones de pago y fácil integración.</p>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Tarjetas de crédito y débito</div>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Transferencias bancarias</div>
@@ -40,10 +33,9 @@ import { Icon } from 'astro-icon/components';
 
       <!-- Mercado Pago -->
       <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
-          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        <div class="w-32 h-20 mx-auto mb-4 rounded-lg bg-[rgba(76,214,192,0.1)] flex items-center justify-center p-4">
+          <img src="/icons/mercado-pago.svg" alt="Mercado Pago" class="w-full h-full object-contain" />
         </div>
-        <h3 class="text-xl font-bold mb-3 text-white">Mercado Pago</h3>
         <p class="text-gray-400 text-sm mb-4">La pasarela líder en Latinoamérica con máxima confianza y reconocimiento.</p>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Pagos en cuotas</div>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Punto de venta</div>
@@ -51,10 +43,9 @@ import { Icon } from 'astro-icon/components';
 
       <!-- Flow -->
       <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
-          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        <div class="w-32 h-20 mx-auto mb-4 rounded-lg bg-[rgba(76,214,192,0.1)] flex items-center justify-center p-4">
+          <img src="/icons/flow.svg" alt="Flow" class="w-full h-full object-contain" />
         </div>
-        <h3 class="text-xl font-bold mb-3 text-white">Flow</h3>
         <p class="text-gray-400 text-sm mb-4">Plataforma de pagos chilena con altos estándares de seguridad y facilidad de uso.</p>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Webpay Plus</div>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Klarna</div>
@@ -62,10 +53,9 @@ import { Icon } from 'astro-icon/components';
 
       <!-- Finctoc -->
       <div class="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 text-center hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-105">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[rgba(76,214,192,0.1)] flex items-center justify-center">
-          <Icon name="cart" class="w-8 h-8 text-[#4CD6C0]" />
+        <div class="w-32 h-20 mx-auto mb-4 rounded-lg bg-[rgba(76,214,192,0.1)] flex items-center justify-center p-4">
+          <img src="/icons/fintoc.svg" alt="Finctoc" class="w-full h-full object-contain" />
         </div>
-        <h3 class="text-xl font-bold mb-3 text-white">Finctoc</h3>
         <p class="text-gray-400 text-sm mb-4">Solución de pagos moderna con tecnología avanzada y excelente experiencia de usuario.</p>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ API moderna</div>
         <div class="text-xs text-[#4CD6C0] font-medium">✓ Pagos recurrentes</div>
