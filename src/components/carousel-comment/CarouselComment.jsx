@@ -116,7 +116,7 @@ const CommentCarousel = ({ comments, interval = 4000 }) => {
       </Swiper>
 
       {/* Custom styles for pagination */}
-      <style jsx>{`
+      <style jsx="true">{`
         :global(.testimonial-bullet) {
           background: rgba(76, 214, 192, 0.3) !important;
           opacity: 1 !important;
