@@ -95,10 +95,11 @@ export const POST: APIRoute = async ({ request }) => {
   } catch (error) {
     // Manejo de errores generales
     console.error("Error interno del servidor:", error);
-    const errorMessage = error instanceof Error ? error.message : "Error interno del servidor";
-    return new Response(
-      JSON.stringify({ error: errorMessage }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+    const errorMessage =
+      error instanceof Error ? error.message : "Error interno del servidor";
+    return new Response(JSON.stringify({ error: errorMessage }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 };
