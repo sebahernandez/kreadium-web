@@ -1,4 +1,5 @@
 ---
+import ShinyText from "./text/Gradients"
 ---
 <section class="relative flex flex-col items-center justify-center text-white text-center h-[500px] md:h-[calc(65vh-0rem)]" id="home">
     <div class="mt-[100px] md:mt-[100px]">
@@ -12,9 +13,9 @@
                 juntos
             </span> tu<br>presencia digital
         </h1>
-        <p class="px-10 md:px-0 text-sm md:text-xl py-5 text-gray-300 text-balance">
-            Diseño gráfico profesional y desarrollo web a medida para tu negocio.<br>
-            Transformamos tu visión en una presencia digital impactante.
-        </p>
+
+      <div class="mt-5 md:mt-10">
+          <ShinyText text="Si eres Pyme Sercotec, tenemos beneficios para ti" disabled={false} speed={3} className='custom-class' />
+      </div>
     </div>
 </section>
