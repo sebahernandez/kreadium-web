@@ -1,106 +1,109 @@
 ---
 import { Icon } from 'astro-icon/components';
+
 ---
 
 <section class="container mx-auto py-[100px] px-8" id="shopify">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-    <div class="order-2 md:order-1">
-      <div class="flex items-center mb-6">
-        <span class="text-xl font-medium text-gray-300">Shopify Partner</span>
+  <!-- Layout principal -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+    <!-- Columna izquierda: Texto y Cards -->
+    <div class="order-2 lg:order-1">
+      <!-- Título y descripción principal -->
+      <div class="mb-6 sm:mb-8">
+        <div class="flex items-center mb-4 sm:mb-6">
+          <span class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Shopify Partner</span>
+        </div>
+        
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+          Expertos en desarrollo <span class="bg-gradient-to-r from-[#95BF47] to-[#5E8E3E] bg-clip-text text-transparent">Shopify</span>
+        </h2>
+        
+        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+          Somos partners oficiales de Shopify y nos especializamos en crear experiencias de compra excepcionales para tu negocio. Desde tiendas personalizadas hasta soluciones complejas de comercio electrónico, tenemos la experiencia para impulsar tus ventas online.
+        </p>
       </div>
       
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">Expertos en desarrollo <span class="bg-gradient-to-r from-[#95BF47] to-[#5E8E3E] bg-clip-text text-transparent">Shopify</span></h2>
-      
-      <p class="text-gray-300 text-lg mb-6">
-        Somos partners oficiales de Shopify y nos especializamos en crear experiencias de compra excepcionales para tu negocio. Desde tiendas personalizadas hasta soluciones complejas de comercio electrónico, tenemos la experiencia para impulsar tus ventas online.
-      </p>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg">
           <div class="flex items-center mb-3">
-            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
-              <Icon name="code" class="w-5 h-5 text-[#95BF47]" />
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="code" class="w-4 h-4 sm:w-5 sm:h-5 text-[#95BF47]" />
             </div>
-            <h3 class="font-medium text-xl">Tiendas personalizadas</h3>
+            <h3 class="font-medium text-lg sm:text-xl">Tiendas personalizadas</h3>
           </div>
-          <p class="text-gray-400">Diseños únicos que reflejan la identidad de tu marca y mejoran la experiencia de usuario.</p>
+          <p class="text-gray-400 text-sm sm:text-base">Diseños únicos que reflejan la identidad de tu marca y mejoran la experiencia de usuario.</p>
         </div>
         
-        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg">
           <div class="flex items-center mb-3">
-            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
-              <Icon name="tool" class="w-5 h-5 text-[#95BF47]" />
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="tool" class="w-4 h-4 sm:w-5 sm:h-5 text-[#95BF47]" />
             </div>
-            <h3 class="font-medium text-xl">Apps y extensiones</h3>
+            <h3 class="font-medium text-lg sm:text-xl">Apps y extensiones</h3>
           </div>
-          <p class="text-gray-400">Desarrollamos funcionalidades específicas para tu tienda adaptadas a tus necesidades.</p>
+          <p class="text-gray-400 text-sm sm:text-base">Desarrollamos funcionalidades específicas para tu tienda adaptadas a tus necesidades.</p>
         </div>
         
-        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg">
           <div class="flex items-center mb-3">
-            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
-              <Icon name="cart" class="w-5 h-5 text-[#95BF47]" />
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="cart" class="w-4 h-4 sm:w-5 sm:h-5 text-[#95BF47]" />
             </div>
-            <h3 class="font-medium text-xl">Optimización de conversión</h3>
+            <h3 class="font-medium text-lg sm:text-xl">Optimización de conversión</h3>
           </div>
-          <p class="text-gray-400">Mejoramos el rendimiento de tu tienda para aumentar las tasas de conversión y ventas.</p>
+          <p class="text-gray-400 text-sm sm:text-base">Mejoramos el rendimiento de tu tienda para aumentar las tasas de conversión y ventas.</p>
         </div>
         
-        <div class="bg-[rgba(255,255,255,0.05)] p-5 rounded-lg">
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg">
           <div class="flex items-center mb-3">
-            <div class="w-10 h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
-              <Icon name="chat" class="w-5 h-5 text-[#95BF47]" />
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mr-3">
+              <Icon name="chat" class="w-4 h-4 sm:w-5 sm:h-5 text-[#95BF47]" />
             </div>
-            <h3 class="font-medium text-xl">Soporte especializado</h3>
+            <h3 class="font-medium text-lg sm:text-xl">Soporte especializado</h3>
           </div>
-          <p class="text-gray-400">Te acompañamos con soporte técnico y asesoría continua para tu tienda Shopify.</p>
+          <p class="text-gray-400 text-sm sm:text-base">Te acompañamos con soporte técnico y asesoría continua para tu tienda Shopify.</p>
         </div>
       </div>
-      
-      <a href="#contact" class="inline-flex items-center px-6 py-3 bg-[#5E8E3E] hover:bg-[#4a7032] transition-colors rounded-lg text-white font-medium">
-        Consulta nuestros servicios Shopify
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </a>
     </div>
     
-    <div class="order-1 md:order-2 relative">
+    <!-- Video para desktop - solo visible en lg+ -->
+    <div class="order-1 lg:order-2 relative hidden lg:block">
+
       <!-- Efectos de fondo responsivos -->
-      <div class="absolute -top-4 -left-4 md:-top-0 md:-left-2 w-32 h-32 md:w-80 md:h-80 bg-[#fafff0] opacity-8 rounded-full blur-[80px] md:blur-[200px]"></div>
-      <div class="absolute -bottom-4 -right-4 md:-bottom-20 md:-right-20 w-32 h-32 md:w-96 md:h-96 bg-[#def5ce] opacity-10 rounded-full blur-[80px] md:blur-[240px]"></div>
-      <div class="absolute top-2 right-2 md:top-10 md:right-10 w-16 h-16 md:w-40 md:h-40 bg-[#789f31] opacity-8 rounded-full blur-[60px] md:blur-[180px]"></div>
+      <div class="absolute -top-2 -left-2 md:-top-0 md:-left-2 w-20 h-20 md:w-80 md:h-80 bg-[#fafff0] opacity-6 md:opacity-8 rounded-full blur-[40px] md:blur-[200px]"></div>
+      <div class="absolute -bottom-2 -right-2 md:-bottom-20 md:-right-20 w-20 h-20 md:w-96 md:h-96 bg-[#def5ce] opacity-8 md:opacity-10 rounded-full blur-[40px] md:blur-[240px]"></div>
+      <div class="absolute top-1 right-1 md:top-10 md:right-10 w-12 h-12 md:w-40 md:h-40 bg-[#789f31] opacity-6 md:opacity-8 rounded-full blur-[30px] md:blur-[180px]"></div>
       
       <div class="relative z-10 group">
         <!-- Degradado mesh principal ultra sutil -->
-        <div class="absolute -inset-2 md:-inset-8 rounded-3xl opacity-20 group-hover:opacity-28 transition-all duration-700" 
-             style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(149,191,71,0.08) 0%, rgba(94,142,62,0.06) 25%, rgba(149,191,71,0.04) 50%, transparent 100%); filter: blur(20px);"></div>
+        <div class="absolute -inset-1 md:-inset-8 rounded-xl md:rounded-3xl opacity-15 md:opacity-20 group-hover:opacity-20 md:group-hover:opacity-28 transition-all duration-700" 
+             style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(149,191,71,0.06) 0%, rgba(94,142,62,0.04) 25%, rgba(149,191,71,0.03) 50%, transparent 100%); filter: blur(10px) md:blur(20px);"></div>
         
         <!-- Segundo degradado mesh superpuesto -->
-        <div class="absolute -inset-1 md:-inset-6 rounded-3xl opacity-15" 
-             style="background: radial-gradient(ellipse 90% 60% at 30% 80%, rgba(94,142,62,0.10) 0%, rgba(149,191,71,0.08) 30%, transparent 70%); filter: blur(15px);"></div>
+        <div class="absolute -inset-1 md:-inset-6 rounded-xl md:rounded-3xl opacity-10 md:opacity-15" 
+             style="background: radial-gradient(ellipse 90% 60% at 30% 80%, rgba(94,142,62,0.08) 0%, rgba(149,191,71,0.06) 30%, transparent 70%); filter: blur(8px) md:blur(15px);"></div>
         
         <!-- Tercer degradado mesh para profundidad -->
-        <div class="absolute -inset-1 md:-inset-4 rounded-3xl opacity-18" 
-             style="background: radial-gradient(ellipse 70% 40% at 70% 90%, rgba(149,191,71,0.12) 0%, rgba(94,142,62,0.06) 40%, transparent 80%); filter: blur(25px);"></div>
+        <div class="absolute -inset-1 md:-inset-4 rounded-xl md:rounded-3xl opacity-12 md:opacity-18" 
+             style="background: radial-gradient(ellipse 70% 40% at 70% 90%, rgba(149,191,71,0.09) 0%, rgba(94,142,62,0.04) 40%, transparent 80%); filter: blur(12px) md:blur(25px);"></div>
         
         <!-- Halo principal muy suave -->
-        <div class="absolute -inset-1 md:-inset-4 bg-gradient-to-r from-[#95BF47]/12 via-[#5E8E3E]/15 to-[#95BF47]/12 rounded-2xl blur-xl opacity-25 group-hover:opacity-35 transition-all duration-700"></div>
+        <div class="absolute -inset-1 md:-inset-4 bg-gradient-to-r from-[#95BF47]/8 via-[#5E8E3E]/10 to-[#95BF47]/8 md:from-[#95BF47]/12 md:via-[#5E8E3E]/15 md:to-[#95BF47]/12 rounded-lg md:rounded-2xl blur-lg md:blur-xl opacity-20 md:opacity-25 group-hover:opacity-25 md:group-hover:opacity-35 transition-all duration-700"></div>
         
         <!-- Luces de esquina muy sutiles -->
-        <div class="absolute -bottom-1 -right-1 md:-bottom-4 md:-right-4 w-16 h-16 md:w-40 md:h-40 bg-[#5E8E3E] opacity-10 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-1 -right-1 md:-bottom-4 md:-right-4 w-8 h-8 md:w-40 md:h-40 bg-[#5E8E3E] opacity-8 md:opacity-10 rounded-full blur-lg md:blur-2xl"></div>
         
         <!-- Reflejo superior muy suave -->
-        <div class="absolute -top-2 md:-top-8 left-1/2 transform -translate-x-1/2 w-3/4 h-6 md:h-20 bg-gradient-to-b from-[#95BF47]/6 to-transparent rounded-full blur-xl opacity-20"></div>
+        <div class="absolute -top-1 md:-top-8 left-1/2 transform -translate-x-1/2 w-3/4 h-3 md:h-20 bg-gradient-to-b from-[#95BF47]/4 to-transparent md:from-[#95BF47]/6 rounded-full blur-md md:blur-xl opacity-15 md:opacity-20"></div>
         
         <!-- Contenedor del video -->
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,255,0.02)] border border-[rgba(149,191,71,0.4)] backdrop-blur-md shadow-2xl shadow-[#5E8E3E]/30">
+        <div class="relative rounded-lg md:rounded-2xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.08)] to-[rgba(255,255,255,0.02)] md:from-[rgba(255,255,255,0.1)] border border-[rgba(149,191,71,0.3)] md:border-[rgba(149,191,71,0.4)] backdrop-blur-sm md:backdrop-blur-md shadow-lg md:shadow-2xl shadow-[#5E8E3E]/20 md:shadow-[#5E8E3E]/30">
           <!-- Borde interior luminoso doble -->
-          <div class="absolute inset-0 rounded-2xl border-2 border-[rgba(149,191,71,0.2)]"></div>
-          <div class="absolute inset-1 rounded-xl border border-[rgba(149,191,71,0.1)]"></div>
+          <div class="absolute inset-0 rounded-lg md:rounded-2xl border border-[rgba(149,191,71,0.15)] md:border-2 md:border-[rgba(149,191,71,0.2)]"></div>
+          <div class="absolute inset-0.5 md:inset-1 rounded-md md:rounded-xl border border-[rgba(149,191,71,0.08)] md:border-[rgba(149,191,71,0.1)]"></div>
           
           <!-- Reflejo interior superior -->
-          <div class="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[rgba(149,191,71,0.1)] to-transparent rounded-t-2xl"></div>
+          <div class="absolute top-0 left-0 right-0 h-8 md:h-20 bg-gradient-to-b from-[rgba(149,191,71,0.06)] to-transparent md:from-[rgba(149,191,71,0.1)] rounded-t-lg md:rounded-t-2xl"></div>
           
           <video 
             autoplay 
@@ -117,52 +120,92 @@ import { Icon } from 'astro-icon/components';
     </div>
   </div>
   
-  <div class="mt-20 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-8 text-center">
-    <h3 class="text-2xl md:text-3xl font-bold mb-4">¿Por qué elegir Shopify para tu ecommerce?</h3>
+  <!-- Video para móviles y tablets - entre cards y botón -->
+  <div class="lg:hidden mt-8 mb-8">
+    <!-- ASCII Text Header para Móvil/Tablet -->
+
+    <div class="relative max-w-lg mx-auto">
+      <!-- Efectos de fondo más sutiles para móvil/tablet -->
+      <div class="absolute -top-2 -left-2 w-20 h-20 bg-[#fafff0] opacity-4 rounded-full blur-[30px]"></div>
+      <div class="absolute -bottom-2 -right-2 w-20 h-20 bg-[#def5ce] opacity-6 rounded-full blur-[30px]"></div>
+      
+      <div class="relative z-10 group">
+        <!-- Contenedor del video simplificado para móvil/tablet -->
+        <div class="relative rounded-lg overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.06)] to-[rgba(255,255,255,0.02)] border border-[rgba(149,191,71,0.25)] backdrop-blur-sm shadow-lg shadow-[#5E8E3E]/15">
+          <div class="absolute inset-0 rounded-lg border border-[rgba(149,191,71,0.12)]"></div>
+          <div class="absolute top-0 left-0 right-0 h-6 bg-gradient-to-b from-[rgba(149,191,71,0.04)] to-transparent rounded-t-lg"></div>
+          
+          <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            class="w-full h-auto relative z-10"
+          >
+            <source src="/videos/shopify-kreadium.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Botón call-to-action -->
+  <div class="text-center lg:text-left">
+    <a href="#contact" class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-[#5E8E3E] hover:bg-[#4a7032] transition-colors rounded-lg text-white font-medium text-sm sm:text-base">
+      Consulta nuestros servicios Shopify
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+  </div>
+  
+  <div class="mt-12 md:mt-20 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-lg md:rounded-xl p-4 sm:p-6 md:p-8 text-center">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">¿Por qué elegir Shopify para tu ecommerce?</h3>
     
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10">
       <div class="flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
           </svg>
         </div>
-        <h4 class="font-medium">Seguridad</h4>
+        <h4 class="font-medium text-sm sm:text-base">Seguridad</h4>
         <p class="text-gray-400 text-sm mt-2">Plataforma segura y confiable para tus transacciones.</p>
       </div>
       
       <div class="flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
-        <h4 class="font-medium">Rendimiento</h4>
-        <p class="text-gray-400 text-sm mt-2">Tiendas rápidas y optimizadas para dispositivos móviles.</p>
+        <h4 class="font-medium text-sm sm:text-base">Rendimiento</h4>
+        <p class="text-gray-400 text-xs sm:text-sm mt-1 sm:mt-2">Tiendas rápidas y optimizadas para dispositivos móviles.</p>
       </div>
       
       <div class="flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
         </div>
-        <h4 class="font-medium">Escalabilidad</h4>
-        <p class="text-gray-400 text-sm mt-2">Crece tu negocio sin preocuparte por limitaciones técnicas.</p>
+        <h4 class="font-medium text-sm sm:text-base">Escalabilidad</h4>
+        <p class="text-gray-400 text-xs sm:text-sm mt-1 sm:mt-2">Crece tu negocio sin preocuparte por limitaciones técnicas.</p>
       </div>
       
       <div class="flex flex-col items-center">
-        <div class="w-16 h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-[rgba(94,142,62,0.2)] flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#95BF47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
           </svg>
         </div>
-        <h4 class="font-medium">Personalización</h4>
-        <p class="text-gray-400 text-sm mt-2">Adapta tu tienda a las necesidades específicas de tu negocio.</p>
+        <h4 class="font-medium text-sm sm:text-base">Personalización</h4>
+        <p class="text-gray-400 text-xs sm:text-sm mt-1 sm:mt-2">Adapta tu tienda a las necesidades específicas de tu negocio.</p>
       </div>
     </div>
     
-    <p class="text-gray-300 mt-10 max-w-3xl mx-auto">
+    <p class="text-gray-300 mt-6 sm:mt-8 md:mt-10 max-w-3xl mx-auto text-sm sm:text-base px-2">
       Como partners oficiales de Shopify, te ofrecemos soluciones de comercio electrónico de alto nivel 
       que maximizan tus resultados online. Nuestro equipo está certificado para brindarte el mejor 
       servicio y las mejores prácticas en desarrollo de tiendas Shopify.
