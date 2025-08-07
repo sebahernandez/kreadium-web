@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "gradient-conic": "conic-gradient(var(--tw-gradient-stops))",
+        "gradient-radial": "radial-gradient(ellipse at center, var(--tw-gradient-stops))",
       },
     },
   },

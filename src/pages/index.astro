@@ -18,13 +18,15 @@ import Integrations from '../components/Integrations.astro';
 	<Header />
 	<div class="relative">
 	
-		<Aurora
+		<div class="hidden md:block">
+			<Aurora
 		  client:only
 		  colorStops={["#A5DEDC", "#60D2AE", "#A5DEDC"]}
 		  blend={0.5}
 		  amplitude={1.1}
 		  speed={0.5}
 		/>
+		</div>
 		
 		<Hero />
 	</div>

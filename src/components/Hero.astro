@@ -1,8 +1,11 @@
 ---
 import ShinyText from "./text/Gradients"
 ---
-<section class="relative flex flex-col items-center justify-center text-white text-center h-[500px] md:h-[calc(65vh-0rem)]" id="home">
-    <div class="mt-[100px] md:mt-[100px]">
+<section class="relative flex flex-col items-center justify-center text-white text-center h-[500px] md:h-[calc(65vh-0rem)] md:bg-none bg-gradient-to-br from-[#A5DEDC]/20 via-[#60D2AE]/10 to-[#A5DEDC]/20" id="home">
+    <!-- Gradiente adicional solo para móviles -->
+    <div class="absolute inset-0 md:hidden bg-gradient-to-t from-[#60D2AE]/20 via-[#A5DEDC]/15 to-transparent pointer-events-none"></div>
+    
+    <div class="mt-[100px] md:mt-[100px] relative z-10">
         <span class="text-gray-200 bg-stone-950 rounded-full px-4 p-2 bg-opacity-40 text-sm md:text-xl">
             Impulsamos tu presencia digital
         </span>
@@ -14,7 +17,7 @@ import ShinyText from "./text/Gradients"
             </span> tu<br>presencia digital
         </h1>
 
-      <div class="mt-5 md:mt-10">
+      <div class="mt-5 md:mt-10 px-5 md:px-0">
           <ShinyText text="¿Ganaste el Capital Semilla o Abeja de SERCOTEC?. Escríbenos." disabled={false} speed={3} className='custom-class' />
       </div>
     </div>
