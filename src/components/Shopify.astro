@@ -11,7 +11,7 @@ import { Icon } from 'astro-icon/components';
       <!-- Título y descripción principal -->
       <div class="mb-6 sm:mb-8">
         <div class="flex items-center mb-4 sm:mb-6">
-          <span class="text-base sm:text-lg md:text-xl font-medium text-gray-300">Shopify Partner</span>
+          <span class="text-base sm:text-lg md:text-xl font-medium text-green-300">Shopify Partner</span>
         </div>
         
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
@@ -117,6 +117,16 @@ import { Icon } from 'astro-icon/components';
           </video>
         </div>
       </div>
+      
+      <!-- Botón call-to-action para desktop -->
+      <div class="text-center mt-8">
+        <a href="#contact" class="inline-flex items-center px-6 py-3 bg-[#5E8E3E] hover:bg-[#4a7032] transition-colors rounded-lg text-white font-medium">
+          Consulta nuestros servicios Shopify
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
   
@@ -145,21 +155,22 @@ import { Icon } from 'astro-icon/components';
             <source src="/videos/shopify-kreadium.mp4" type="video/mp4">
             Tu navegador no soporta el elemento de video.
           </video>
+          
         </div>
       </div>
     </div>
+    
+    <!-- Botón call-to-action para móvil/tablet -->
+    <div class="text-center mt-6">
+      <a href="#contact" class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-[#5E8E3E] hover:bg-[#4a7032] transition-colors rounded-lg text-white font-medium text-sm sm:text-base">
+        Consulta nuestros servicios Shopify
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
   </div>
-  
-  <!-- Botón call-to-action -->
-  <div class="text-center lg:text-left">
-    <a href="#contact" class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-[#5E8E3E] hover:bg-[#4a7032] transition-colors rounded-lg text-white font-medium text-sm sm:text-base">
-      Consulta nuestros servicios Shopify
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
-    </a>
-  </div>
-  
+
   <div class="mt-12 md:mt-20 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-lg md:rounded-xl p-4 sm:p-6 md:p-8 text-center">
     <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">¿Por qué elegir Shopify para tu ecommerce?</h3>
     
