@@ -1,8 +1,13 @@
 ---
 import CommentCarousel from "./carousel-comment/CarouselComment";
 import testimonials from "../data/testimonials.json"
+import BlurText from "./blur-text/BlurText";
 
 const comments = testimonials.comments;
+
+  const handleAnimationComplete = () => {
+  console.log('Animation completed!');
+};
 ---
 
 <section class="relative py-[100px] px-8 overflow-hidden" id="testimonials">
@@ -16,7 +21,15 @@ const comments = testimonials.comments;
     <!-- Header mejorado -->
     <div class="text-center mb-16">
       <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
-        Lo que dicen nuestros <span class="bg-gradient-to-r from-[#4CD6C0] to-[#09b397] bg-clip-text text-transparent">clientes</span>
+      <BlurText
+        text="Lo que dicen nuestros clientes"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+        className="text-4xl md:text-6xl mb-8 text-center"
+        client:load
+      />
       </h2>
       <p class="text-gray-300 text-lg max-w-3xl mx-auto">
         Miles de empresas confían en nosotros para crear experiencias digitales excepcionales.

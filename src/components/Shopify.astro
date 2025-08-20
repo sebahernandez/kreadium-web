@@ -1,5 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
+import BlurText from './blur-text/BlurText';
+
+  const handleAnimationComplete = () => {
+  console.log('Animation completed!');
+};
 
 ---
 
@@ -13,11 +18,20 @@ import { Icon } from 'astro-icon/components';
         <div class="flex items-center mb-4 sm:mb-6">
           <span class="text-base sm:text-lg md:text-xl font-medium text-green-300">Shopify Partner</span>
         </div>
-        
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-          Expertos en desarrollo <span class="bg-gradient-to-r from-[#95BF47] to-[#5E8E3E] bg-clip-text text-transparent">Shopify</span>
-        </h2>
-        
+
+     <div>
+      <BlurText
+        text="Desarrollo Shopify"
+        delay={150}
+        animateBy="words"
+        direction="top"
+        onAnimationComplete={handleAnimationComplete}
+        className="text-4xl md:text-6xl mb-8"
+        onAnimationComplete
+        client:load
+      />
+     </div>
+      
         <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
           Somos partners oficiales de Shopify y nos especializamos en crear experiencias de compra excepcionales para tu negocio. Desde tiendas personalizadas hasta soluciones complejas de comercio electrónico, tenemos la experiencia para impulsar tus ventas online.
         </p>
@@ -223,3 +237,5 @@ import { Icon } from 'astro-icon/components';
     </p>
   </div>
 </section>
+
+
