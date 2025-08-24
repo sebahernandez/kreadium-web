@@ -14,7 +14,8 @@ import Integrations from '../components/Integrations.astro';
 
 <Layout title="Kreadium - Construimos tu presencia digital">
 	<Header />
-	<div style={{ width: '100%', height: '600px', position: 'relative' }}>
+	<!-- Vista desktop: FaultyTerminal -->
+	<div class="hidden md:block" style={{ width: '100%', height: '600px', position: 'relative' }}>
 		<FaultyTerminal
 			client:only
 			scale={1.5}
@@ -44,11 +45,25 @@ import Integrations from '../components/Integrations.astro';
 				zIndex: '1'
 			}}
 		/>
-		
-		<div style={{ position: 'relative', zIndex: '10', pointerEvents: 'none' }}>
+		<div class="relative z-10" style={{ pointerEvents: 'none' }}>
 			<Hero />
 		</div>
 	</div>
+
+	<!-- Vista móvil: Imagen hero de fondo -->
+	<div class="md:hidden relative h-screen w-full">
+		<img 
+			src="/images/bg-kreadium-movil.webp" 
+			alt="" 
+			class="absolute inset-0 w-full h-full object-cover" 
+		/>
+		
+		<div class="relative z-10" style={{ pointerEvents: 'none' }}>
+			<Hero />
+		</div>
+	</div>
+
+
 	   
 		<ServicesItems />
 		<div class="py-0 md:py-[100px]">
