@@ -239,7 +239,7 @@ export default function FaultyTerminal({
   tint = "#ffffff",
   mouseReact = true,
   mouseStrength = 0.2,
-  dpr = Math.min(window.devicePixelRatio || 1, 2),
+  dpr = Math.min(typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1, 2),
   pageLoadAnimation = true,
   brightness = 1,
   className,
@@ -255,6 +255,7 @@ export default function FaultyTerminal({
   const rafRef = useRef(0);
   const loadAnimationStartRef = useRef(0);
   const timeOffsetRef = useRef(Math.random() * 100);
+  const isMobileRef = useRef(typeof window !== 'undefined' && window.innerWidth < 480);
 
   const tintVec = useMemo(() => hexToRgb(tint), [tint]);
 
@@ -314,7 +315,7 @@ export default function FaultyTerminal({
           ]),
         },
         uMouseStrength: { value: mouseStrength },
-        uUseMouse: { value: mouseReact ? 1 : 0 },
+        uUseMouse: { value: mouseReact && !isMobileRef.current ? 1 : 0 },
         uPageLoadProgress: { value: pageLoadAnimation ? 0 : 1 },
         uUsePageLoadAnimation: { value: pageLoadAnimation ? 1 : 0 },
         uBrightness: { value: brightness },
@@ -345,12 +346,12 @@ export default function FaultyTerminal({
         loadAnimationStartRef.current = t;
       }
 
-      if (!pause) {
+      if (!pause && !isMobileRef.current) {
         const elapsed = (t * 0.001 + timeOffsetRef.current) * timeScale;
         program.uniforms.iTime.value = elapsed;
         frozenTimeRef.current = elapsed;
       } else {
-        program.uniforms.iTime.value = frozenTimeRef.current;
+        program.uniforms.iTime.value = isMobileRef.current ? 5.0 : frozenTimeRef.current;
       }
 
       if (pageLoadAnimation && loadAnimationStartRef.current > 0) {
@@ -360,7 +361,7 @@ export default function FaultyTerminal({
         program.uniforms.uPageLoadProgress.value = progress;
       }
 
-      if (mouseReact) {
+      if (mouseReact && !isMobileRef.current) {
         const dampingFactor = 0.08;
         const smoothMouse = smoothMouseRef.current;
         const mouse = mouseRef.current;
@@ -377,12 +378,12 @@ export default function FaultyTerminal({
     rafRef.current = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
 
-    if (mouseReact) ctn.addEventListener("mousemove", handleMouseMove);
+    if (mouseReact && !isMobileRef.current) ctn.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       resizeObserver.disconnect();
-      if (mouseReact) ctn.removeEventListener("mousemove", handleMouseMove);
+      if (mouseReact && !isMobileRef.current) ctn.removeEventListener("mousemove", handleMouseMove);
       if (gl.canvas.parentElement === ctn) ctn.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
       loadAnimationStartRef.current = 0;

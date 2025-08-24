@@ -21,7 +21,7 @@ import Integrations from '../components/Integrations.astro';
 			gridMul={[2, 1]}
 			digitSize={1.1}
 			timeScale={1}
-			pause={typeof window !== 'undefined' && window.innerWidth < 768}
+			pause={false}
 			scanlineIntensity={1}
 			glitchAmount={1}
 			flickerAmount={1}
@@ -30,7 +30,7 @@ import Integrations from '../components/Integrations.astro';
 			dither={0}
 			curvature={0}
 			tint="#74F9CB"
-			mouseReact={typeof window !== 'undefined' && window.innerWidth >= 768}
+			mouseReact={true}
 			mouseStrength={0.5}
 			pageLoadAnimation={false}
 			brightness={0.2}
