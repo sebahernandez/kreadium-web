@@ -96,7 +96,7 @@ const ContactForm = () => {
     <div className="container mx-auto py-16 px-6" id="contact">
       {/* Header Section */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
           ¿Listo para crear algo{" "}
           <span className="bg-gradient-to-r from-[#4CD6C0] to-[#09b397] bg-clip-text text-transparent">
             increíble
