@@ -10,61 +10,26 @@ import Hero from '../components/Hero.astro';
 import ScrollVelocity from '../components/scroll-velocity/ScrollVelocity';
 import Shopify from '../components/Shopify.astro';
 import Integrations from '../components/Integrations.astro';
+import Galaxy from '../components/galaxy/Galaxy';
 ---
 
 <Layout title="Kreadium - Construimos tu presencia digital">
 	<Header />
-	<!-- Vista desktop: FaultyTerminal -->
-	<div class="hidden md:block" style={{ width: '100%', height: '600px', position: 'relative' }}>
-		<FaultyTerminal
-			client:only
-			scale={1.5}
-			gridMul={[2, 1]}
-			digitSize={1.1}
-			timeScale={1}
-			pause={false}
-			scanlineIntensity={1}
-			glitchAmount={1}
-			flickerAmount={1}
-			noiseAmp={1}
-			chromaticAberration={0}
-			dither={0}
-			curvature={0}
-			tint="#74F9CB"
-			mouseReact={true}
-			mouseStrength={0.5}
-			pageLoadAnimation={false}
-			brightness={0.2}
-			className="faulty-terminal"
-			style={{ 
-				position: 'absolute',
-				top: '0',
-				left: '0',
-				width: '100%', 
-				height: '100%',
-				zIndex: '1'
-			}}
+
+	<!-- Vista desktop: Galaxy Hero -->
+	<div class="md:block relative w-full h-screen">
+		<Galaxy client:only 
+		mouseInteraction={false}
+		density={0.5}
+		saturation={0.5}
+		glowIntensity={0.3}
+		autoCenterRepulsion={3}
+		hueShift={40}
 		/>
-		<div class="relative z-10" style={{ pointerEvents: 'none' }}>
-			<Hero />
-		</div>
-	</div>
-
-	<!-- Vista móvil: Imagen hero de fondo -->
-	<div class="md:hidden relative h-screen w-full">
-		<img 
-			src="/images/bg-kreadium-movil.webp" 
-			alt="" 
-			class="absolute inset-0 w-full h-full object-cover" 
-		/>
-		
-		<div class="relative z-10" style={{ pointerEvents: 'none' }}>
-			<Hero />
-		</div>
-	</div>
-
-
-	   
+		<Hero />
+		<!-- Overlay gradient fade to black -->
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
+	</div>   
 		<ServicesItems />
 		<div class="py-0 md:py-[100px]">
 			<ScrollVelocity

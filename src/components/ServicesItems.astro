@@ -1,27 +1,32 @@
 ---
 import { Icon } from 'astro-icon/components'
 import SpotlightCard from "./card/SpotlightCard";
+import { color } from 'framer-motion';
 
 const services = [
   {
     title: "Diseño Gráfico",
     description: "Creamos identidades visuales únicas que reflejan la esencia de tu marca.",
     icon: "pencil",
+    color: "rgba(0, 229, 255, 0.2)",
   },
   {
     title: "Diseño Web",
     description: "Diseñamos sitios atractivos y funcionales para una experiencia única.",
     icon: "browser",
+    color: "rgba(0, 229, 255, 0.2)",
   },
   {
     title: "Desarrollo Web",
     description: "Desarrollamos sitios web rápidos, seguros y optimizados para SEO.",
     icon: "code",
+    color: "rgba(0, 229, 255, 0.2)",
   },
   {
     title: "Ecommerce",
     description: "Construimos tiendas online escalables y fáciles de gestionar.",
     icon: "cart",
+    color: "rgba(0, 229, 255, 0.2)",
   }
 ];
 ---
@@ -36,12 +41,12 @@ const services = [
               <SpotlightCard  className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)" client:only>
                 {service.icon && (
                   <div class="py-3">
-                    <Icon name={service.icon} size="46" class="text-[#4CD6C0]" />
+                    <Icon name={service.icon} size="46" style={service.color} />
                   </div>
                 )}
                 <h3 class="text-2xl text-white">{service.title}</h3>
                 <p class="mt-4 text-gray-400">{service.description}</p>
-                <a href="#contacto" class=""></a>
+                <a href="#contacto"></a>
               </SpotlightCard>
             </div>
           ))}
