@@ -197,11 +197,34 @@ export default function Galaxy({
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
+    
+    // Verificar si el contenedor tiene tamaño
+    if (ctn.offsetWidth === 0 || ctn.offsetHeight === 0) {
+      console.warn('Galaxy container has no size');
+      return;
+    }
+
     const renderer = new Renderer({
       alpha: transparent,
-      premultipliedAlpha: false
+      premultipliedAlpha: false,
+      preserveDrawingBuffer: true,
+      antialias: false
     });
     const gl = renderer.gl;
+
+    // Manejar context loss con preventDefault para permitir restauración
+    let contextLostHandler = (e) => {
+      e.preventDefault();
+      console.warn('WebGL context lost');
+    };
+
+    let contextRestoredHandler = () => {
+      console.log('WebGL context restored');
+      resize();
+    };
+
+    gl.canvas.addEventListener('webglcontextlost', contextLostHandler, false);
+    gl.canvas.addEventListener('webglcontextrestored', contextRestoredHandler, false);
 
     if (transparent) {
       gl.enable(gl.BLEND);
@@ -259,8 +282,14 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
+    let isAnimating = true;
 
     function update(t) {
+      if (!isAnimating || gl.isContextLost()) {
+        animateId = requestAnimationFrame(update);
+        return;
+      }
+      
       animateId = requestAnimationFrame(update);
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
@@ -277,7 +306,11 @@ export default function Galaxy({
       program.uniforms.uMouse.value[1] = smoothMousePos.current.y;
       program.uniforms.uMouseActiveFactor.value = smoothMouseActive.current;
 
-      renderer.render({ scene: mesh });
+      try {
+        renderer.render({ scene: mesh });
+      } catch (e) {
+        console.warn('Error rendering Galaxy:', e);
+      }
     }
     animateId = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
@@ -300,14 +333,23 @@ export default function Galaxy({
     }
 
     return () => {
+      isAnimating = false;
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
       if (mouseInteraction) {
         ctn.removeEventListener('mousemove', handleMouseMove);
         ctn.removeEventListener('mouseleave', handleMouseLeave);
       }
-      ctn.removeChild(gl.canvas);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      gl.canvas.removeEventListener('webglcontextlost', contextLostHandler);
+      gl.canvas.removeEventListener('webglcontextrestored', contextRestoredHandler);
+      
+      try {
+        if (ctn.contains(gl.canvas)) {
+          ctn.removeChild(gl.canvas);
+        }
+      } catch (e) {
+        console.warn('Error removing canvas:', e);
+      }
     };
   }, [
     focal,
