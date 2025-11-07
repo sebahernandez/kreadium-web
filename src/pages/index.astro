@@ -5,7 +5,6 @@ import ServicesItems from '../components/ServicesItems.astro';
 import Testimonials from '../components/Testimonials.astro';
 import ContactForm from '../components/contact-form/ContactForm';
 import Footer from '../components/Footer.astro';
-import FaultyTerminal from '../components/faulty-terminal/FaultyTerminal';
 import Hero from '../components/Hero.astro';
 import ScrollVelocity from '../components/scroll-velocity/ScrollVelocity';
 import Shopify from '../components/Shopify.astro';
@@ -17,7 +16,7 @@ import Galaxy from '../components/galaxy/Galaxy';
 	<Header />
 
 	<!-- Vista desktop: Galaxy Hero -->
-	<div class="md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden" id="galaxy-container">
+	<div class="hidden md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden" id="galaxy-container">
 		<Galaxy client:only
 		mouseInteraction={false}
 		density={0.5}
@@ -28,6 +27,11 @@ import Galaxy from '../components/galaxy/Galaxy';
 		/>
 		<Hero />
 		<!-- Overlay gradient fade to black -->
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
+	</div>   
+	<!-- Vista mobile: Hero sin Galaxy -->
+	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black" id="galaxy-container">
+		 <Hero />
 		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
 	</div>   
 		<ServicesItems />
