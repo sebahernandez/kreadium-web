@@ -93,7 +93,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto py-16 px-6" id="contact">
+    <div className="container mx-auto py-16 px-2 md:px-0" id="contact">
       {/* Header Section */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
