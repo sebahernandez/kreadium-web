@@ -4,6 +4,17 @@ import "notyf/notyf.min.css";
 
 const notyf = new Notyf();
 
+const contactFormStyles = `
+  .contact-input::placeholder {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .contact-input:focus::placeholder {
+    opacity: 0;
+  }
+`;
+
 const itemsServices = [
   {
     id: 1,
@@ -94,6 +105,7 @@ const ContactForm = () => {
 
   return (
     <div className="container mx-auto py-16 px-2 md:px-0" id="contact">
+      <style>{contactFormStyles}</style>
       {/* Header Section */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
@@ -167,7 +179,7 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Tu nombre"
-                    className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
+                    className="contact-input w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
                     required
                   />
                 </div>
@@ -180,8 +192,8 @@ const ContactForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+56 9 1234 5678"
-                    className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
+                    placeholder="Ej: 912345678"
+                    className="contact-input w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
                     required
                   />
                 </div>
@@ -198,7 +210,7 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="tu@email.com"
-                  className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
+                  className="contact-input w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
                   required
                 />
               </div>
@@ -206,7 +218,8 @@ const ContactForm = () => {
               {/* Message */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-300 block">
-                  Cuéntanos sobre tu proyecto
+           
+                  Este campo nos ayudará a entender mejor tus necesidades.
                 </label>
                 <textarea
                   name="message"
@@ -214,7 +227,7 @@ const ContactForm = () => {
                   onChange={handleChange}
                   placeholder="Describe tu proyecto, objetivos, presupuesto aproximado y cualquier detalle relevante..."
                   rows="6"
-                  className="w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)] resize-none"
+                  className="contact-input w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)] resize-none"
                   required
                 />
               </div>
