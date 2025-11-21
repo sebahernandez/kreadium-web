@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import ServicesItems from '../components/ServicesItems.astro';
 import Testimonials from '../components/Testimonials.astro';
+import Pricing from '../components/Pricing.astro';
 import ContactForm from '../components/contact-form/ContactForm';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
@@ -38,7 +39,7 @@ import Galaxy from '../components/galaxy/Galaxy';
 		<div class="py-0 md:py-[100px]">
 			<ScrollVelocity
 				client:only
-				texts={['DESARROLLAMOS EXPERIENCIAS ÚNICAS', 'PARA QUE TU MARCA DESTAQUE']} 
+				texts={['BLACK FRIDAY', 'FRIDAY BLACK']} 
 				velocity={100}
 				className="custom-scroll-text gap-spacing-40"
 			/>
@@ -49,6 +50,7 @@ import Galaxy from '../components/galaxy/Galaxy';
 		<Integrations />
 		
 		<Testimonials />
+	<Pricing />
 	<ContactForm client:only/> 
 	<Footer />
 </Layout>

@@ -162,9 +162,12 @@ const ContactForm = () => {
         {/* Right Column - Form */}
         <div className="lg:w-3/5">
           <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 backdrop-blur-sm">
-            <h3 className="text-2xl font-semibold text-white mb-8">
-              Cuéntanos sobre tu proyecto
-            </h3>
+            <div className="my-5">
+              <h3 className="text-2xl font-semibold text-white ">
+                Cuéntanos sobre tu proyecto
+              </h3>
+              <span>Tenemos descuentos exclusivos para <strong>Pymes Sercotec</strong></span>
+            </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name and Phone Row */}
