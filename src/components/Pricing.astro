@@ -2,6 +2,57 @@
 
 ---
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const policyDivs = document.querySelectorAll('[data-policy-item]');
+    
+    policyDivs.forEach(div => {
+      const span = div.querySelector('span');
+      const tooltip = div.querySelector('[data-tooltip]');
+      
+      if (span && tooltip) {
+        span.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          // Cerrar otros tooltips
+          document.querySelectorAll('[data-tooltip]').forEach(t => {
+            if (t !== tooltip) {
+              t.classList.remove('opacity-100');
+              t.classList.add('opacity-0');
+              t.classList.add('pointer-events-none');
+            }
+          });
+          
+          // Toggle el tooltip actual
+          tooltip.classList.toggle('opacity-0');
+          tooltip.classList.toggle('opacity-100');
+          tooltip.classList.toggle('pointer-events-none');
+        });
+      }
+    });
+    
+    // Cerrar al hacer click fuera
+    document.addEventListener('click', (e) => {
+      const policyItems = document.querySelectorAll('[data-policy-item]');
+      let isInside = false;
+      
+      policyItems.forEach(item => {
+        if (item.contains(e.target)) {
+          isInside = true;
+        }
+      });
+      
+      if (!isInside) {
+        document.querySelectorAll('[data-tooltip]').forEach(t => {
+          t.classList.remove('opacity-100');
+          t.classList.add('opacity-0');
+          t.classList.add('pointer-events-none');
+        });
+      }
+    });
+  });
+</script>
+
 <section class="container mx-auto py-16 md:py-[100px] px-8 md:px-0" id="pricing">
   <!-- Header -->
   <div class="text-center mb-16">
@@ -65,12 +116,12 @@
           </li>
         </ul>
 
-        <div class="mb-4 group relative inline-flex items-center gap-2 cursor-help">
+        <div class="mb-4 relative inline-flex items-center gap-2 cursor-pointer" data-policy-item>
           <svg class="w-5 h-5 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
           </svg>
-          <span class="text-gray-300 text-sm">Política de pagos y garantía</span>
-          <div class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-10 hidden group-hover:block">
+          <span class="text-gray-300 text-sm hover:opacity-80 transition-opacity">Política de pagos y garantía</span>
+          <div data-tooltip class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs text-gray-200 opacity-0 transition-opacity duration-300 pointer-events-none z-10">
             El pago de cada proyecto se realiza en dos procesos: 50% al comenzar con el proyecto y 50% en la entrega. El primer pago no tiene devolución en caso de abandonar el proyecto antes de realizada la entrega final. Todos los servicios tienen garantía de 30 días.
           </div>
         </div>
@@ -143,12 +194,12 @@
           </li>
         </ul>
 
-        <div class="mb-4 group relative inline-flex items-center gap-2 cursor-help">
+        <div class="mb-4 relative inline-flex items-center gap-2 cursor-pointer" data-policy-item>
           <svg class="w-5 h-5 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
           </svg>
-          <span class="text-gray-300 text-sm">Política de pagos y garantía</span>
-          <div class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-10 hidden group-hover:block">
+          <span class="text-gray-300 text-sm hover:opacity-80 transition-opacity">Política de pagos y garantía</span>
+          <div data-tooltip class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs text-gray-200 opacity-0 transition-opacity duration-300 pointer-events-none z-10">
             El pago de cada proyecto se realiza en dos procesos: 50% al comenzar con el proyecto y 50% en la entrega. El primer pago no tiene devolución en caso de abandonar el proyecto antes de realizada la entrega final. Todos los servicios tienen garantía de 30 días.
           </div>
         </div>
@@ -213,12 +264,12 @@
           </li>
         </ul>
 
-        <div class="mb-4 group relative inline-flex items-center gap-2 cursor-help">
+        <div class="mb-4 relative inline-flex items-center gap-2 cursor-pointer" data-policy-item>
           <svg class="w-5 h-5 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
           </svg>
-          <span class="text-gray-300 text-sm">Política de pagos y garantía</span>
-          <div class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-10 hidden group-hover:block">
+          <span class="text-gray-300 text-sm hover:opacity-80 transition-opacity">Política de pagos y garantía</span>
+          <div data-tooltip class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs text-gray-200 opacity-0 transition-opacity duration-300 pointer-events-none z-10">
             El pago de cada proyecto se realiza en dos procesos: 50% al comenzar con el proyecto y 50% en la entrega. El primer pago no tiene devolución en caso de abandonar el proyecto antes de realizada la entrega final. Todos los servicios tienen garantía de 30 días.
           </div>
         </div>
