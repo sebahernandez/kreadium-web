@@ -11,6 +11,7 @@ import ScrollVelocity from '../components/scroll-velocity/ScrollVelocity';
 import Shopify from '../components/Shopify.astro';
 import Integrations from '../components/Integrations.astro';
 import Galaxy from '../components/galaxy/Galaxy';
+import Wordpress from '../components/Wordpress.astro';
 ---
 
 <Layout title="Kreadium - Construimos tu presencia digital">
@@ -36,6 +37,9 @@ import Galaxy from '../components/galaxy/Galaxy';
 		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
 	</div>   
 		<ServicesItems />
+
+		<Wordpress />
+		
 		<div class="py-0 md:py-[100px]">
 			<ScrollVelocity
 				client:only

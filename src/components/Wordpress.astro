@@ -1,0 +1,324 @@
+---
+import { Icon } from 'astro-icon/components';
+import BlurText from './blur-text/BlurText';
+
+const handleAnimationComplete = () => {
+  console.log('Animation completed!');
+};
+---
+
+<script>
+  function animateCounter(element: HTMLElement, target: number, duration: number = 2000, suffix: string = '') {
+    const start = 0;
+    const startTime = performance.now();
+
+    function update(currentTime: number) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function para una animación suave
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+      const current = Math.floor(start + (target - start) * easeOutQuart);
+      element.textContent = current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = target + suffix;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Configuración del Intersection Observer
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animated');
+
+        const statElement = entry.target.querySelector('[data-stat-value]') as HTMLElement;
+        if (statElement) {
+          const value = parseInt(statElement.dataset.statValue || '0');
+          const suffix = statElement.dataset.statSuffix || '';
+          animateCounter(statElement, value, 2000, suffix);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Iniciar observación cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    const stats = document.querySelectorAll('[data-stat]');
+    stats.forEach(stat => observer.observe(stat));
+  });
+</script>
+
+<section class="container mx-auto py-16 md:py-[100px] px-8 md:px-0" id="wordpress">
+  <!-- Layout principal -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+    <!-- Columna izquierda: Texto y Cards -->
+    <div class="order-2 lg:order-1">
+      <!-- Título y descripción principal -->
+      <div class="mb-6 sm:mb-8">
+        <div class="flex items-center mb-4 sm:mb-6">
+          <h2 class="text-base sm:text-lg md:text-2xl font-medium" style="color: #0073AA;">Especialistas en WordPress</h2>
+        </div>
+
+        <div>
+          <BlurText
+            text="DESARROLLO WORDPRESS"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
+            className="text-2xl md:text-5xl mb-8 font-bold"
+            client:load
+          />
+        </div>
+
+        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+          Creamos sitios web en WordPress optimizados para pymes y empresas de servicios que buscan una presencia digital profesional sin complejidades técnicas.
+        </p>
+        <p class="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+          Desde páginas corporativas hasta portales personalizados, desarrollamos soluciones que impulsan tu negocio y facilitan la gestión de tu contenido.
+        </p>
+      </div>
+
+      <!-- Grid de beneficios -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg border border-[rgba(0,115,170,0.2)] hover:border-[rgba(0,115,170,0.4)] transition-all duration-300">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mr-3" style="background-color: rgba(0, 115, 170, 0.2);">
+              <Icon name="chart" class="w-4 h-4 sm:w-5 sm:h-5" style="color: #0073AA;" />
+            </div>
+            <h3 class="font-medium text-lg sm:text-xl">Escalabilidad garantizada</h3>
+          </div>
+          <p class="text-gray-400 text-sm sm:text-base">Tu sitio crece con tu negocio. Añade funcionalidades según tus necesidades.</p>
+        </div>
+
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg border border-[rgba(0,115,170,0.2)] hover:border-[rgba(0,115,170,0.4)] transition-all duration-300">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mr-3" style="background-color: rgba(0, 115, 170, 0.2);">
+              <Icon name="pencil" class="w-4 h-4 sm:w-5 sm:h-5" style="color: #0073AA;" />
+            </div>
+            <h3 class="font-medium text-lg sm:text-xl">Gestión intuitiva</h3>
+          </div>
+          <p class="text-gray-400 text-sm sm:text-base">Actualiza tu contenido fácilmente sin conocimientos técnicos. Tú tienes el control.</p>
+        </div>
+
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg border border-[rgba(0,115,170,0.2)] hover:border-[rgba(0,115,170,0.4)] transition-all duration-300">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mr-3" style="background-color: rgba(0, 115, 170, 0.2);">
+              <Icon name="rocket" class="w-4 h-4 sm:w-5 sm:h-5" style="color: #0073AA;" />
+            </div>
+            <h3 class="font-medium text-lg sm:text-xl">Optimización SEO</h3>
+          </div>
+          <p class="text-gray-400 text-sm sm:text-base">Posicionamiento optimizado desde el primer día para que te encuentren en Google.</p>
+        </div>
+
+        <div class="bg-[rgba(255,255,255,0.05)] p-4 sm:p-5 rounded-lg border border-[rgba(0,115,170,0.2)] hover:border-[rgba(0,115,170,0.4)] transition-all duration-300">
+          <div class="flex items-center mb-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center mr-3" style="background-color: rgba(0, 115, 170, 0.2);">
+              <Icon name="clock" class="w-4 h-4 sm:w-5 sm:h-5" style="color: #0073AA;" />
+            </div>
+            <h3 class="font-medium text-lg sm:text-xl">Implementación rápida</h3>
+          </div>
+          <p class="text-gray-400 text-sm sm:text-base">Lanza tu sitio en tiempo récord sin sacrificar calidad ni funcionalidad.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Visual con estadísticas -->
+    <div class="order-1 lg:order-2 relative hidden lg:block">
+      <!-- Efectos de fondo -->
+      <div class="absolute -top-2 -left-2 md:-top-0 md:-left-2 w-20 h-20 md:w-80 md:h-80 bg-[#0073AA] opacity-6 md:opacity-8 rounded-full blur-[40px] md:blur-[200px]"></div>
+      <div class="absolute -bottom-2 -right-2 md:-bottom-20 md:-right-20 w-20 h-20 md:w-96 md:h-96 bg-[#00A0D2] opacity-8 md:opacity-10 rounded-full blur-[40px] md:blur-[240px]"></div>
+      <div class="absolute top-1 right-1 md:top-10 md:right-10 w-12 h-12 md:w-40 md:h-40 bg-[#005177] opacity-6 md:opacity-8 rounded-full blur-[30px] md:blur-[180px]"></div>
+
+      <div class="relative z-10 group">
+        <!-- Degradados mesh -->
+        <div class="absolute -inset-1 md:-inset-8 rounded-xl md:rounded-3xl opacity-15 md:opacity-20 group-hover:opacity-20 md:group-hover:opacity-28 transition-all duration-700"
+             style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,115,170,0.06) 0%, rgba(0,81,119,0.04) 25%, rgba(0,115,170,0.03) 50%, transparent 100%); filter: blur(10px) md:blur(20px);"></div>
+
+        <div class="absolute -inset-1 md:-inset-6 rounded-xl md:rounded-3xl opacity-10 md:opacity-15"
+             style="background: radial-gradient(ellipse 90% 60% at 30% 80%, rgba(0,81,119,0.08) 0%, rgba(0,115,170,0.06) 30%, transparent 70%); filter: blur(8px) md:blur(15px);"></div>
+
+        <div class="absolute -inset-1 md:-inset-4 rounded-xl md:rounded-3xl opacity-12 md:opacity-18"
+             style="background: radial-gradient(ellipse 70% 40% at 70% 90%, rgba(0,115,170,0.09) 0%, rgba(0,81,119,0.04) 40%, transparent 80%); filter: blur(12px) md:blur(25px);"></div>
+
+        <!-- Halo principal -->
+        <div class="absolute -inset-1 md:-inset-4 bg-gradient-to-r from-[#0073AA]/8 via-[#005177]/10 to-[#0073AA]/8 md:from-[#0073AA]/12 md:via-[#005177]/15 md:to-[#0073AA]/12 rounded-lg md:rounded-2xl blur-lg md:blur-xl opacity-20 md:opacity-25 group-hover:opacity-25 md:group-hover:opacity-35 transition-all duration-700"></div>
+
+        <!-- Contenedor principal -->
+        <div class="relative rounded-lg md:rounded-2xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.08)] to-[rgba(255,255,255,0.02)] md:from-[rgba(255,255,255,0.1)] border border-[rgba(0,115,170,0.3)] md:border-[rgba(0,115,170,0.4)] backdrop-blur-sm md:backdrop-blur-md shadow-lg md:shadow-2xl shadow-[#005177]/20 md:shadow-[#005177]/30 p-6 h-fit">
+
+          <!-- Estadísticas clave -->
+          <div class="space-y-6">
+            <!-- Stat 1 -->
+            <div class="flex items-start gap-4" data-stat>
+              <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, rgba(0,115,170,0.3) 0%, rgba(0,81,119,0.1) 100%);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-3xl font-bold mb-1" style="color: #0073AA;" data-stat-value="70" data-stat-suffix="%">0%</div>
+                <p class="text-gray-300 text-sm leading-relaxed">Reducción en costos de desarrollo comparado con soluciones a medida</p>
+              </div>
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="flex items-start gap-4" data-stat>
+              <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, rgba(0,115,170,0.3) 0%, rgba(0,81,119,0.1) 100%);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-3xl font-bold mb-1" style="color: #0073AA;" data-stat-value="43" data-stat-suffix="%">0%</div>
+                <p class="text-gray-300 text-sm leading-relaxed">De la web está construida con WordPress, la plataforma más confiable del mundo</p>
+              </div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="flex items-start gap-4" data-stat>
+              <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, rgba(0,115,170,0.3) 0%, rgba(0,81,119,0.1) 100%);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-3xl font-bold mb-1" style="color: #0073AA;" data-stat-value="100" data-stat-suffix="%">0%</div>
+                <p class="text-gray-300 text-sm leading-relaxed">Seguro y actualizado. Actualizaciones automáticas y respaldos continuos</p>
+              </div>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="flex items-start gap-4">
+              <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, rgba(0,115,170,0.3) 0%, rgba(0,81,119,0.1) 100%);">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-3xl font-bold mb-1" style="color: #0073AA;">24/7</div>
+                <p class="text-gray-300 text-sm leading-relaxed">Gestión independiente. Actualiza contenido cuando quieras desde cualquier lugar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón CTA para desktop -->
+      <div class="text-center mt-8">
+        <a href="#contact" class="inline-flex items-center px-6 py-3 hover:opacity-80 transition-opacity rounded-lg text-white font-medium" style="background-color: #0073AA;">
+          Solicita tu proyecto WordPress
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Versión móvil del panel de estadísticas -->
+  <div class="lg:hidden mt-8 mb-8">
+    <div class="relative max-w-lg mx-auto">
+      <!-- Efectos de fondo más sutiles para móvil -->
+      <div class="absolute -top-2 -left-2 w-20 h-20 bg-[#0073AA] opacity-4 rounded-full blur-[30px]"></div>
+      <div class="absolute -bottom-2 -right-2 w-20 h-20 bg-[#00A0D2] opacity-6 rounded-full blur-[30px]"></div>
+
+      <div class="relative z-10">
+        <!-- Contenedor simplificado para móvil -->
+        <div class="relative rounded-lg overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.06)] to-[rgba(255,255,255,0.02)] border border-[rgba(0,115,170,0.25)] backdrop-blur-sm shadow-lg shadow-[#005177]/15 p-6">
+          <div class="space-y-6">
+            <!-- Stats móvil en grid 2x2 -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center p-4 rounded-lg" style="background: rgba(0,115,170,0.1);" data-stat>
+                <div class="text-2xl font-bold mb-1" style="color: #0073AA;" data-stat-value="70" data-stat-suffix="%">0%</div>
+                <p class="text-gray-300 text-xs">Reducción de costos</p>
+              </div>
+              <div class="text-center p-4 rounded-lg" style="background: rgba(0,115,170,0.1);" data-stat>
+                <div class="text-2xl font-bold mb-1" style="color: #0073AA;" data-stat-value="43" data-stat-suffix="%">0%</div>
+                <p class="text-gray-300 text-xs">De la web usa WordPress</p>
+              </div>
+              <div class="text-center p-4 rounded-lg" style="background: rgba(0,115,170,0.1);" data-stat>
+                <div class="text-2xl font-bold mb-1" style="color: #0073AA;" data-stat-value="100" data-stat-suffix="%">0%</div>
+                <p class="text-gray-300 text-xs">Seguro y actualizado</p>
+              </div>
+              <div class="text-center p-4 rounded-lg" style="background: rgba(0,115,170,0.1);">
+                <div class="text-2xl font-bold mb-1" style="color: #0073AA;">24/7</div>
+                <p class="text-gray-300 text-xs">Gestión autónoma</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón CTA para móvil -->
+    <div class="text-center mt-6">
+      <a href="#contact" class="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 hover:opacity-80 transition-opacity rounded-lg text-white font-medium text-sm sm:text-base" style="background-color: #0073AA;">
+        Solicita tu proyecto WordPress
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sección inferior: Por qué WordPress -->
+  <div class="mt-12 md:mt-20 bg-[rgba(255,255,255,0.03)] border border-[rgba(0,115,170,0.2)] rounded-lg md:rounded-xl p-4 sm:p-6 md:p-8">
+    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-center">¿Por qué WordPress para tu negocio?</h3>
+    <p class="text-gray-300 text-center mb-8 max-w-3xl mx-auto text-sm sm:text-base">
+      WordPress no solo es la plataforma más popular del mundo, es la elección inteligente para pymes y empresas de servicios que buscan resultados sin complicaciones.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10">
+      <div class="flex flex-col items-center text-center p-6 rounded-lg bg-[rgba(0,115,170,0.05)] border border-[rgba(0,115,170,0.1)] hover:border-[rgba(0,115,170,0.3)] transition-all duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4" style="background-color: rgba(0, 115, 170, 0.2);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h4 class="font-medium text-base sm:text-lg mb-2">Inversión inteligente</h4>
+        <p class="text-gray-400 text-sm">Ahorra hasta 70% comparado con desarrollos personalizados sin sacrificar calidad.</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center p-6 rounded-lg bg-[rgba(0,115,170,0.05)] border border-[rgba(0,115,170,0.1)] hover:border-[rgba(0,115,170,0.3)] transition-all duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4" style="background-color: rgba(0, 115, 170, 0.2);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h4 class="font-medium text-base sm:text-lg mb-2">Lanzamiento veloz</h4>
+        <p class="text-gray-400 text-sm">Tu sitio online en semanas, no meses. Comienza a generar valor desde el día uno.</p>
+      </div>
+
+      <div class="flex flex-col items-center text-center p-6 rounded-lg bg-[rgba(0,115,170,0.05)] border border-[rgba(0,115,170,0.1)] hover:border-[rgba(0,115,170,0.3)] transition-all duration-300">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-2 sm:mb-3 md:mb-4" style="background-color: rgba(0, 115, 170, 0.2);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #0073AA;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+          </svg>
+        </div>
+        <h4 class="font-medium text-base sm:text-lg mb-2">Control total</h4>
+        <p class="text-gray-400 text-sm">Gestiona tu contenido sin dependencias. Tú decides cuándo y cómo actualizar.</p>
+      </div>
+    </div>
+
+    <div class="mt-8 md:mt-10 text-center">
+      <p class="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
+        Nuestro equipo de especialistas en WordPress crea sitios web que no solo se ven bien, sino que están optimizados para
+        <span class="font-semibold" style="color: #0073AA;">convertir visitantes en clientes</span>. Cada proyecto incluye optimización SEO,
+        rendimiento excepcional y la flexibilidad que tu negocio necesita para crecer.
+      </p>
+    </div>
+  </div>
+</section>
