@@ -21,7 +21,8 @@ const {text} = Astro.props;
   /* Contenedor principal con posicionamiento relativo */
   .christmas-offer-wrapper {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
   }
 
   .button {
@@ -216,8 +217,10 @@ const {text} = Astro.props;
   /* Responsive */
   @media (max-width: 768px) {
     .button {
-      font-size: 14px;
-      padding: 0.6em 0.5em;
+      font-size: 11px;
+      padding: 0.5em 0.8em;
+      letter-spacing: 0.02em;
+      border-radius: 0.5em;
     }
 
     /* Ajustar intensidad de nieve en móviles para mejor rendimiento */
@@ -225,6 +228,13 @@ const {text} = Astro.props;
     .button-text::before,
     .button-text::after {
       opacity: 0.7;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 768px) {
+    .button {
+      font-size: 13px;
+      padding: 0.6em 1.2em;
     }
   }
 </style>
