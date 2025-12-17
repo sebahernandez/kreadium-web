@@ -20,7 +20,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:title" content="Kreadium - Construimos tu presencia digital">
-		<meta property="og:description" content="Diseño web, desarroll web wordpress, shopify, shopify ecommerce y marketing digital en Chile. Creamos experiencias digitales únicas para tu marca.">
+		<meta property="og:description" content="Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce. Diseñamos experiencias digitales que impulsan tu negocio. Cotiza gratis.">
 		<meta property="og:image" content="https://kreadium.cl/og-tags.png">
 		<meta property="og:url" content="https://kreadium.cl">
 		<meta property="og:type" content="website">
@@ -29,15 +29,14 @@ const { title } = Astro.props;
 		<!-- Twitter Card Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:title" content="Kreadium - Construimos tu presencia digital">
-		<meta name="twitter:description" content="Diseño web, desarroll web wordpress, shopify, shopify ecommerce y marketing digital en Chile. Creamos experiencias digitales únicas para tu marca.">
+		<meta name="twitter:description" content="Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce. Diseñamos experiencias digitales que impulsan tu negocio. Cotiza gratis.">
 		<meta name="twitter:image" content="https://kreadium.cl/og-tags.png">
 		<meta name="twitter:site" content="@kreadium">
 		<meta name="twitter:creator" content="@kreadium">
 
 		<!-- Meta Tags adicionales recomendados -->
-		<meta name="description" content="Diseño web, desarroll web wordpress, shopify, shopify ecommerce y marketing digital en Chile. Creamos experiencias digitales únicas para tu marca.">
-		<meta name="keywords" content="kreadium, desarrollo web, diseño gráfico, ecommerce, marketing digital, redes sociales, branding, SEO, Chile">
-		<meta name="author" content="Kreadium">
+		<meta name="description" content="Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce. Diseñamos experiencias digitales que impulsan tu negocio. Cotiza gratis.">
+			<meta name="author" content="Kreadium SpA">
 		<meta name="robots" content="index, follow">
 
 		<!-- Favicon -->
@@ -59,6 +58,65 @@ const { title } = Astro.props;
 					})(window,document,'script','dataLayer','GTM-5WJQJBJW');
 		</script>
 		<!-- End Google Tag Manager -->
+
+		<!-- Structured Data - Organization Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Kreadium SpA",
+			"url": "https://kreadium.cl",
+			"logo": "https://kreadium.cl/images/logo-kreadium.webp",
+			"description": "Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Antonio Bellet 193 OF 1210",
+				"addressLocality": "Providencia",
+				"addressRegion": "Santiago",
+				"addressCountry": "CL"
+			},
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"email": "contacto@kreadium.cl",
+				"contactType": "customer service",
+				"availableLanguage": "Spanish"
+			},
+			"sameAs": [
+				"https://www.linkedin.com/company/kreadium-spa/",
+				"https://www.instagram.com/agencia_kreadium/"
+			],
+			"areaServed": {
+				"@type": "Country",
+				"name": "Chile"
+			}
+		}
+		</script>
+
+		<!-- Structured Data - LocalBusiness Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"@id": "https://kreadium.cl",
+			"name": "Kreadium SpA",
+			"image": "https://kreadium.cl/images/logo-kreadium.webp",
+			"email": "contacto@kreadium.cl",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Antonio Bellet 193 OF 1210",
+				"addressLocality": "Providencia",
+				"addressRegion": "RM",
+				"addressCountry": "CL"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": -33.4372,
+				"longitude": -70.6506
+			},
+			"openingHours": "Mo-Fr 09:00-18:00",
+			"priceRange": "$$"
+		}
+		</script>
 		</head>
 	<body>
 		<WhatsappButton />
