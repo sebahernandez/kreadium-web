@@ -477,12 +477,12 @@ const handleAnimationComplete = () => {
   <!-- Versión móvil del panel de estadísticas -->
   <div class="lg:hidden mt-12">
     <div class="relative max-w-lg mx-auto">
-      <!-- Efectos de fondo -->
-      <div class="absolute -top-4 -left-4 w-32 h-32 bg-[#0073AA] opacity-5 rounded-full blur-[60px]"></div>
-      <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-[#00A0D2] opacity-5 rounded-full blur-[60px]"></div>
+      <!-- Efectos de fondo mínimos -->
+      <div class="absolute -top-4 -left-4 w-32 h-32 bg-[#0073AA] opacity-[0.02] rounded-full blur-[60px]"></div>
+      <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-[#00A0D2] opacity-[0.02] rounded-full blur-[60px]"></div>
 
       <div class="relative z-10">
-        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,255,0.04)] border-2 border-[rgba(0,115,170,0.4)] backdrop-blur-lg shadow-lg shadow-[#005177]/15 p-6">
+        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.04)] to-[rgba(255,255,255,0.01)] border border-[rgba(0,115,170,0.15)] backdrop-blur-sm shadow-sm p-6">
 
           <!-- Título móvil -->
           <div class="mb-6 text-center">
@@ -491,19 +491,19 @@ const handleAnimationComplete = () => {
           </div>
 
           <div class="grid grid-cols-2 gap-4">
-            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.25) 0%, rgba(0,81,119,0.15) 100%);" data-stat>
+            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);" data-stat>
               <div class="text-3xl font-bold mb-2" style="color: #00A0D2;" data-stat-value="70" data-stat-suffix="%">0%</div>
               <p class="text-gray-100 text-xs font-medium">Ahorro en costos</p>
             </div>
-            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.25) 0%, rgba(0,81,119,0.15) 100%);" data-stat>
+            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);" data-stat>
               <div class="text-3xl font-bold mb-2" style="color: #00A0D2;" data-stat-value="43" data-stat-suffix="%">0%</div>
               <p class="text-gray-100 text-xs font-medium">De la web global</p>
             </div>
-            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.25) 0%, rgba(0,81,119,0.15) 100%);" data-stat>
+            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);" data-stat>
               <div class="text-3xl font-bold mb-2" style="color: #00A0D2;" data-stat-value="99" data-stat-suffix=".9%">0%</div>
               <p class="text-gray-100 text-xs font-medium">Uptime garantizado</p>
             </div>
-            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.25) 0%, rgba(0,81,119,0.15) 100%);">
+            <div class="stat-card text-center p-5 rounded-xl" style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);">
               <div class="text-3xl font-bold mb-2 text-white">3-4</div>
               <p class="text-gray-100 text-xs font-medium">Semanas lanzamiento</p>
             </div>
