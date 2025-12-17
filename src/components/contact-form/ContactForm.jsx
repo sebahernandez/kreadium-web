@@ -104,7 +104,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto py-16 px-2 md:px-0" id="contact">
+    <div className="container mx-auto max-w-7xl py-16 px-6" id="contact">
       <style>{contactFormStyles}</style>
       {/* Header Section */}
       <div className="text-center mb-16">
@@ -120,7 +120,7 @@ const ContactForm = () => {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto">
+      <div className="flex flex-col lg:flex-row gap-12">
         {/* Left Column - Benefits */}
         <div className="lg:w-2/5 space-y-8">
           <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8">
