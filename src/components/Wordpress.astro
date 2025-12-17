@@ -95,7 +95,7 @@ const handleAnimationComplete = () => {
 
   .stat-card:hover {
     transform: scale(1.05);
-    background: linear-gradient(135deg, rgba(0, 115, 170, 0.4) 0%, rgba(0, 81, 119, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(0, 115, 170, 0.08) 0%, rgba(0, 81, 119, 0.05) 100%);
   }
 
 
@@ -228,6 +228,10 @@ const handleAnimationComplete = () => {
 </script>
 
 <section class="container mx-auto py-16 md:py-[100px] px-8 md:px-0 relative overflow-hidden" id="wordpress">
+  <!-- Overlay de transición suave en el TOP -->
+  <div class="absolute top-0 left-0 right-0 h-32 md:h-48 pointer-events-none z-20"
+       style="background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);"></div>
+
   <!-- Efectos de fondo globales mejorados -->
   <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0073AA] opacity-10 rounded-full blur-[120px] pointer-events-none"></div>
   <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#00A0D2] opacity-10 rounded-full blur-[120px] pointer-events-none"></div>
@@ -361,22 +365,22 @@ const handleAnimationComplete = () => {
 
     <!-- Columna derecha: Visual con estadísticas mejorado -->
     <div class="order-1 lg:order-2 relative">
-      <!-- Efectos de fondo más dramáticos -->
-      <div class="absolute -top-10 -left-10 w-60 h-60 md:w-96 md:h-96 bg-[#0073AA] opacity-8 rounded-full blur-[150px]"></div>
-      <div class="absolute -bottom-20 -right-20 w-72 h-72 md:w-[500px] md:h-[500px] bg-[#00A0D2] opacity-10 rounded-full blur-[200px]"></div>
-      <div class="absolute top-10 right-10 w-40 h-40 md:w-60 md:h-60 bg-[#005177] opacity-8 rounded-full blur-[120px]"></div>
+      <!-- Efectos de fondo mínimos -->
+      <div class="absolute -top-10 -left-10 w-60 h-60 md:w-96 md:h-96 bg-[#0073AA] opacity-[0.02] rounded-full blur-[150px]"></div>
+      <div class="absolute -bottom-20 -right-20 w-72 h-72 md:w-[500px] md:h-[500px] bg-[#00A0D2] opacity-[0.02] rounded-full blur-[200px]"></div>
+      <div class="absolute top-10 right-10 w-40 h-40 md:w-60 md:h-60 bg-[#005177] opacity-[0.02] rounded-full blur-[120px]"></div>
 
       <div class="relative z-10 group stats-container">
-        <!-- Degradados mejorados -->
-        <div class="absolute -inset-4 md:-inset-10 rounded-2xl md:rounded-3xl opacity-20 group-hover:opacity-30 transition-all duration-700"
-             style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,115,170,0.12) 0%, rgba(0,81,119,0.08) 25%, rgba(0,115,170,0.06) 50%, transparent 100%); filter: blur(25px);"></div>
+        <!-- Degradados mínimos -->
+        <div class="absolute -inset-4 md:-inset-10 rounded-2xl md:rounded-3xl opacity-[0.03] group-hover:opacity-[0.05] transition-all duration-700"
+             style="background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,115,170,0.02) 0%, rgba(0,81,119,0.01) 25%, rgba(0,115,170,0.01) 50%, transparent 100%); filter: blur(25px);"></div>
 
-        <!-- Borde estático -->
-        <div class="absolute -inset-2 rounded-2xl opacity-40 blur-md"
-             style="background: linear-gradient(135deg, rgba(0,115,170,0.5), rgba(0,160,210,0.3), rgba(0,81,119,0.5));"></div>
+        <!-- Borde estático mínimo -->
+        <div class="absolute -inset-2 rounded-2xl opacity-[0.05] blur-sm"
+             style="background: linear-gradient(135deg, rgba(0,115,170,0.05), rgba(0,160,210,0.03), rgba(0,81,119,0.05));"></div>
 
-        <!-- Contenedor principal mejorado -->
-        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.12)] via-[rgba(255,255,255,0.08)] to-[rgba(255,255,255,0.04)] border-2 border-[rgba(0,115,170,0.5)] backdrop-blur-xl shadow-2xl shadow-[#005177]/40 p-8">
+        <!-- Contenedor principal limpio -->
+        <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.04)] via-[rgba(255,255,255,0.02)] to-[rgba(255,255,255,0.01)] border border-[rgba(0,115,170,0.15)] backdrop-blur-sm shadow-sm p-8">
 
           <!-- Título del panel -->
           <div class="mb-8 text-center">
@@ -388,10 +392,10 @@ const handleAnimationComplete = () => {
           <div class="space-y-6">
             <!-- Stat 1 -->
             <div class="stat-item stat-card flex items-start gap-5 p-5 rounded-xl"
-                 style="background: linear-gradient(135deg, rgba(0,115,170,0.2) 0%, rgba(0,81,119,0.1) 100%);"
+                 style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);"
                  data-stat>
               <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
-                   style="background: linear-gradient(135deg, rgba(0,115,170,0.5) 0%, rgba(0,81,119,0.3) 100%);">
+                   style="background: linear-gradient(135deg, rgba(0,115,170,0.08) 0%, rgba(0,81,119,0.05) 100%);">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #00A0D2;">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
@@ -405,10 +409,10 @@ const handleAnimationComplete = () => {
 
             <!-- Stat 2 -->
             <div class="stat-item stat-card flex items-start gap-5 p-5 rounded-xl"
-                 style="background: linear-gradient(135deg, rgba(0,115,170,0.2) 0%, rgba(0,81,119,0.1) 100%);"
+                 style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);"
                  data-stat>
               <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
-                   style="background: linear-gradient(135deg, rgba(0,115,170,0.5) 0%, rgba(0,81,119,0.3) 100%);">
+                   style="background: linear-gradient(135deg, rgba(0,115,170,0.08) 0%, rgba(0,81,119,0.05) 100%);">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #00A0D2;">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -422,10 +426,10 @@ const handleAnimationComplete = () => {
 
             <!-- Stat 3 -->
             <div class="stat-item stat-card flex items-start gap-5 p-5 rounded-xl"
-                 style="background: linear-gradient(135deg, rgba(0,115,170,0.2) 0%, rgba(0,81,119,0.1) 100%);"
+                 style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);"
                  data-stat>
               <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
-                   style="background: linear-gradient(135deg, rgba(0,115,170,0.5) 0%, rgba(0,81,119,0.3) 100%);">
+                   style="background: linear-gradient(135deg, rgba(0,115,170,0.08) 0%, rgba(0,81,119,0.05) 100%);">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #00A0D2;">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
@@ -439,9 +443,9 @@ const handleAnimationComplete = () => {
 
             <!-- Stat 4 -->
             <div class="stat-item stat-card flex items-start gap-5 p-5 rounded-xl"
-                 style="background: linear-gradient(135deg, rgba(0,115,170,0.2) 0%, rgba(0,81,119,0.1) 100%);">
+                 style="background: linear-gradient(135deg, rgba(0,115,170,0.05) 0%, rgba(0,81,119,0.03) 100%);">
               <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
-                   style="background: linear-gradient(135deg, rgba(0,115,170,0.5) 0%, rgba(0,81,119,0.3) 100%);">
+                   style="background: linear-gradient(135deg, rgba(0,115,170,0.08) 0%, rgba(0,81,119,0.05) 100%);">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #00A0D2;">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -474,11 +478,11 @@ const handleAnimationComplete = () => {
   <div class="lg:hidden mt-12">
     <div class="relative max-w-lg mx-auto">
       <!-- Efectos de fondo -->
-      <div class="absolute -top-4 -left-4 w-32 h-32 bg-[#0073AA] opacity-8 rounded-full blur-[60px]"></div>
-      <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-[#00A0D2] opacity-10 rounded-full blur-[60px]"></div>
+      <div class="absolute -top-4 -left-4 w-32 h-32 bg-[#0073AA] opacity-5 rounded-full blur-[60px]"></div>
+      <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-[#00A0D2] opacity-5 rounded-full blur-[60px]"></div>
 
       <div class="relative z-10">
-        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,255,0.04)] border-2 border-[rgba(0,115,170,0.4)] backdrop-blur-lg shadow-xl shadow-[#005177]/30 p-6">
+        <div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,255,0.04)] border-2 border-[rgba(0,115,170,0.4)] backdrop-blur-lg shadow-lg shadow-[#005177]/15 p-6">
 
           <!-- Título móvil -->
           <div class="mb-6 text-center">
