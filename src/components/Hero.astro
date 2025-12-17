@@ -10,7 +10,7 @@ import ShinyText from "./text/Gradients"
             </span>
         </div>
 
-        <h1 class="px-2 lg:px-32 text-[2rem] md:text-7xl font-bold leading-tight max-w-6xl mx-auto relative">
+        <h1 class="px-4 lg:px-32 text-[2rem] md:text-7xl font-bold leading-tight max-w-6xl mx-auto relative">
             <!-- Mobile background decoration - only visible on mobile -->
             <div class="absolute inset-0 md:hidden -z-10">
                 <!-- Animated gradient blobs -->
@@ -21,11 +21,18 @@ import ShinyText from "./text/Gradients"
             <!-- Glassmorphism background for text - only on mobile -->
             <span class="md:hidden absolute inset-0 -z-10"></span>
 
-            <!-- Text content -->
-            <span class="text-teal-300 bg-clip-text relative z-10 font-bold">
+            <!-- Text content with mobile-optimized UX/UI -->
+            <span class="text-teal-300 bg-clip-text relative z-10 font-bold
+                         max-md:text-[2.15rem] max-md:leading-[1.15] max-md:tracking-tight
+                         max-md:drop-shadow-[0_2px_8px_rgba(20,184,166,0.4)]
+                         max-md:block max-md:mb-1.5">
             EXPERIENCIAS DIGITALES
             </span>
-            <span class="relative z-10 font-bold"> QUE  INSPIRAN</span>
+            <span class="relative z-10 font-bold
+                         max-md:text-[2.15rem] max-md:leading-[1.15] max-md:tracking-normal
+                         max-md:drop-shadow-[0_2px_12px_rgba(255,255,255,0.6)]
+                         max-md:block max-md:mt-1.5 max-md:font-extrabold
+                         max-md:text-white/95"> QUE  INSPIRAN</span>
         </h1>
     </div>
 </section>
