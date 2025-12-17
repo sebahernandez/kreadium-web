@@ -4,20 +4,45 @@ import { Icon } from 'astro-icon/components'
 ---
 <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
     <!-- Main Chat Button -->
-    <button id="chatToggle" class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-white hover:bg-white text-white p-2 md:p-3 rounded-full shadow-lg transition-transform transform hover:scale-105">
-      <Icon name="whatsapp" class:list="text-green-600" />
+    <button
+      id="chatToggle"
+      class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-white hover:bg-white text-white p-2 md:p-3 rounded-full shadow-lg transition-transform transform hover:scale-105"
+      aria-label="Abrir menú de contacto por WhatsApp"
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
+      <Icon name="whatsapp" class:list="text-green-600" aria-hidden="true" />
     </button>
     <!-- Dropdown Menu for WhatsApp Numbers -->
-    <div id="chatOptions" class="hidden absolute bottom-16 md:bottom-20 right-0 bg-white rounded-xl shadow-lg p-4 space-y-2 w-56 md:w-64">
+    <div
+      id="chatOptions"
+      class="hidden absolute bottom-16 md:bottom-20 right-0 bg-white rounded-xl shadow-lg p-4 space-y-2 w-56 md:w-64"
+      role="menu"
+      aria-label="Opciones de contacto por WhatsApp"
+    >
       <p class="text-gray-700 font-semibold text-center">¿Con quién deseas hablar?</p>
-      <a href="https://wa.me/56979044361" target="_blank" class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition">
-        <span class="text-green-600 text-xl">
+      <a
+        href="https://wa.me/56979044361"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition"
+        aria-label="Contactar a Soporte Clientes por WhatsApp"
+        role="menuitem"
+      >
+        <span class="text-green-600 text-xl" aria-hidden="true">
             <Icon name="tool" class:list="text-green-600" />
         </span>
         <span class="ml-3 text-gray-800">Soporte Clientes</span>
       </a>
-      <a href="https://wa.me/56946441506" target="_blank" class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition">
-        <span class="text-green-600 text-xl">
+      <a
+        href="https://wa.me/56946441506"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center p-2 rounded-lg hover:bg-gray-100 transition"
+        aria-label="Contactar a Atención al Cliente por WhatsApp"
+        role="menuitem"
+      >
+        <span class="text-green-600 text-xl" aria-hidden="true">
             <Icon name="chat" class:list="text-green-600" />
         </span>
         <span class="ml-3 text-gray-800">Atención al Cliente</span>
@@ -36,16 +61,20 @@ import { Icon } from 'astro-icon/components'
   <script>
     const chatToggle = document.getElementById('chatToggle');
     const chatOptions = document.getElementById('chatOptions');
-  
+
     chatToggle?.addEventListener('click', () => {
-      chatOptions?.classList.toggle('hidden');
+      const isHidden = chatOptions?.classList.toggle('hidden');
+      // Update aria-expanded for accessibility
+      chatToggle?.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
     });
-  
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-    const target = e.target as Node; 
+    const target = e.target as Node;
     if (!chatToggle?.contains(target) && !chatOptions?.contains(target)) {
       chatOptions?.classList.add('hidden');
+      // Update aria-expanded when closing
+      chatToggle?.setAttribute('aria-expanded', 'false');
     }
   });
   </script>
