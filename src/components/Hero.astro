@@ -2,7 +2,7 @@
 import ShinyText from "./text/Gradients"
 ---
 <section class="absolute inset-0 flex flex-col items-center justify-center text-white text-center pointer-events-none" id="home">
-    
+
     <div class="mt-[100px] md:mt-[100px] relative z-10">
         <div class="inline-block">
             <span class="text-gray-200 bg-white/10 rounded-full px-4 p-2 bg-opacity-40 text-sm md:text-2xl mb-4 md:mb-6 block">
@@ -35,4 +35,7 @@ import ShinyText from "./text/Gradients"
                          max-md:text-white/95"> QUE  INSPIRAN</span>
         </h1>
     </div>
+
+    <!-- Bottom overlay for smooth transition to next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-transparent to-black pointer-events-none z-20"></div>
 </section>
