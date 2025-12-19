@@ -14,6 +14,7 @@ import Galaxy from '../components/galaxy/Galaxy';
 import Wordpress from '../components/Wordpress.astro';
 
 import  SpeedInsights  from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
 ---
 
 <Layout title="Kreadium - Construimos tu presencia digital">
@@ -60,4 +61,5 @@ import  SpeedInsights  from "@vercel/speed-insights/astro"
 	<ContactForm client:only/> 
 	<Footer />
     <SpeedInsights />
+	<Analytics />
 </Layout>
