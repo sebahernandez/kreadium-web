@@ -17,7 +17,19 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<!-- Theme color meta tags -->
+		<meta name="theme-color" content="#4CD6C0">
+		<meta name="msapplication-TileColor" content="#4CD6C0">
+
+		<!-- Preload critical resources -->
+		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp">
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+		<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="geo.region" content="CL-RM">
+        <meta name="geo.placename" content="Santiago, Chile">
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:title" content="Kreadium - Construimos tu presencia digital">
 		<meta property="og:description" content="Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce. Diseñamos experiencias digitales que impulsan tu negocio. Cotiza gratis.">
@@ -35,7 +47,8 @@ const { title } = Astro.props;
 		<meta name="twitter:creator" content="@kreadium">
 
 		<!-- Meta Tags adicionales recomendados -->
-		<meta name="description" content="Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce. Diseñamos experiencias digitales que impulsan tu negocio. Cotiza gratis.">
+		 <meta name="keywords" content="desarrollo web Chile, WordPress Chile, Shopify Chile, ecommerce Chile, diseño web Santiago, agencia digital, desarrollo web profesional, tienda online, sitios web empresariales">
+		 <meta name="description" content="Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce. Diseñamos experiencias digitales que impulsan tu negocio. Cotiza gratis.">
 			<meta name="author" content="Kreadium SpA">
 		<meta name="robots" content="index, follow">
 

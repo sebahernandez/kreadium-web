@@ -1,0 +1,16 @@
+# Kreadium - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://kreadium.cl/sitemap.xml
+
+# Google Bot Specific
+User-agent: Googlebot
+Allow: /
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
