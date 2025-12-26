@@ -15,6 +15,10 @@ import Galaxy from '../components/galaxy/Galaxy';
 import Wordpress from '../components/Wordpress.astro';
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
+import LogoLoop from '../components/logo-loop/LogoLoop';
+import TechLogos from '../components/TechLogos';
+
+const techLogos = null;
 ---
 
 <Layout title="Kreadium | Desarrollo Web Profesional en Chile - WordPress & Shopify">
@@ -22,19 +26,7 @@ import Analytics from '@vercel/analytics/astro'
 
 	<!-- Vista desktop: Galaxy Hero -->
 	<div class="hidden md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden" id="galaxy-container">
-		<!-- Layer 1 (bottom): Galaxy background -->
-		<!-- <div class="absolute inset-0 z-0">
-			<Galaxy client:only
-			mouseInteraction={false}
-			density={0.5}
-			saturation={0.5}
-			glowIntensity={0.3}
-			autoCenterRepulsion={3}
-			hueShift={40}
-			/>
-		</div> -->
 
-		<!-- Layer 2 (middle): DarkVeil effect overlay -->
 		<DarkVeil client:only
 		hueShift={54}
 		noiseIntensity={0.15}
@@ -44,8 +36,6 @@ import Analytics from '@vercel/analytics/astro'
 		warpAmount={0.08}
 		resolutionScale={1}
 		/>
-
-		<!-- Layer 3 (top): Hero content -->
 		<div class="absolute inset-0 z-10">
 			<Hero />
 		</div>
@@ -58,23 +48,14 @@ import Analytics from '@vercel/analytics/astro'
 		 <Hero />
 		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
 	</div>   
+	<div class="container mx-auto max-w-7xl">
+			<TechLogos client:only />
+		</div>
 		<ServicesItems />
-
 		<Wordpress />
 		
-		<div class="py-0 md:py-[100px]">
-			<ScrollVelocity
-				client:only
-				texts={['NAVIDAD 2025', 'NAVIDAD 2025']} 
-				velocity={100}
-				className="custom-scroll-text gap-spacing-40"
-			/>
-		</div>
-	<!-- 	
-		<ServiceSelector /> -->
 		<Shopify />
 		<Integrations />
-		
 		<Testimonials />
 	<Pricing />
 	<ContactForm client:only/> 
@@ -82,3 +63,4 @@ import Analytics from '@vercel/analytics/astro'
     <SpeedInsights />
 	<Analytics />
 </Layout>
+
