@@ -8,12 +8,12 @@ import ContactForm from '../components/contact-form/ContactForm';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import ScrollVelocity from '../components/scroll-velocity/ScrollVelocity';
+import DarkVeil from '../components/dark-veil/DarkVeil';
 import Shopify from '../components/Shopify.astro';
 import Integrations from '../components/Integrations.astro';
 import Galaxy from '../components/galaxy/Galaxy';
 import Wordpress from '../components/Wordpress.astro';
-
-import  SpeedInsights  from "@vercel/speed-insights/astro"
+import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 ---
 
@@ -22,17 +22,36 @@ import Analytics from '@vercel/analytics/astro'
 
 	<!-- Vista desktop: Galaxy Hero -->
 	<div class="hidden md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden" id="galaxy-container">
-		<Galaxy client:only
-		mouseInteraction={false}
-		density={0.5}
-		saturation={0.5}
-		glowIntensity={0.3}
-		autoCenterRepulsion={3}
-		hueShift={40}
+		<!-- Layer 1 (bottom): Galaxy background -->
+		<!-- <div class="absolute inset-0 z-0">
+			<Galaxy client:only
+			mouseInteraction={false}
+			density={0.5}
+			saturation={0.5}
+			glowIntensity={0.3}
+			autoCenterRepulsion={3}
+			hueShift={40}
+			/>
+		</div> -->
+
+		<!-- Layer 2 (middle): DarkVeil effect overlay -->
+		<DarkVeil client:only
+		hueShift={54}
+		noiseIntensity={0.15}
+		scanlineIntensity={0.3}
+		speed={0.5}
+		scanlineFrequency={60}
+		warpAmount={0.08}
+		resolutionScale={1}
 		/>
-		<Hero />
-		<!-- Overlay gradient fade to black -->
-		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
+
+		<!-- Layer 3 (top): Hero content -->
+		<div class="absolute inset-0 z-10">
+			<Hero />
+		</div>
+
+		<!-- Layer 4 (top-most): Overlay gradient fade to black -->
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-20"></div>
 	</div>   
 	<!-- Vista mobile: Hero sin Galaxy -->
 	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black" id="galaxy-container">
