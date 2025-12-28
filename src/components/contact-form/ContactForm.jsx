@@ -104,7 +104,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-7xl py-16 md:py-20 lg:py-24 px-6" id="contact">
+    <div className="container mx-auto max-w-7xl pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24 px-6" id="contact">
       <style>{contactFormStyles}</style>
       {/* Header Section */}
       <div className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
