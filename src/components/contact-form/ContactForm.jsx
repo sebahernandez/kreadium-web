@@ -104,10 +104,10 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-7xl py-16 px-6" id="contact">
+    <div className="container mx-auto max-w-7xl py-24 md:py-32 lg:py-40 px-6" id="contact">
       <style>{contactFormStyles}</style>
       {/* Header Section */}
-      <div className="text-center mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
           ¿Listo para crear algo{" "}
           <span className="bg-gradient-to-r from-[#4CD6C0] to-[#09b397] bg-clip-text text-transparent">
@@ -221,7 +221,7 @@ const ContactForm = () => {
               {/* Message */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-300 block">
-           
+
                   Este campo nos ayudará a entender mejor tus necesidades.
                 </label>
                 <textarea

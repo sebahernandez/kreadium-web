@@ -1,296 +1,640 @@
 ---
-
+// Vercel-inspired minimal Pricing component with detailed comparison
 ---
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const policyDivs = document.querySelectorAll('[data-policy-item]');
-    
-    policyDivs.forEach(div => {
-      const span = div.querySelector('span');
-      const tooltip = div.querySelector('[data-tooltip]');
-      
-      if (span && tooltip) {
-        span.addEventListener('click', (e) => {
-          e.stopPropagation();
-          
-          // Cerrar otros tooltips
-          document.querySelectorAll('[data-tooltip]').forEach(t => {
-            if (t !== tooltip) {
-              t.classList.remove('opacity-100');
-              t.classList.add('opacity-0');
-              t.classList.add('pointer-events-none');
-            }
-          });
-          
-          // Toggle el tooltip actual
-          tooltip.classList.toggle('opacity-0');
-          tooltip.classList.toggle('opacity-100');
-          tooltip.classList.toggle('pointer-events-none');
-        });
-      }
-    });
-    
-    // Cerrar al hacer click fuera
-    document.addEventListener('click', (e) => {
-      const policyItems = document.querySelectorAll('[data-policy-item]');
-      let isInside = false;
-      
-      policyItems.forEach(item => {
-        if (item.contains(e.target)) {
-          isInside = true;
-        }
-      });
-      
-      if (!isInside) {
-        document.querySelectorAll('[data-tooltip]').forEach(t => {
-          t.classList.remove('opacity-100');
-          t.classList.add('opacity-0');
-          t.classList.add('pointer-events-none');
-        });
-      }
-    });
-  });
-</script>
+<style>
+  /* Vercel-inspired minimal animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-<section class="container mx-auto max-w-7xl py-16 md:py-20 lg:py-[100px] px-6" id="pricing">
-  <!-- Header -->
-  <div class="text-center mb-12 md:mb-14 lg:mb-16">
-    <h2 class="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-bold text-white mb-4 md:mb-5 lg:mb-6 leading-tight">
-      Planes y Precios de Desarrollo Web
-    </h2>
-    <p class="text-gray-300 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-      Elige el plan perfecto para tu negocio. Todos incluyen soporte dedicado y actualizaciones continuas.
-    </p>
-  </div>
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
 
-  <!-- Pricing Cards Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 lg:gap-8 max-w-6xl mx-auto">
-    <!-- Plan WordPress (Destacado) -->
-    <div class="relative group md:scale-105 md:z-10">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0073AA] via-[#0073AA]/40 to-transparent rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
-      <div class="relative bg-gradient-to-br from-[rgba(0,115,170,0.15)] to-[rgba(0,115,170,0.05)] border border-[#0073AA] rounded-2xl p-6 md:p-7 lg:p-8 hover:border-[#00A0D2] transition-all duration-300 h-full flex flex-col shadow-lg shadow-[#0073AA]/20">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <span class="bg-gradient-to-b from-[#0073AA] to-[#00A0D2] text-white px-3 sm:px-4 py-1 rounded-full text-[11px] sm:text-xs md:text-sm font-bold tracking-wide">LITE</span>
+  .pricing-card {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .pricing-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(76, 214, 192, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .popular-card {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .popular-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(76, 214, 192, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .accent-gradient {
+    background: linear-gradient(135deg, #4CD6C0 0%, #09b397 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+
+<section class="relative py-24 md:py-32 lg:py-40" id="pricing">
+  <!-- Subtle background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#4CD6C0]/5 to-transparent pointer-events-none"></div>
+
+  <div class="container mx-auto max-w-7xl px-6 relative z-10">
+
+    <!-- Header Section -->
+    <div class="max-w-3xl mx-auto text-center mb-20 md:mb-28 fade-in">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
+           style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+        Precios
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+        <span class="text-white">Planes simples</span>
+        <br />
+        <span class="gradient-text">para cada negocio</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+        Hosting incluido, soporte continuo y actualizaciones.
+        Sin costos ocultos.
+      </p>
+    </div>
+
+    <!-- Pricing Cards - 3 Column Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-20 md:mb-28">
+
+      <!-- Landing Plan -->
+      <div class="pricing-card p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] fade-in flex flex-col">
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold text-white mb-2">Landing</h3>
+          <p class="text-sm text-gray-400">Presencia web esencial</p>
         </div>
 
-        <div class="mb-5 md:mb-6 mt-2">
-          <h3 class="text-xl sm:text-2xl md:text-[1.65rem] lg:text-2xl font-bold text-white mb-2 leading-tight">Sitio Web WordPress</h3>
-          <p class="text-[#0da2e8] text-xs sm:text-sm md:text-base font-medium">Perfecto para Pymes y Sercotec</p>
-        </div>
-
-        <div class="mb-6 md:mb-7 lg:mb-8">
-          <div class="flex items-baseline">
-            <span class="text-2xl md:text-2xl lg:text-4xl font-bold text-white">$199.900</span>
-            <span class="text-gray-400 ml-1 text-sm md:text-base">/proyecto</span>
-            <span class="text-gray-500 ml-2 text-xs sm:text-sm">(+IVA)</span>
+        <div class="mb-8">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-5xl font-bold text-white">$15.990</span>
+            <span class="text-gray-400">/mes</span>
           </div>
-          <p class="text-gray-200 text-xs sm:text-sm md:text-base mt-2">Configuración gratuita de hosting y dominio</p>
+          <p class="text-xs text-gray-500">Permanencia mínima 12 meses</p>
         </div>
 
-        <ul class="space-y-3 md:space-y-3.5 lg:space-y-4 mb-6 md:mb-7 lg:mb-8 flex-grow">
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#0073AA] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        <ul class="space-y-4 mb-8 flex-grow">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Incluye diseño y desarrollo</span>
+            <span class="text-sm text-gray-300">1 landing page optimizada</span>
           </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#0073AA] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Tipo One Page</span>
+            <span class="text-sm text-gray-300">Hosting premium + SSL</span>
           </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#0073AA] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Formulario de contacto</span>
+            <span class="text-sm text-gray-300">Dominio + correo empresarial</span>
           </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#0073AA] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Botón de WhatsApp</span>
+            <span class="text-sm text-gray-300">2 cambios mensuales</span>
           </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#0073AA] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Orientada a ofrecer servicios</span>
+            <span class="text-sm text-gray-300">Soporte básico</span>
           </li>
         </ul>
 
-        <div class="mb-4 md:mb-4 relative inline-flex items-center gap-2 cursor-pointer" data-policy-item>
-          <svg class="w-4 h-4 md:w-5 md:h-5 text-[#0073AA]" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-          </svg>
-          <span class="text-gray-300 text-xs sm:text-sm md:text-[15px] hover:opacity-80 transition-opacity">Política de pagos y garantía</span>
-          <div data-tooltip class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#0073AA] rounded-lg p-3 w-64 text-xs md:text-[13px] text-gray-200 opacity-0 transition-opacity duration-300 pointer-events-none z-10">
-            El pago de cada proyecto se realiza en dos procesos: 50% al comenzar con el proyecto y 50% en la entrega. El primer pago no tiene devolución en caso de abandonar el proyecto antes de realizada la entrega final. Todos los servicios tienen garantía de 30 días.
+        <a href="#contact"
+           class="w-full py-3 px-6 rounded-lg font-medium text-center border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+          Comenzar
+        </a>
+      </div>
+
+      <!-- Corporativo Plan - Popular -->
+      <div class="popular-card p-8 rounded-2xl border-2 border-[#4CD6C0]/30 bg-white/[0.02] fade-in flex flex-col relative">
+        <!-- Popular Badge -->
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+          <div class="px-3 py-1 rounded-full text-xs font-semibold bg-[#4CD6C0] text-black">
+            Popular
           </div>
         </div>
 
-        <button class="w-full py-3 md:py-3.5 px-6 bg-gradient-to-b from-[#0073AA] to-[#00A0D2] text-white text-sm md:text-base font-semibold rounded-lg hover:shadow-lg hover:shadow-[#0073AA]/50 transition-all duration-300" onclick="window.location.href='#contact'">
-          Solicitar cotización
-        </button>
+        <div class="mb-6 mt-2">
+          <h3 class="text-xl font-semibold text-white mb-2">Corporativo</h3>
+          <p class="text-sm text-gray-400">Sitio web completo</p>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-5xl font-bold text-white">$360.000</span>
+            <span class="text-gray-400">/año</span>
+          </div>
+          <div class="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs bg-[#4CD6C0]/10 text-[#4CD6C0] border border-[#4CD6C0]/20">
+            Aprox. $30.000/mes
+          </div>
+        </div>
+
+        <ul class="space-y-4 mb-8 flex-grow">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Hasta 5-7 secciones</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Hosting premium + SSL</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Dominio + correo empresarial</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">SEO avanzado</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">2-5 cambios mensuales</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Soporte prioritario 24/7</span>
+          </li>
+        </ul>
+
+        <a href="#contact"
+           class="w-full py-3 px-6 rounded-lg font-medium text-center bg-white text-black hover:bg-gray-100 transition-colors">
+          Comenzar
+        </a>
       </div>
+
+      <!-- E-commerce Plan -->
+      <div class="pricing-card p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] fade-in flex flex-col">
+        <div class="mb-6">
+          <h3 class="text-xl font-semibold text-white mb-2">E-commerce</h3>
+          <p class="text-sm text-gray-400">Tienda online completa</p>
+        </div>
+
+        <div class="mb-8">
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-gray-400 text-sm">Desde</span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-2">
+            <span class="text-5xl font-bold text-white">$590.000</span>
+          </div>
+          <div class="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs bg-white/[0.05] text-gray-400 border border-white/[0.05]">
+            + $14.990/mes mantención
+          </div>
+        </div>
+
+        <ul class="space-y-4 mb-8 flex-grow">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Tienda online completa</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">10-20 productos cargados</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Pasarela de pago integrada</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Diseño profesional responsive</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Capacitación incluida</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#4CD6C0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm text-gray-300">Dominio + correo empresarial</span>
+          </li>
+        </ul>
+
+        <a href="#contact"
+           class="w-full py-3 px-6 rounded-lg font-medium text-center border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+          Comenzar
+        </a>
+      </div>
+
     </div>
 
-    <!-- Plan Shopify (Destacado) -->
-    <div class="relative group md:scale-105 md:z-10">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#4CD6C0] via-[#4CD6C0]/30 to-transparent rounded-2xl blur-xl opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
-      <div class="relative bg-gradient-to-br from-[rgba(76,214,192,0.15)] to-[rgba(76,214,192,0.05)] border border-[#4CD6C0] rounded-2xl p-6 md:p-7 lg:p-8 hover:border-[#22d3ee] transition-all duration-300 h-full flex flex-col shadow-lg shadow-[#4CD6C0]/20">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <span class="bg-gradient-to-b from-[#4CD6C0] to-[#22d3ee] text-white px-3 sm:px-4 py-1 rounded-full text-[11px] sm:text-[11px] md:text-[11px] lg:text-sm font-bold tracking-wide">E-COMMERCE</span>
-        </div>
+    <!-- DETAILED Comparison Table Section -->
+    <div class="max-w-6xl mx-auto fade-in">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Comparación detallada de planes</h2>
+        <p class="text-gray-400">Encuentra la opción que mejor se adapte a tus necesidades</p>
+      </div>
 
-        <div class="mb-5 md:mb-6 mt-2">
-          <h3 class="text-xl sm:text-2xl md:text-[1.65rem] lg:text-2xl font-bold text-white mb-2 leading-tight">Desarrollo Shopify</h3>
-          <p class="text-[#4CD6C0] text-xs sm:text-sm md:text-base font-medium">Para negocios en crecimiento</p>
-        </div>
+      <!-- Desktop Table -->
+      <div class="hidden md:block overflow-hidden rounded-2xl border border-white/[0.05] shadow-2xl">
+        <div class="overflow-x-auto">
+          <table class="w-full bg-gradient-to-br from-[rgba(76,214,192,0.04)] to-[rgba(76,214,192,0.01)]">
+            <thead>
+              <tr class="border-b border-white/[0.08] bg-[rgba(76,214,192,0.08)]">
+                <th class="text-left py-5 px-6 text-white font-bold text-base md:text-lg">Características</th>
+                <th class="text-center py-5 px-6">
+                  <div class="flex flex-col items-center gap-2">
+                    <span class="text-white font-bold text-base md:text-lg">Plan Landing</span>
+                    <span class="text-gray-300 text-xs font-normal">Mensual</span>
+                  </div>
+                </th>
+                <th class="text-center py-5 px-6 bg-[rgba(76,214,192,0.05)]">
+                  <div class="flex flex-col items-center gap-2">
+                    <span class="text-[#4CD6C0] font-bold text-base md:text-lg">Plan Corporativo</span>
+                    <span class="text-gray-300 text-xs font-normal">Anual</span>
+                  </div>
+                </th>
+                <th class="text-center py-5 px-6">
+                  <div class="flex flex-col items-center gap-2">
+                    <span class="text-white font-bold text-base md:text-lg">E-Commerce</span>
+                    <span class="text-gray-300 text-xs font-normal">Pago Único</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[rgba(76,214,192,0.08)]">
+              <!-- Precio -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 font-semibold text-sm md:text-base">
+                  <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                    </svg>
+                    Precio
+                  </div>
+                </td>
+                <td class="text-center py-4 px-6">
+                  <div class="flex flex-col items-center gap-1">
+                    <span class="text-white font-bold text-lg">$15.990</span>
+                    <span class="text-gray-400 text-xs">CLP/mes</span>
+                  </div>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <div class="flex flex-col items-center gap-1">
+                    <span class="text-[#4CD6C0] font-bold text-lg">$360.000</span>
+                    <span class="text-gray-400 text-xs">CLP/año (~$30.000/mes)</span>
+                  </div>
+                </td>
+                <td class="text-center py-4 px-6">
+                  <div class="flex flex-col items-center gap-1">
+                    <span class="text-white font-bold text-lg">$590.000</span>
+                    <span class="text-gray-400 text-xs">+ $14.990/mes mto.</span>
+                  </div>
+                </td>
+              </tr>
 
-        <div class="mb-6 md:mb-7 lg:mb-8">
-          <div class="flex items-center gap-3">
-            <div class="flex flex-col">
-              <span class="text-gray-300 text-xs sm:text-sm md:text-base">Desde:</span>
-              <div class="flex items-baseline">
-                <span class="text-2xl md:text-2xl lg:text-5xl font-bold text-white">$499.900</span>
-                <span class="text-gray-500 ml-2 text-xs sm:text-sm">(+IVA)</span>
-              </div>
-              <span class="text-gray-200 line-through text-base sm:text-lg md:text-xl mt-1">Antes: $984.990</span>
+              <!-- Páginas/Secciones -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Páginas/Secciones</td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">1 Landing Page</td>
+                <td class="text-center py-4 px-6 text-white text-sm md:text-base bg-[rgba(76,214,192,0.03)]">5-7 Secciones</td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Tienda Completa</td>
+              </tr>
+
+              <!-- Hosting + SSL -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Hosting Premium + SSL</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- Dominio + Correo -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Dominio + Correo Empresarial</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- SEO -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Optimización SEO</td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Básico</td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#4CD6C0]/20 border border-[#4CD6C0]/30 rounded-full">
+                    <svg class="w-4 h-4 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span class="text-[#4CD6C0] text-sm font-semibold">Avanzado</span>
+                  </span>
+                </td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Incluido</td>
+              </tr>
+
+              <!-- Cambios Mensuales -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Cambios Mensuales</td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Hasta 2</td>
+                <td class="text-center py-4 px-6 text-white text-sm md:text-base bg-[rgba(76,214,192,0.03)]">2-5 cambios</td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Con mantención</td>
+              </tr>
+
+              <!-- Soporte -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Soporte Técnico</td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Básico</td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#4CD6C0]/20 border border-[#4CD6C0]/30 rounded-full">
+                    <svg class="w-4 h-4 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <span class="text-[#4CD6C0] text-sm font-semibold">Prioritario 24/7</span>
+                  </span>
+                </td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">30 días</td>
+              </tr>
+
+              <!-- Pasarela de pago -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Pasarela de Pago</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- Capacitación -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Capacitación de Uso</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base bg-[rgba(76,214,192,0.03)]">Opcional</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- Diseño Responsive -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Diseño 100% Responsive</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- Mantenimiento -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Mantenimiento Continuo</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <svg class="w-6 h-6 mx-auto text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 text-gray-300 text-sm md:text-base">Con mantención</td>
+              </tr>
+
+              <!-- Productos Cargados -->
+              <tr class="hover:bg-[rgba(76,214,192,0.04)] transition-colors">
+                <td class="py-4 px-6 text-gray-200 text-sm md:text-base">Productos Cargados</td>
+                <td class="text-center py-4 px-6">
+                  <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 bg-[rgba(76,214,192,0.03)]">
+                  <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </td>
+                <td class="text-center py-4 px-6 text-white text-sm md:text-base">10-20 productos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Mobile Cards -->
+      <div class="md:hidden space-y-6">
+        <div class="p-6 rounded-xl border border-white/[0.05] bg-white/[0.01]">
+          <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/[0.05]">
+            <h4 class="text-base font-semibold text-white">Landing</h4>
+            <span class="text-[#4CD6C0] font-bold">$15.990/mes</span>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-400">Páginas</span>
+              <span class="text-gray-300">1 Landing</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Hosting + SSL</span>
+              <svg class="w-5 h-5 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">SEO</span>
+              <span class="text-gray-300">Básico</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Cambios</span>
+              <span class="text-gray-300">Hasta 2</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Soporte</span>
+              <span class="text-gray-300">Básico</span>
             </div>
           </div>
-          <p class="text-gray-200 text-xs sm:text-sm md:text-base mt-3">Tienda online completa y optimizada</p>
         </div>
 
-        <ul class="space-y-3 md:space-y-3.5 lg:space-y-4 mb-6 md:mb-7 lg:mb-8 flex-grow">
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#4CD6C0] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Tienda personalizada</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#4CD6C0] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Integración de pagos</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#4CD6C0] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Módulos Personalizados</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#4CD6C0] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Optimización SEO</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#4CD6C0] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Soporte por 1 mes</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-[#4CD6C0] mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Capacitación incluida</span>
-          </li>
-        </ul>
-
-        <div class="mb-4 md:mb-4 relative inline-flex items-center gap-2 cursor-pointer" data-policy-item>
-          <svg class="w-4 h-4 md:w-5 md:h-5 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-          </svg>
-          <span class="text-gray-300 text-xs sm:text-sm md:text-[15px] hover:opacity-80 transition-opacity">Política de pagos y garantía</span>
-          <div data-tooltip class="absolute top-full mt-2 left-0 bg-gray-900 border border-[#4CD6C0] rounded-lg p-3 w-64 text-xs md:text-[13px] text-gray-200 opacity-0 transition-opacity duration-300 pointer-events-none z-10">
-            El pago de cada proyecto se realiza en dos procesos: 50% al comenzar con el proyecto y 50% en la entrega. El primer pago no tiene devolución en caso de abandonar el proyecto antes de realizada la entrega final. Todos los servicios tienen garantía de 30 días.
+        <div class="p-6 rounded-xl border-2 border-[#4CD6C0]/30 bg-white/[0.02] relative">
+          <div class="absolute -top-2 left-4">
+            <span class="px-2 py-0.5 rounded-md text-xs font-semibold bg-[#4CD6C0] text-black">Popular</span>
+          </div>
+          <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/[0.05]">
+            <h4 class="text-base font-semibold text-white">Corporativo</h4>
+            <span class="text-[#4CD6C0] font-bold">$360.000/año</span>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-400">Páginas</span>
+              <span class="text-white">5-7 Secciones</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Hosting + SSL</span>
+              <svg class="w-5 h-5 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">SEO</span>
+              <span class="text-[#4CD6C0]">Avanzado</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Cambios</span>
+              <span class="text-white">2-5</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Soporte</span>
+              <span class="text-[#4CD6C0]">Prioritario 24/7</span>
+            </div>
           </div>
         </div>
 
-        <button class="w-full py-3 md:py-3.5 px-6 bg-gradient-to-b from-[#4CD6C0] to-[#22d3ee] text-black text-sm md:text-base font-semibold rounded-lg hover:shadow-lg hover:shadow-[#4CD6C0]/50 transition-all duration-300" onclick="window.location.href='#contact'">
-          Solicitar cotización
-        </button>
+        <div class="p-6 rounded-xl border border-white/[0.05] bg-white/[0.01]">
+          <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/[0.05]">
+            <h4 class="text-base font-semibold text-white">E-commerce</h4>
+            <span class="text-white font-bold">$590.000</span>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between">
+              <span class="text-gray-400">Tipo</span>
+              <span class="text-gray-300">Tienda completa</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Productos</span>
+              <span class="text-white">10-20</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Pasarela</span>
+              <svg class="w-5 h-5 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Capacitación</span>
+              <svg class="w-5 h-5 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-gray-400">Soporte</span>
+              <span class="text-gray-300">30 días</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Plan Empresas (Destacado) -->
-    <div class="relative group md:scale-105 md:z-10">
-      <div class="absolute inset-0 bg-gradient-to-b from-gray-800 via-gray-800/30 to-transparent rounded-2xl blur-xl opacity-35 group-hover:opacity-55 transition-opacity duration-300"></div>
-      <div class="relative bg-gradient-to-br from-[rgba(0,0,0,0.15)] to-[rgba(50,50,50,0.05)] border border-gray-800 rounded-2xl p-6 md:p-7 lg:p-8 hover:border-gray-600 transition-all duration-300 h-full flex flex-col shadow-lg shadow-gray-900/20">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <span class="bg-gradient-to-b from-gray-900 to-gray-700 text-white px-3 sm:px-4 py-1 rounded-full text-[11px] sm:text-xs md:text-sm font-bold tracking-wide">PREMIUM</span>
-        </div>
-
-        <div class="mb-5 md:mb-6 mt-2">
-          <h3 class="text-xl sm:text-2xl md:text-[1.65rem] lg:text-2xl font-bold text-white mb-2 leading-tight">Empresas</h3>
-          <p class="text-gray-300 text-xs sm:text-sm md:text-base font-medium">Para empresas establecidas</p>
-        </div>
-
-        <div class="mb-6 md:mb-7 lg:mb-8">
-          <div class="flex flex-col">
-            <p class="text-gray-300 text-sm sm:text-base md:text-[17px] leading-relaxed">Contacta con un ejecutivo para conocer tu proyecto y recibir una propuesta personalizada adaptada a tus necesidades específicas.</p>
-          </div>
-        </div>
-
-        <ul class="space-y-3 md:space-y-3.5 lg:space-y-4 mb-6 md:mb-7 lg:mb-8 flex-grow">
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-gray-100 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Desarrollo a medida</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-gray-100 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Integración multi-canal</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-gray-100 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">APIs personalizadas</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-gray-100 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Análisis y reportes</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-gray-100 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Soporte prioritario ilimitado</span>
-          </li>
-          <li class="flex items-start">
-            <svg class="w-5 h-5 md:w-5 md:h-5 text-gray-100 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-gray-300 text-sm md:text-[15px] lg:text-base">Mantenimiento continuo</span>
-          </li>
-        </ul>
-
-        <div class="mb-4 md:mb-4 relative inline-flex items-center gap-2 cursor-pointer" data-policy-item>
-          <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-100" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+    <!-- CTA Section -->
+    <div class="max-w-3xl mx-auto text-center mt-20 fade-in">
+      <div class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+          ¿No estás seguro cuál plan elegir?
+        </h2>
+        <p class="text-gray-400 mb-8 text-lg">
+          Te ayudamos a encontrar la mejor solución para tu negocio.
+        </p>
+        <a href="#contact"
+           class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors">
+          Contactar
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
-          <span class="text-gray-300 text-xs sm:text-sm md:text-[15px] hover:opacity-80 transition-opacity">Política de pagos y garantía</span>
-          <div data-tooltip class="absolute top-full mt-2 left-0 bg-gray-900 border border-gray-800 rounded-lg p-3 w-64 text-xs md:text-[13px] text-gray-200 opacity-0 transition-opacity duration-300 pointer-events-none z-10">
-            El pago de cada proyecto se realiza en dos procesos: 50% al comenzar con el proyecto y 50% en la entrega. El primer pago no tiene devolución en caso de abandonar el proyecto antes de realizada la entrega final. Todos los servicios tienen garantía de 30 días.
-          </div>
-        </div>
-
-        <button class="w-full py-3 md:py-3.5 px-6 bg-gradient-to-b from-gray-900 to-gray-700 text-white text-sm md:text-base font-semibold rounded-lg hover:shadow-lg hover:shadow-gray-900/50 transition-all duration-300" onclick="window.location.href='#contact'">
-          Contactar ventas
-        </button>
+        </a>
       </div>
     </div>
+
   </div>
 </section>

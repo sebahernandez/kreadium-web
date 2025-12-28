@@ -1,0 +1,331 @@
+---
+// Minimal, professional, Vercel-inspired design
+---
+
+<style>
+  /* Vercel-inspired minimal animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .service-card {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(76, 214, 192, 0.4);
+  }
+
+  .stat-item {
+    transition: transform 0.2s ease;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .accent-gradient {
+    background: linear-gradient(135deg, #4CD6C0 0%, #09b397 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+
+<section class="relative py-24 md:py-32 lg:py-40" id="services">
+  <!-- Subtle background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#4CD6C0]/5 to-transparent pointer-events-none"></div>
+
+  <div class="container mx-auto max-w-7xl px-6 relative z-10">
+
+    <!-- Header Section - Vercel Style -->
+    <div class="max-w-3xl mx-auto text-center mb-20 md:mb-28 fade-in">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
+           style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+        Platform
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+        <span class="gradient-text">Desarrollo web</span>
+        <br />
+        <span class="text-white">profesional y escalable</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+        Construimos sitios web de alto rendimiento con tecnología moderna.
+        Desde landing pages hasta e-commerce completo.
+      </p>
+    </div>
+
+    <!-- Stats Grid - Vercel Style -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-28 max-w-5xl mx-auto fade-in">
+      <div class="stat-item text-center p-6 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+        <div class="text-3xl md:text-4xl font-bold mb-2 accent-gradient">100%</div>
+        <div class="text-sm text-gray-400">Responsive</div>
+      </div>
+      <div class="stat-item text-center p-6 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+        <div class="text-3xl md:text-4xl font-bold mb-2 accent-gradient">24/7</div>
+        <div class="text-sm text-gray-400">Soporte</div>
+      </div>
+      <div class="stat-item text-center p-6 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+        <div class="text-3xl md:text-4xl font-bold mb-2 accent-gradient">SSL</div>
+        <div class="text-sm text-gray-400">Seguro</div>
+      </div>
+      <div class="stat-item text-center p-6 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+        <div class="text-3xl md:text-4xl font-bold mb-2 accent-gradient">SEO</div>
+        <div class="text-sm text-gray-400">Optimizado</div>
+      </div>
+    </div>
+
+    <!-- Features Grid - 3 Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-28 fade-in">
+
+      <!-- Feature 1 -->
+      <div class="service-card group p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01]">
+        <div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+          <svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">Alto rendimiento</h3>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          Optimización extrema para tiempos de carga ultra rápidos.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Core Web Vitals optimizados
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Lazy loading automático
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            CDN global incluido
+          </li>
+        </ul>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="service-card group p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01]">
+        <div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+          <svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">Seguridad avanzada</h3>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          Protección completa con certificados SSL y actualizaciones automáticas.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            SSL/HTTPS gratis
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Backups diarios
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Firewall incluido
+          </li>
+        </ul>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="service-card group p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01]">
+        <div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+          <svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">Deploy instantáneo</h3>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          Actualizaciones en tiempo real con pipeline automatizado.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Git integration
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Preview environments
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Rollback en un click
+          </li>
+        </ul>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="service-card group p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01]">
+        <div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+          <svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">SEO por defecto</h3>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          Optimización completa para aparecer en Google desde el día uno.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Meta tags optimizados
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Sitemap automático
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Schema markup
+          </li>
+        </ul>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="service-card group p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01]">
+        <div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+          <svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">Email profesional</h3>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          Configuración completa de dominio y correo empresarial incluida.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Google Workspace
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Dominio personalizado
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Setup incluido
+          </li>
+        </ul>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="service-card group p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01]">
+        <div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+          <svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-3">Analytics integrado</h3>
+        <p class="text-gray-400 leading-relaxed mb-4">
+          Métricas y análisis de rendimiento en tiempo real.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Google Analytics
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Dashboards personalizados
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#4CD6C0]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Reportes mensuales
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+
+    <!-- CTA Section -->
+    <div class="max-w-3xl mx-auto text-center fade-in">
+      <div class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+          Comienza tu proyecto hoy
+        </h2>
+        <p class="text-gray-400 mb-8 text-lg">
+          Sin compromiso. Consulta gratuita de 30 minutos.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#pricing"
+             class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors">
+            Ver planes
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#contact"
+             class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+            Contactar
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

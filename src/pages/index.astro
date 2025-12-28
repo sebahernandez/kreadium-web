@@ -8,15 +8,195 @@ import ContactForm from '../components/contact-form/ContactForm';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import DarkVeil from '../components/dark-veil/DarkVeil';
-import Shopify from '../components/Shopify.astro';
+import Ecommerce from '../components/Ecommerce.astro';
 import Integrations from '../components/Integrations.astro';
-import Wordpress from '../components/Wordpress.astro';
+import Services from '../components/Services.astro';
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 import TechLogos from '../components/TechLogos';
 
 const techLogos = null;
 ---
+
+<style>
+	/* Vercel-style Professional Section Dividers */
+
+	/* Subtle gradient line divider */
+	.section-divider-gradient {
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	.section-divider-gradient::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 1400px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.1) 15%,
+			rgba(76, 214, 192, 0.2) 50%,
+			rgba(76, 214, 192, 0.1) 85%,
+			transparent 100%
+		);
+	}
+
+	/* Radial glow divider */
+	.section-divider-glow {
+		position: relative;
+		padding-top: 1px;
+	}
+
+	.section-divider-glow::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 800px;
+		height: 120px;
+		background: radial-gradient(
+			ellipse at top,
+			rgba(76, 214, 192, 0.08) 0%,
+			rgba(76, 214, 192, 0.03) 30%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	/* Subtle border with glow */
+	.section-divider-border {
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+		box-shadow:
+			0 1px 0 rgba(76, 214, 192, 0.05),
+			0 -1px 40px rgba(76, 214, 192, 0.02);
+	}
+
+	/* Double line divider (ultra subtle) */
+	.section-divider-double {
+		position: relative;
+		padding-top: 2px;
+	}
+
+	.section-divider-double::before,
+	.section-divider-double::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 1200px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(255, 255, 255, 0.03) 20%,
+			rgba(76, 214, 192, 0.08) 50%,
+			rgba(255, 255, 255, 0.03) 80%,
+			transparent 100%
+		);
+	}
+
+	.section-divider-double::before {
+		top: 0;
+	}
+
+	.section-divider-double::after {
+		top: 2px;
+		opacity: 0.5;
+	}
+
+	/* Glow from bottom divider */
+	.section-divider-glow-bottom {
+		position: relative;
+		padding-bottom: 1px;
+	}
+
+	.section-divider-glow-bottom::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 600px;
+		height: 100px;
+		background: radial-gradient(
+			ellipse at bottom,
+			rgba(76, 214, 192, 0.06) 0%,
+			rgba(9, 179, 151, 0.03) 40%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	/* Subtle background transition */
+	.section-divider-bg-shift {
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			rgba(76, 214, 192, 0.008) 50%,
+			transparent 100%
+		);
+		padding: 80px 0;
+	}
+
+	/* Spotlight effect divider */
+	.section-divider-spotlight {
+		position: relative;
+	}
+
+	.section-divider-spotlight::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 600px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.25) 50%,
+			transparent 100%
+		);
+		box-shadow:
+			0 0 20px rgba(76, 214, 192, 0.1),
+			0 0 40px rgba(76, 214, 192, 0.05);
+	}
+
+	/* Minimal dot pattern divider */
+	.section-divider-dots {
+		position: relative;
+		padding: 60px 0;
+	}
+
+	.section-divider-dots::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		height: 1px;
+		background-image: radial-gradient(
+			circle,
+			rgba(76, 214, 192, 0.2) 1px,
+			transparent 1px
+		);
+		background-size: 8px 8px;
+		background-position: center;
+		background-repeat: repeat-x;
+		opacity: 0.3;
+	}
+</style>
 
 <Layout title="Kreadium | Desarrollo Web Profesional en Chile - WordPress & Shopify">
 	<Header />
@@ -39,25 +219,80 @@ const techLogos = null;
 
 		<!-- Layer 4 (top-most): Overlay gradient fade to black -->
 		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-20"></div>
-	</div>   
+	</div>
+
 	<!-- Vista mobile: Hero sin Galaxy -->
 	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black" id="galaxy-container">
 		 <Hero />
 		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
-	</div>   
-	<div class="container mx-auto max-w-7xl">
+	</div>
+
+	<!-- Tech Logos Section -->
+	<div class="section-divider-glow-bottom">
+		<div class="container mx-auto max-w-7xl">
 			<TechLogos client:only />
 		</div>
+	</div>
+
+	<!-- Subtle gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Services Items Section -->
+	<div class="section-divider-glow">
 		<ServicesItems />
-		<Wordpress />
-		
-		<Shopify />
-		<Integrations />
+	</div>
+
+	<!-- Subtle border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- Services Section -->
+	<div class="section-divider-bg-shift">
+		<Services />
+	</div>
+
+	<!-- Double line divider -->
+	<div class="section-divider-double"></div>
+
+	<!-- E-commerce Section -->
+	<div class="section-divider-glow">
+		<Ecommerce />
+	</div>
+
+	<!-- Spotlight divider -->
+	<div class="section-divider-spotlight"></div>
+
+	<!-- Integrations Section -->
+	<Integrations />
+
+	<!-- Gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Testimonials Section -->
+	<div class="section-divider-glow">
 		<Testimonials />
-	<Pricing />
-	<ContactForm client:only/> 
-	<Footer />
-    <SpeedInsights />
+	</div>
+
+	<!-- Border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- Pricing Section -->
+	<div class="section-divider-bg-shift">
+		<Pricing />
+	</div>
+
+	<!-- Dots divider -->
+	<div class="section-divider-dots"></div>
+
+	<!-- Contact Form Section -->
+	<div class="section-divider-glow">
+		<ContactForm client:only/>
+	</div>
+
+	<!-- Footer with subtle top border -->
+	<div class="section-divider-border section-divider-glow-bottom">
+		<Footer />
+	</div>
+
+	<SpeedInsights />
 	<Analytics />
 </Layout>
-
