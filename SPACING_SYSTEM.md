@@ -12,9 +12,9 @@ Based on Vercel's design principles, we use the following spacing scale:
 
 ### All Main Sections
 ```css
-py-24 md:py-32 lg:py-40
+py-16 md:py-20 lg:py-24
 ```
-**Translation:** 96px mobile → 128px tablet → 160px desktop
+**Translation:** 64px mobile → 80px tablet → 96px desktop
 
 **Applied to:**
 - Services.astro
@@ -110,7 +110,7 @@ gap-6 md:gap-8
 - Headers: Mix of `mb-16`, `mb-20`, `mb-28` ❌
 
 ### AFTER (Perfect Consistency):
-- All sections: `py-24 md:py-32 lg:py-40` ✅
+- All sections: `py-16 md:py-20 lg:py-24` ✅
 - All headers: `mb-20 md:mb-28` ✅
 - All grids: `gap-6 md:gap-8` ✅
 - All containers: `max-w-7xl px-6` ✅
@@ -118,7 +118,7 @@ gap-6 md:gap-8
 ## Vertical Rhythm
 
 The standardized spacing creates a harmonious vertical rhythm:
-1. **Section padding:** 96px → 128px → 160px
+1. **Section padding:** 64px → 80px → 96px
 2. **Header spacing:** 80px → 112px
 3. **Element spacing:** 80px → 112px
 4. **Grid gaps:** 24px → 32px
@@ -146,7 +146,7 @@ This creates a consistent ratio-based system that feels professional and polishe
 ## Maintenance Guidelines
 
 When adding new sections or components:
-1. Use `py-24 md:py-32 lg:py-40` for section padding
+1. Use `py-16 md:py-20 lg:py-24` for section padding
 2. Use `mb-20 md:mb-28` for header bottom margins
 3. Use `mb-20 md:mb-28` for spacing between major elements
 4. Use `gap-6 md:gap-8` for all grids
