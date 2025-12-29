@@ -44,6 +44,7 @@ const ContactForm = () => {
     phone: "",
     email: "",
     message: "",
+    planType: "",
   });
 
   const handleChange = (e) => {
@@ -55,8 +56,8 @@ const ContactForm = () => {
   };
 
   const validateForm = () => {
-    const { name, phone, email, message } = formData;
-    if (!name || !phone || !email || !message) {
+    const { name, phone, email, message, planType } = formData;
+    if (!name || !phone || !email || !message || !planType) {
       notyf.error("Todos los campos son obligatorios.");
       return false;
     }
@@ -90,6 +91,7 @@ const ContactForm = () => {
           phone: "",
           email: "",
           message: "",
+          planType: "",
         });
       } else {
         const errorData = await response.json();
@@ -216,6 +218,42 @@ const ContactForm = () => {
                   className="contact-input w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white placeholder-gray-400 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)]"
                   required
                 />
+              </div>
+
+              {/* Plan Type Selector */}
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-300 block">
+                  ¿Qué tipo de plan te interesa?
+                </label>
+                <select
+                  name="planType"
+                  value={formData.planType}
+                  onChange={handleChange}
+                  className="contact-input w-full px-4 py-4 bg-[rgba(255,255,255,0.08)] border border-[rgba(255,255,255,0.2)] text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4CD6C0] focus:border-transparent transition-all duration-200 hover:bg-[rgba(255,255,255,0.1)] appearance-none cursor-pointer"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 1rem center',
+                    backgroundSize: '1.5em 1.5em',
+                  }}
+                  required
+                >
+                  <option value="" disabled className="bg-gray-900">
+                    Selecciona un plan
+                  </option>
+                  <option value="Landing" className="bg-gray-900">
+                    Landing - $15.990/mes
+                  </option>
+                  <option value="Corporativo" className="bg-gray-900">
+                    Corporativo - $360.000/año
+                  </option>
+                  <option value="E-commerce" className="bg-gray-900">
+                    E-commerce - Desde $590.000
+                  </option>
+                  <option value="Personalizado" className="bg-gray-900">
+                    Personalizado - No estoy seguro
+                  </option>
+                </select>
               </div>
 
               {/* Message */}
