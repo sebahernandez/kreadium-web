@@ -5,12 +5,22 @@
 
 /* Custom base layer - applies after Tailwind base but before components */
 @layer base {
-  /* Typography Base - System fonts with consistent rendering */
+  /* Typography Base - Inter font with OpenType features */
   html {
-    font-feature-settings: "kern" 1, "liga" 1;
+    /* Enable Inter's OpenType features for better typography */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv05" 1, "cv08" 1;
     -webkit-tap-highlight-color: transparent;
     font-synthesis: weight style;
     -webkit-font-synthesis: weight style;
+
+    /* Inter-specific optimizations */
+    letter-spacing: -0.011em; /* Inter's recommended letter spacing */
+  }
+
+  /* Apply Inter's recommended settings for headings */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.022em; /* Tighter spacing for headings */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv05" 1, "cv08" 1;
   }
 
   /* Prevent font scaling issues on iOS */
