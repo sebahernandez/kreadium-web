@@ -248,7 +248,7 @@ const ContactForm = () => {
                     Corporativo - $360.000/año
                   </option>
                   <option value="E-commerce" className="bg-gray-900">
-                    E-commerce - Desde $590.000
+                    E-commerce - $590.000/año
                   </option>
                   <option value="Personalizado" className="bg-gray-900">
                     Personalizado - No estoy seguro

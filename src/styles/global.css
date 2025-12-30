@@ -1,3 +1,49 @@
+/* Typography Base Styles - Ensures consistent font rendering across all devices */
+@layer base {
+  /* Apply Tailwind's base styles */
+  @tailwind base;
+
+  /* Force consistent typography - prevents mobile browsers from substituting fonts */
+  html {
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent font scaling issues on iOS landscape orientation */
+  @supports (-webkit-touch-callout: none) {
+    body {
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+
+  /* Optimize font rendering for Retina/HiDPI displays */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
 .bg-box {
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Additional typography utilities */
+@layer utilities {
+  .text-rendering-optimized {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .prevent-font-scaling {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 }
