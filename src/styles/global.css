@@ -1,22 +1,34 @@
-/* Typography Base Styles - Ensures consistent font rendering across all devices */
-@layer base {
-  /* Apply Tailwind's base styles */
-  @tailwind base;
+/* Import Tailwind's base styles first - this establishes the foundation */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  /* Force consistent typography - prevents mobile browsers from substituting fonts */
+/* Custom base layer - applies after Tailwind base but before components */
+@layer base {
+  /* Typography Base - System fonts with consistent rendering */
   html {
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-tap-highlight-color: transparent;
+    font-synthesis: weight style;
+    -webkit-font-synthesis: weight style;
   }
 
-  /* Prevent font scaling issues on iOS landscape orientation */
+  /* Prevent font scaling issues on iOS */
   @supports (-webkit-touch-callout: none) {
     body {
       -webkit-text-size-adjust: 100%;
+      -webkit-font-synthesis: weight style;
+      font-synthesis: weight style;
+    }
+
+    /* Enable font synthesis for all elements on iOS */
+    * {
+      -webkit-font-synthesis: weight style;
+      font-synthesis: weight style;
     }
   }
 
-  /* Optimize font rendering for Retina/HiDPI displays */
+  /* Optimize font rendering for HiDPI displays */
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     body {
       -webkit-font-smoothing: antialiased;
@@ -25,14 +37,41 @@
   }
 }
 
-@tailwind components;
-@tailwind utilities;
+/* Custom component styles */
+@layer components {
+  .bg-box {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 
-.bg-box {
-  background-color: rgba(255, 255, 255, 0.05);
+  /* Gradient text components that preserve font weight */
+  .gradient-text,
+  .accent-gradient {
+    /* Use font-weight from parent/class - don't override */
+    font-synthesis: weight;
+    -webkit-font-synthesis: weight;
+  }
+
+  /* Mobile-specific gradient text optimization */
+  @media (max-width: 768px) {
+    .gradient-text,
+    .accent-gradient {
+      /* On mobile, use solid color to preserve font rendering */
+      -webkit-text-fill-color: currentColor;
+      background-clip: unset;
+      -webkit-background-clip: unset;
+    }
+
+    .gradient-text {
+      color: #e5e5e5;
+    }
+
+    .accent-gradient {
+      color: #4CD6C0;
+    }
+  }
 }
 
-/* Additional typography utilities */
+/* Custom utilities - highest specificity for one-off adjustments */
 @layer utilities {
   .text-rendering-optimized {
     text-rendering: optimizeLegibility;
