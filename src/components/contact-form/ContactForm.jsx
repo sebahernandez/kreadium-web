@@ -242,16 +242,16 @@ const ContactForm = () => {
                     Selecciona un plan
                   </option>
                   <option value="Landing" className="bg-gray-900">
-                    Landing - $15.990/mes
+                    Landing - $150.900/1 vez
                   </option>
                   <option value="Corporativo" className="bg-gray-900">
-                    Corporativo - $360.000/año
+                    Corporativo - $360.000/1 vez
                   </option>
                   <option value="E-commerce" className="bg-gray-900">
-                    E-commerce - $590.000/año
+                    E-commerce - $590.000/1 vez
                   </option>
                   <option value="Personalizado" className="bg-gray-900">
-                    Personalizado - No estoy seguro
+                    Personalizado - Sitio avanzado
                   </option>
                 </select>
               </div>
