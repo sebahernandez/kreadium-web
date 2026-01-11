@@ -84,7 +84,7 @@ const CommentCarousel = ({ comments, interval = 4000 }) => {
                     <img
                       className="w-14 h-14 rounded-full object-cover ring-2 ring-[rgba(76,214,192,0.3)] group-hover:ring-[rgba(76,214,192,0.5)] transition-all duration-300"
                       src={comment.image}
-                      alt={`Foto de perfil de ${comment.name}, cliente satisfecho de Kreadium`}
+                      alt={`${comment.name}, cliente de Kreadium`}
                       width="56"
                       height="56"
                       loading="lazy"
