@@ -1,0 +1,195 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="404 - Página no encontrada | Kreadium">
+	<Header />
+
+	<main class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+		<!-- Background animated effects -->
+		<div class="absolute inset-0 overflow-hidden">
+			<!-- Animated gradient blobs -->
+			<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
+			<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-400/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+
+			<!-- Grid pattern overlay -->
+			<div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(76, 214, 192, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(76, 214, 192, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+		</div>
+
+		<!-- Gradient overlay -->
+		<div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black pointer-events-none"></div>
+
+		<!-- Content -->
+		<div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+			<!-- 404 Number with glow effect -->
+			<div class="relative mb-8">
+				<h1 class="text-[10rem] md:text-[15rem] lg:text-[20rem] font-extrabold leading-none tracking-tighter">
+					<span class="relative inline-block">
+						<!-- Glow layers -->
+						<span class="absolute inset-0 text-teal-400 blur-2xl opacity-50" aria-hidden="true">404</span>
+						<span class="absolute inset-0 text-teal-300 blur-xl opacity-70" aria-hidden="true">404</span>
+						<!-- Main text -->
+						<span class="relative bg-gradient-to-b from-teal-300 via-teal-400 to-teal-500 bg-clip-text text-transparent">404</span>
+					</span>
+				</h1>
+
+				<!-- Decorative line -->
+				<div class="absolute left-1/2 -translate-x-1/2 -bottom-4 w-64 h-[2px] bg-gradient-to-r from-transparent via-teal-400 to-transparent"></div>
+			</div>
+
+			<!-- Message -->
+			<div class="space-y-4 mb-12">
+				<h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight">
+					Página no encontrada
+				</h2>
+				<p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+					Lo sentimos, la página que buscas no existe o ha sido movida.
+					<span class="block mt-2 text-teal-300">Pero no te preocupes, podemos ayudarte a encontrar lo que necesitas.</span>
+				</p>
+			</div>
+
+			<!-- CTA Buttons -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+				<!-- Primary button -->
+				<a
+					href="/"
+					class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-black bg-gradient-to-r from-teal-300 to-teal-400 rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(76,214,192,0.5)] hover:scale-105"
+				>
+					<span class="relative z-10 flex items-center gap-2">
+						<svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+						</svg>
+						Volver al inicio
+					</span>
+					<!-- Hover effect -->
+					<div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+				</a>
+
+				<!-- Secondary button -->
+				<a
+					href="#pricing"
+					class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-white/5 backdrop-blur-sm rounded-full border border-teal-400/30 overflow-hidden transition-all duration-300 hover:border-teal-400/60 hover:bg-white/10"
+				>
+					<span class="relative z-10 flex items-center gap-2">
+						Ver servicios
+						<svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+						</svg>
+					</span>
+				</a>
+			</div>
+
+			<!-- Additional help text -->
+			<div class="mt-16 pt-8 border-t border-teal-400/10">
+				<p class="text-sm text-gray-500">
+					¿Necesitas ayuda?
+					<a href="/#pricing" class="text-teal-400 hover:text-teal-300 transition-colors underline underline-offset-4">
+						Contáctanos
+					</a>
+				</p>
+			</div>
+		</div>
+
+		<!-- Floating particles effect -->
+		<div class="absolute inset-0 pointer-events-none overflow-hidden">
+			<div class="particle particle-1"></div>
+			<div class="particle particle-2"></div>
+			<div class="particle particle-3"></div>
+			<div class="particle particle-4"></div>
+			<div class="particle particle-5"></div>
+		</div>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	/* Particle animation */
+	.particle {
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		background: radial-gradient(circle, rgba(76, 214, 192, 0.8) 0%, transparent 70%);
+		border-radius: 50%;
+		animation: float 20s infinite;
+		opacity: 0;
+	}
+
+	.particle-1 {
+		left: 20%;
+		top: 20%;
+		animation-delay: 0s;
+		animation-duration: 15s;
+	}
+
+	.particle-2 {
+		left: 80%;
+		top: 40%;
+		animation-delay: 3s;
+		animation-duration: 18s;
+	}
+
+	.particle-3 {
+		left: 50%;
+		top: 60%;
+		animation-delay: 6s;
+		animation-duration: 22s;
+	}
+
+	.particle-4 {
+		left: 30%;
+		top: 80%;
+		animation-delay: 9s;
+		animation-duration: 20s;
+	}
+
+	.particle-5 {
+		left: 70%;
+		top: 70%;
+		animation-delay: 12s;
+		animation-duration: 16s;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0) translateX(0) scale(1);
+			opacity: 0;
+		}
+		10% {
+			opacity: 1;
+		}
+		50% {
+			transform: translateY(-100px) translateX(50px) scale(1.5);
+			opacity: 0.8;
+		}
+		90% {
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(-200px) translateX(-30px) scale(0.5);
+			opacity: 0;
+		}
+	}
+
+	/* Pulse animation for gradient blobs */
+	@keyframes pulse {
+		0%, 100% {
+			opacity: 0.3;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.5;
+			transform: scale(1.1);
+		}
+	}
+
+	/* Responsive adjustments */
+	@media (max-width: 768px) {
+		.particle {
+			display: none;
+		}
+	}
+</style>
