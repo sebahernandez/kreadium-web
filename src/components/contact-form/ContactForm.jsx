@@ -109,19 +109,7 @@ const ContactForm = () => {
     <div className="container mx-auto max-w-7xl pt-8 md:pt-10 lg:pt-12 pb-16 md:pb-20 lg:pb-24 px-6" id="contact">
       <style>{contactFormStyles}</style>
       {/* Header Section */}
-      <div className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase">
-          ¿Listo para crear algo{" "}
-          <span className="bg-gradient-to-r from-[#4CD6C0] to-[#09b397] bg-clip-text text-transparent">
-            increíble
-          </span>
-          ?
-        </h2>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          Cuéntanos sobre tu proyecto y trabajemos juntos para hacerlo realidad.
-        </p>
-      </div>
-
+  
       <div className="flex flex-col lg:flex-row gap-12">
         {/* Left Column - Benefits */}
         <div className="lg:w-2/5 space-y-8">

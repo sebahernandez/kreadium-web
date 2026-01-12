@@ -10,7 +10,7 @@ const comments = testimonials.comments;
 };
 ---
 
-<section class="relative py-16 md:py-20 lg:py-24 overflow-hidden" id="testimonials">
+<section class="relative py-20 md:py-28 overflow-hidden" id="testimonials">
   <!-- Efectos de fondo sutiles -->
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(76,214,192,0.03)] to-transparent"></div>
   <div class="absolute top-10 left-4 md:top-20 md:left-10 w-12 h-12 md:w-20 md:h-20 bg-[#4CD6C0] opacity-[0.08] rounded-full blur-[60px] md:blur-[80px]"></div>
@@ -20,17 +20,6 @@ const comments = testimonials.comments;
   <div class="container mx-auto max-w-7xl px-6 relative z-10">
     <!-- Header mejorado -->
     <div class="max-w-3xl mx-auto text-center mb-20 md:mb-28">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
-      <BlurText
-        text="Lo que dicen nuestros clientes"
-        delay={150}
-        animateBy="words"
-        direction="top"
-        onAnimationComplete={handleAnimationComplete}
-        className="text-2xl md:text-5xl mb-8 text-center uppercase font-bold"
-        client:load
-      />
-      </h2>
       <p class="text-gray-300 text-lg max-w-3xl mx-auto">
         Miles de empresas confían en nosotros para crear experiencias digitales excepcionales.
       </p>

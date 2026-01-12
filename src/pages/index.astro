@@ -1,21 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import ServicesItems from '../components/ServicesItems.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Pricing from '../components/Pricing.astro';
-import ContactForm from '../components/contact-form/ContactForm';
-import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import DarkVeil from '../components/dark-veil/DarkVeil';
-import Ecommerce from '../components/Ecommerce.astro';
-import Integrations from '../components/Integrations.astro';
-import Services from '../components/Services.astro';
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 import TechLogos from '../components/TechLogos';
-
-const techLogos = null;
 ---
 
 <style>
@@ -199,11 +189,8 @@ const techLogos = null;
 </style>
 
 <Layout title="Kreadium | Desarrollo Web Profesional en Chile - WordPress & Shopify">
-	<Header />
-
 	<!-- Vista desktop: Galaxy Hero -->
-	<div class="hidden md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden" id="galaxy-container">
-
+	<div id="inicio" class="hidden md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden scroll-mt-20 md:scroll-mt-24">
 		<DarkVeil client:only
 		hueShift={54}
 		noiseIntensity={0.15}
@@ -222,7 +209,7 @@ const techLogos = null;
 	</div>
 
 	<!-- Vista mobile: Hero sin Galaxy -->
-	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black" id="galaxy-container">
+	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black scroll-mt-20 md:scroll-mt-24">
 		 <Hero />
 		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
 	</div>
@@ -245,53 +232,82 @@ const techLogos = null;
 	<!-- Subtle border divider -->
 	<div class="section-divider-border"></div>
 
-	<!-- Services Section -->
-	<div class="section-divider-bg-shift">
-		<Services />
-	</div>
+	<!-- CTA Section - Explore More -->
+	<section id="explorar" class="relative py-20 md:py-32 overflow-hidden scroll-mt-20 md:scroll-mt-24">
+		<div class="absolute inset-0">
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-3xl"></div>
+		</div>
 
-	<!-- Double line divider -->
-	<div class="section-divider-double"></div>
+		<div class="container mx-auto max-w-6xl px-4 relative z-10">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+					Descubre Todo lo que <span class="text-teal-300">Podemos Hacer</span>
+				</h2>
+				<p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+					Desde sitios web corporativos hasta tiendas en línea completas, tenemos la solución perfecta para tu negocio
+				</p>
+			</div>
 
-	<!-- E-commerce Section -->
-	<div class="section-divider-glow">
-		<Ecommerce />
-	</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<!-- Services Card -->
+				<a href="/servicios" class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Servicios</h3>
+					<p class="text-gray-400 text-sm">Desarrollo web completo y soluciones digitales</p>
+				</a>
 
-	<!-- Spotlight divider -->
-	<div class="section-divider-spotlight"></div>
+				<!-- E-commerce Card -->
+				<a href="/ecommerce" class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">E-commerce</h3>
+					<p class="text-gray-400 text-sm">Tiendas online que convierten visitantes en clientes</p>
+				</a>
 
-	<!-- Integrations Section -->
-	<Integrations />
+				<!-- Testimonials Card -->
+				<a href="/testimonios" class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Testimonios</h3>
+					<p class="text-gray-400 text-sm">Casos de éxito de nuestros clientes</p>
+				</a>
 
-	<!-- Gradient divider -->
-	<div class="section-divider-gradient"></div>
+				<!-- Contact Card -->
+				<a href="/contacto" class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Contacto</h3>
+					<p class="text-gray-400 text-sm">Cotiza gratis tu proyecto en 24 horas</p>
+				</a>
+			</div>
 
-	<!-- Testimonials Section -->
-	<div class="section-divider-glow">
-		<Testimonials />
-	</div>
-
-	<!-- Border divider -->
-	<div class="section-divider-border"></div>
-
-	<!-- Pricing Section -->
-	<div class="section-divider-bg-shift">
-		<Pricing />
-	</div>
-
-	<!-- Dots divider -->
-	<div class="section-divider-dots"></div>
-
-	<!-- Contact Form Section -->
-	<div class="section-divider-glow">
-		<ContactForm client:only/>
-	</div>
-
-	<!-- Footer with subtle top border -->
-	<div class="section-divider-border section-divider-glow-bottom">
-		<Footer />
-	</div>
+			<!-- Main CTA -->
+			<div class="mt-16 text-center">
+				<a
+					href="/precios"
+					class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-black bg-gradient-to-r from-teal-300 to-teal-400 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(76,214,192,0.5)] hover:scale-105"
+				>
+					Ver Planes y Precios
+					<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
 
 	<SpeedInsights />
 	<Analytics />

@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import WhatsappButton from "../components/buttons/WhatsappButton.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -144,8 +146,9 @@ const { title } = Astro.props;
 		</head>
 	<body>
 		<WhatsappButton />
+		<Header />
 		<slot />
-
+		<Footer />
 
 		<!-- Google Tag Manager (noscript) -->
 			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WJQJBJW"

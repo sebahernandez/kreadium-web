@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Pricing from '../components/Pricing.astro';
+import ContactForm from '../components/contact-form/ContactForm';
+import SpeedInsights from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
+---
+
+<style>
+	.section-divider-gradient {
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	.section-divider-gradient::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 1400px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.1) 15%,
+			rgba(76, 214, 192, 0.2) 50%,
+			rgba(76, 214, 192, 0.1) 85%,
+			transparent 100%
+		);
+	}
+
+	.section-divider-border {
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+		box-shadow:
+			0 1px 0 rgba(76, 214, 192, 0.05),
+			0 -1px 40px rgba(76, 214, 192, 0.02);
+	}
+
+	.section-divider-bg-shift {
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			rgba(76, 214, 192, 0.008) 50%,
+			transparent 100%
+		);
+		padding: 80px 0;
+	}
+
+	.section-divider-glow {
+		position: relative;
+		padding-top: 1px;
+	}
+
+	.section-divider-glow::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 800px;
+		height: 120px;
+		background: radial-gradient(
+			ellipse at top,
+			rgba(76, 214, 192, 0.08) 0%,
+			rgba(76, 214, 192, 0.03) 30%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	.page-hero {
+		position: relative;
+		padding: 140px 0 80px;
+		background: linear-gradient(to bottom, rgba(76, 214, 192, 0.05) 0%, transparent 100%);
+	}
+
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 120px 0 60px;
+		}
+	}
+
+	.page-hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 600px;
+		height: 400px;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(76, 214, 192, 0.15) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+</style>
+
+<Layout title="Precios y Planes | Kreadium - Cotiza tu Proyecto Web">
+	<!-- Gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Pricing Section -->
+	<div class="section-divider-bg-shift">
+		<Pricing />
+	</div>
+
+	<!-- Border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- FAQ Section -->
+	<section id="faq" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-4xl px-6">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+					Preguntas Frecuentes
+				</h2>
+				<p class="text-lg text-gray-400">
+					Respuestas a las consultas más comunes sobre nuestros servicios
+				</p>
+			</div>
+
+			<div class="space-y-6">
+				<!-- FAQ Item -->
+				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
+						¿Cuánto tiempo toma desarrollar un sitio web?
+						<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<p class="mt-4 text-gray-400 leading-relaxed">
+						Un sitio web informativo toma entre 2-4 semanas. Una tienda e-commerce puede tomar de 4-8 semanas dependiendo de la complejidad y funcionalidades requeridas.
+					</p>
+				</details>
+
+				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
+						¿Incluye hosting y dominio?
+						<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<p class="mt-4 text-gray-400 leading-relaxed">
+						Sí, todos nuestros planes incluyen hosting por el primer año. El dominio .cl está incluido, dominios internacionales tienen un costo adicional.
+					</p>
+				</details>
+
+				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
+						¿Ofrecen soporte post-lanzamiento?
+						<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<p class="mt-4 text-gray-400 leading-relaxed">
+						Absolutamente. Incluimos 30 días de soporte gratuito post-lanzamiento. También ofrecemos planes de mantenimiento mensual para actualizaciones y mejoras continuas.
+					</p>
+				</details>
+
+				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
+						¿Puedo actualizar mi plan después?
+						<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<p class="mt-4 text-gray-400 leading-relaxed">
+						Por supuesto. Nuestras soluciones son escalables. Puedes comenzar con un sitio básico y agregar funcionalidades como e-commerce, integraciones o secciones adicionales cuando lo necesites.
+					</p>
+				</details>
+
+				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
+						¿Qué métodos de pago aceptan?
+						<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<p class="mt-4 text-gray-400 leading-relaxed">
+						Aceptamos transferencias bancarias, tarjetas de crédito/débito vía Flow, y podemos ofrecer planes de pago fraccionado para proyectos grandes.
+					</p>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- Gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Contact Form Section -->
+	<div class="section-divider-glow">
+		<ContactForm client:only />
+	</div>
+
+	<SpeedInsights />
+	<Analytics />
+</Layout>

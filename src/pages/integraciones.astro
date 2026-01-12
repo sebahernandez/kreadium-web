@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Integrations from '../components/Integrations.astro';
+import SpeedInsights from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
+---
+
+<style>
+	/* Vercel-style Professional Section Dividers */
+	.section-divider-gradient {
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	.section-divider-gradient::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 1400px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.1) 15%,
+			rgba(76, 214, 192, 0.2) 50%,
+			rgba(76, 214, 192, 0.1) 85%,
+			transparent 100%
+		);
+	}
+
+	.section-divider-border {
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+		box-shadow:
+			0 1px 0 rgba(76, 214, 192, 0.05),
+			0 -1px 40px rgba(76, 214, 192, 0.02);
+	}
+
+	.page-hero {
+		position: relative;
+		padding: 140px 0 80px;
+		background: linear-gradient(to bottom, rgba(76, 214, 192, 0.05) 0%, transparent 100%);
+	}
+
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 120px 0 60px;
+		}
+	}
+
+	.page-hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 600px;
+		height: 400px;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(76, 214, 192, 0.15) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	/* Gradient text styles */
+	.gradient-text {
+		background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: inherit;
+		-webkit-font-synthesis: weight;
+		font-synthesis: weight;
+	}
+
+	/* Mobile fix: Use solid colors instead of gradients to preserve font-weight */
+	@media (max-width: 768px) {
+		.gradient-text {
+			-webkit-text-fill-color: currentColor;
+			background: none;
+			-webkit-background-clip: unset;
+			background-clip: unset;
+			color: #e5e5e5;
+		}
+	}
+</style>
+
+<Layout title="Integraciones de Pago | Kreadium - Flow, Mercado Pago, Webpay">
+	<!-- Page Hero Section -->
+	<section id="integraciones" class="page-hero scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-7xl px-6 text-center relative z-10">
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
+				 style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+				Integraciones
+			</div>
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+				<span class="text-white">Pasarelas de pago</span>
+				<br />
+				<span class="gradient-text">conectadas y listas</span>
+			</h1>
+			<p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+				Conectamos tu tienda con las principales plataformas de pago en Chile y Latinoamérica.
+			</p>
+		</div>
+	</section>
+
+	<!-- Gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Integrations Section -->
+	<Integrations />
+
+	<!-- Border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- Benefits Section -->
+	<section id="beneficios" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-7xl px-6">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+					Beneficios de Nuestras Integraciones
+				</h2>
+				<p class="text-lg text-gray-400 max-w-2xl mx-auto">
+					Soluciones de pago seguras, rápidas y adaptadas al mercado chileno
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Benefit 1 -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Pagos Seguros</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Todas las transacciones están protegidas con certificados SSL y cumplen con estándares PCI DSS
+					</p>
+				</div>
+
+				<!-- Benefit 2 -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Procesamiento Rápido</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Confirmaciones instantáneas y acreditación automática para una mejor experiencia de usuario
+					</p>
+				</div>
+
+				<!-- Benefit 3 -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Múltiples Métodos</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Tarjetas de crédito, débito, transferencias y medios de pago alternativos
+					</p>
+				</div>
+
+				<!-- Benefit 4 -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Protección Antifraude</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Sistemas avanzados de detección de fraude y verificación de transacciones
+					</p>
+				</div>
+
+				<!-- Benefit 5 -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Reportes Detallados</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Dashboards con métricas de ventas, conciliación automática y reportería completa
+					</p>
+				</div>
+
+				<!-- Benefit 6 -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Comisiones Competitivas</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Negociamos las mejores tarifas con las pasarelas para maximizar tu rentabilidad
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- CTA Section -->
+	<section id="cta-integraciones" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-4xl px-6 text-center">
+			<div class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent">
+				<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+					¿Necesitas integrar pagos en tu sitio?
+				</h2>
+				<p class="text-gray-400 mb-8 text-lg">
+					Implementamos la pasarela de pago ideal para tu negocio
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/contacto"
+						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors">
+						Solicitar Integración
+						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+						</svg>
+					</a>
+					<a href="/precios"
+						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+						Ver Precios
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<SpeedInsights />
+	<Analytics />
+</Layout>

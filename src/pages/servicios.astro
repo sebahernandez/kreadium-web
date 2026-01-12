@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Services from '../components/Services.astro';
+import SpeedInsights from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
+---
+
+<style>
+	/* Vercel-style Professional Section Dividers */
+	.section-divider-gradient {
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	.section-divider-gradient::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 1400px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.1) 15%,
+			rgba(76, 214, 192, 0.2) 50%,
+			rgba(76, 214, 192, 0.1) 85%,
+			transparent 100%
+		);
+	}
+
+	.section-divider-glow {
+		position: relative;
+		padding-top: 1px;
+	}
+
+	.section-divider-glow::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 800px;
+		height: 120px;
+		background: radial-gradient(
+			ellipse at top,
+			rgba(76, 214, 192, 0.08) 0%,
+			rgba(76, 214, 192, 0.03) 30%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	.section-divider-border {
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+		box-shadow:
+			0 1px 0 rgba(76, 214, 192, 0.05),
+			0 -1px 40px rgba(76, 214, 192, 0.02);
+	}
+
+	.section-divider-bg-shift {
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			rgba(76, 214, 192, 0.008) 50%,
+			transparent 100%
+		);
+		padding: 80px 0;
+	}
+
+	/* Page Header Hero */
+	.page-hero {
+		position: relative;
+		padding: 180px 0 80px;
+		background: linear-gradient(to bottom, rgba(76, 214, 192, 0.05) 0%, transparent 100%);
+	}
+
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 140px 0 60px;
+		}
+	}
+
+	.page-hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 600px;
+		height: 400px;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(76, 214, 192, 0.15) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	/* Gradient text styles */
+	.gradient-text {
+		background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: inherit;
+		-webkit-font-synthesis: weight;
+		font-synthesis: weight;
+	}
+
+	/* Mobile fix: Use solid colors instead of gradients to preserve font-weight */
+	@media (max-width: 768px) {
+		.gradient-text {
+			-webkit-text-fill-color: currentColor;
+			background: none;
+			-webkit-background-clip: unset;
+			background-clip: unset;
+			color: #e5e5e5;
+		}
+	}
+</style>
+
+<Layout title="Servicios de Desarrollo Web | Kreadium - Soluciones Digitales Profesionales">
+
+	<!-- Page Hero Section -->
+	<section id="servicios-hero" class="page-hero scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-7xl px-6 text-center relative z-10">
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
+				 style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+				Servicios
+			</div>
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+				<span class="text-white">Desarrollo web profesional</span>
+				<br />
+				<span class="gradient-text">para cada negocio</span>
+			</h1>
+			<p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+				Construimos sitios web de alto rendimiento con tecnología moderna. Desde landing pages hasta e-commerce completo.
+			</p>
+		</div>
+	</section>
+
+	<!-- Subtle gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Services Section -->
+		<Services />
+
+	<!-- CTA Section -->
+	<section id="cta-servicios" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-4xl px-6 text-center">
+			<div class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent">
+				<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+					¿Listo para comenzar tu proyecto?
+				</h2>
+				<p class="text-gray-400 mb-8 text-lg">
+					Contáctanos y descubre cómo podemos ayudarte a alcanzar tus objetivos digitales
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/precios"
+						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors">
+						Ver Precios
+						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+						</svg>
+					</a>
+					<a href="/contacto"
+						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+						Contactar
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<SpeedInsights />
+	<Analytics />
+</Layout>

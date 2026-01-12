@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Ecommerce from '../components/Ecommerce.astro';
+import SpeedInsights from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
+---
+
+<style>
+	/* Vercel-style Professional Section Dividers */
+	.section-divider-gradient {
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	.section-divider-gradient::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100%;
+		max-width: 1400px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.1) 15%,
+			rgba(76, 214, 192, 0.2) 50%,
+			rgba(76, 214, 192, 0.1) 85%,
+			transparent 100%
+		);
+	}
+
+	.section-divider-border {
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+		box-shadow:
+			0 1px 0 rgba(76, 214, 192, 0.05),
+			0 -1px 40px rgba(76, 214, 192, 0.02);
+	}
+
+	.page-hero {
+		position: relative;
+		padding: 140px 0 80px;
+		background: linear-gradient(to bottom, rgba(76, 214, 192, 0.05) 0%, transparent 100%);
+	}
+
+	@media (max-width: 768px) {
+		.page-hero {
+			padding: 120px 0 60px;
+		}
+	}
+
+	.page-hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 600px;
+		height: 400px;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(76, 214, 192, 0.15) 0%,
+			transparent 70%
+		);
+		pointer-events: none;
+	}
+
+	/* Gradient text styles */
+	.gradient-text {
+		background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: inherit;
+		-webkit-font-synthesis: weight;
+		font-synthesis: weight;
+	}
+
+	/* Mobile fix: Use solid colors instead of gradients to preserve font-weight */
+	@media (max-width: 768px) {
+		.gradient-text {
+			-webkit-text-fill-color: currentColor;
+			background: none;
+			-webkit-background-clip: unset;
+			background-clip: unset;
+			color: #e5e5e5;
+		}
+	}
+</style>
+
+<Layout title="E-commerce y Tiendas Online | Kreadium - Soluciones Shopify y WordPress">
+	<!-- Page Hero Section -->
+	<section id="ecommerce" class="page-hero scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-7xl px-6 text-center relative z-10">
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
+				 style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+				E-commerce
+			</div>
+			<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
+				<span class="text-white">Tiendas online</span>
+				<br />
+				<span class="gradient-text">que venden más</span>
+			</h1>
+			<p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+				Desarrollamos soluciones e-commerce personalizadas que impulsan tus ventas y hacen crecer tu negocio.
+			</p>
+		</div>
+	</section>
+
+	<!-- Gradient divider -->
+	<div class="section-divider-gradient"></div>
+
+	<!-- Ecommerce Section -->
+	<Ecommerce />
+
+	<!-- Border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- Use Cases Section -->
+	<section id="casos-uso" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-7xl px-6">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+					Casos de Uso
+				</h2>
+				<p class="text-lg text-gray-400 max-w-2xl mx-auto">
+					Soluciones e-commerce para diferentes industrias y necesidades
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Fashion & Retail -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Moda y Retail</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Catálogos visuales, gestión de inventario, múltiples variantes y tallas
+					</p>
+				</div>
+
+				<!-- Food & Delivery -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Alimentos y Delivery</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Menús digitales, pedidos en línea, integración con delivery y reservas
+					</p>
+				</div>
+
+				<!-- Digital Products -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Productos Digitales</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Venta de cursos, ebooks, software, descargas automáticas y licencias
+					</p>
+				</div>
+
+				<!-- Beauty & Wellness -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Belleza y Bienestar</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Productos de belleza, reservas de servicios, membresías y suscripciones
+					</p>
+				</div>
+
+				<!-- Tech & Electronics -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Tecnología y Electrónica</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Especificaciones técnicas, comparadores de productos, garantías extendidas
+					</p>
+				</div>
+
+				<!-- Handmade & Crafts -->
+				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3">Artesanías y Hechos a Mano</h3>
+					<p class="text-gray-400 leading-relaxed">
+						Productos únicos, personalización, historias de artesanos, pedidos custom
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Border divider -->
+	<div class="section-divider-border"></div>
+
+	<!-- CTA Section -->
+	<section id="cta-ecommerce" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+		<div class="container mx-auto max-w-4xl px-6 text-center">
+			<div class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent">
+				<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+					¿Listo para lanzar tu tienda online?
+				</h2>
+				<p class="text-gray-400 mb-8 text-lg">
+					Agenda una consulta gratuita y descubre cómo podemos ayudarte
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/precios"
+						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors">
+						Ver Planes E-commerce
+						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+						</svg>
+					</a>
+					<a href="/contacto"
+						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+						Contactar
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<SpeedInsights />
+	<Analytics />
+</Layout>
