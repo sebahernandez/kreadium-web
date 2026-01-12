@@ -2,7 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="404 - Página no encontrada | Kreadium">
+<Layout
+	title="404 - Página no encontrada | Kreadium"
+	description="Lo sentimos, la página que buscas no existe. Explora nuestros servicios de desarrollo web o contacta con nosotros para ayudarte."
+	noindex={true}
+>
 	<main id="error-404" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black scroll-mt-20 md:scroll-mt-24">
 		<!-- Background animated effects -->
 		<div class="absolute inset-0 overflow-hidden">

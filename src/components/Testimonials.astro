@@ -42,6 +42,35 @@ const comments = testimonials.comments;
     <!-- Carousel mejorado -->
     <CommentCarousel comments={comments} client:load />
   </div>
+
+  <!-- Structured Data - Reviews Schema -->
+  <script is:inline type="application/ld+json" define:vars={{ comments }}>
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kreadium SpA",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": comments.length,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": comments.map((comment) => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": comment.name
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": comment.rating.toString(),
+        "bestRating": "5"
+      },
+      "reviewBody": comment.description
+    }))
+  }
+  </script>
 </section>
 
 

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Pricing from '../components/Pricing.astro';
 import ContactForm from '../components/contact-form/ContactForm';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import SpeedInsights from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 ---
@@ -101,7 +102,107 @@ import Analytics from '@vercel/analytics/astro'
 	}
 </style>
 
-<Layout title="Precios y Planes | Kreadium - Cotiza tu Proyecto Web">
+<Layout
+	title="Precios y Planes | Kreadium - Cotiza tu Proyecto Web"
+	description="Planes desde $150.900. Landing pages, sitios corporativos y tiendas e-commerce. Hosting incluido, SSL gratis, soporte 24/7. Sin costos ocultos."
+	ogTitle="Precios y Planes | Kreadium - Cotiza tu Proyecto Web"
+	ogDescription="Planes desde $150.900. Landing pages, sitios corporativos y tiendas e-commerce. Hosting incluido, SSL gratis, soporte 24/7. Sin costos ocultos."
+	canonical="/precios"
+>
+	<!-- Structured Data - BreadcrumbList Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Inicio",
+				"item": "https://kreadium.cl/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Precios",
+				"item": "https://kreadium.cl/precios"
+			}
+		]
+	}
+	</script>
+
+	<!-- Structured Data - Pricing/Offers Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"item": {
+					"@type": "Product",
+					"name": "Plan Landing Page",
+					"description": "1 landing page optimizada con hosting y SSL incluido por 1 año",
+					"offers": {
+						"@type": "Offer",
+						"price": "150900",
+						"priceCurrency": "CLP",
+						"availability": "https://schema.org/InStock",
+						"seller": {
+							"@type": "Organization",
+							"name": "Kreadium SpA"
+						}
+					}
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"item": {
+					"@type": "Product",
+					"name": "Plan Corporativo",
+					"description": "Sitio web completo con 5-7 secciones, SEO avanzado y soporte 24/7",
+					"offers": {
+						"@type": "Offer",
+						"price": "360000",
+						"priceCurrency": "CLP",
+						"availability": "https://schema.org/InStock",
+						"seller": {
+							"@type": "Organization",
+							"name": "Kreadium SpA"
+						}
+					}
+				}
+			},
+			{
+				"@type": "ListItem",
+				"position": 3,
+				"item": {
+					"@type": "Product",
+					"name": "Plan E-commerce",
+					"description": "Tienda online completa con Shopify, pasarela de pago y capacitación",
+					"offers": {
+						"@type": "Offer",
+						"price": "590000",
+						"priceCurrency": "CLP",
+						"availability": "https://schema.org/InStock",
+						"seller": {
+							"@type": "Organization",
+							"name": "Kreadium SpA"
+						}
+					}
+				}
+			}
+		]
+	}
+	</script>
+
+	<!-- Breadcrumb Navigation -->
+	<Breadcrumb items={[
+		{ label: 'Precios', href: '/precios' }
+	]} />
+
 	<!-- Gradient divider -->
 	<div class="section-divider-gradient"></div>
 

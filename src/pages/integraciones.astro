@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Integrations from '../components/Integrations.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import SpeedInsights from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 ---
@@ -90,7 +91,40 @@ import Analytics from '@vercel/analytics/astro'
 	}
 </style>
 
-<Layout title="Integraciones de Pago | Kreadium - Flow, Mercado Pago, Webpay">
+<Layout
+	title="Integraciones de Pago | Kreadium - Flow, Mercado Pago, Webpay"
+	description="Integramos pasarelas de pago en Chile: Flow, Mercado Pago, Webpay, Fintoc. Checkout seguro, múltiples métodos de pago y comisiones competitivas."
+	ogTitle="Integraciones de Pago | Kreadium - Flow, Mercado Pago, Webpay"
+	ogDescription="Integramos pasarelas de pago en Chile: Flow, Mercado Pago, Webpay, Fintoc. Checkout seguro, múltiples métodos de pago y comisiones competitivas."
+	canonical="/integraciones"
+>
+	<!-- Structured Data - BreadcrumbList Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Inicio",
+				"item": "https://kreadium.cl/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Integraciones",
+				"item": "https://kreadium.cl/integraciones"
+			}
+		]
+	}
+	</script>
+
+	<!-- Breadcrumb Navigation -->
+	<Breadcrumb items={[
+		{ label: 'Integraciones', href: '/integraciones' }
+	]} />
+
 	<!-- Page Hero Section -->
 	<section id="integraciones" class="page-hero scroll-mt-20 md:scroll-mt-24">
 		<div class="container mx-auto max-w-7xl px-6 text-center relative z-10">

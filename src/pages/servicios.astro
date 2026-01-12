@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Services from '../components/Services.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import SpeedInsights from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 ---
@@ -124,7 +125,92 @@ import Analytics from '@vercel/analytics/astro'
 	}
 </style>
 
-<Layout title="Servicios de Desarrollo Web | Kreadium - Soluciones Digitales Profesionales">
+<Layout
+	title="Servicios de Desarrollo Web | Kreadium - Soluciones Digitales Profesionales"
+	description="Desarrollo web completo: landing pages, sitios corporativos, e-commerce. Hosting incluido, SSL, SEO optimizado y soporte 24/7. Cotiza tu proyecto gratis."
+	ogTitle="Servicios de Desarrollo Web | Kreadium - Soluciones Digitales Profesionales"
+	ogDescription="Desarrollo web completo: landing pages, sitios corporativos, e-commerce. Hosting incluido, SSL, SEO optimizado y soporte 24/7. Cotiza tu proyecto gratis."
+	canonical="/servicios"
+>
+	<!-- Structured Data - BreadcrumbList Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": 1,
+				"name": "Inicio",
+				"item": "https://kreadium.cl/"
+			},
+			{
+				"@type": "ListItem",
+				"position": 2,
+				"name": "Servicios",
+				"item": "https://kreadium.cl/servicios"
+			}
+		]
+	}
+	</script>
+
+	<!-- Structured Data - Service Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Service",
+		"serviceType": "Desarrollo Web",
+		"provider": {
+			"@type": "Organization",
+			"name": "Kreadium SpA"
+		},
+		"areaServed": {
+			"@type": "Country",
+			"name": "Chile"
+		},
+		"hasOfferCatalog": {
+			"@type": "OfferCatalog",
+			"name": "Servicios de Desarrollo Web",
+			"itemListElement": [
+				{
+					"@type": "Offer",
+					"itemOffered": {
+						"@type": "Service",
+						"name": "Landing Page",
+						"description": "Desarrollo de landing page optimizada"
+					},
+					"price": "150900",
+					"priceCurrency": "CLP"
+				},
+				{
+					"@type": "Offer",
+					"itemOffered": {
+						"@type": "Service",
+						"name": "Sitio Corporativo",
+						"description": "Sitio web corporativo completo"
+					},
+					"price": "360000",
+					"priceCurrency": "CLP"
+				},
+				{
+					"@type": "Offer",
+					"itemOffered": {
+						"@type": "Service",
+						"name": "E-commerce",
+						"description": "Tienda online con Shopify"
+					},
+					"price": "590000",
+					"priceCurrency": "CLP"
+				}
+			]
+		}
+	}
+	</script>
+
+	<!-- Breadcrumb Navigation -->
+	<Breadcrumb items={[
+		{ label: 'Servicios', href: '/servicios' }
+	]} />
 
 	<!-- Page Hero Section -->
 	<section id="servicios-hero" class="page-hero scroll-mt-20 md:scroll-mt-24">
