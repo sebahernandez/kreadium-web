@@ -10,7 +10,7 @@ const {text} = Astro.props;
   </a>
 </div> -->
 
-<a href="/precios" class="text-black text-heading rounded-full bg-gradient-to-r from-teal-200 to-teal-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-teal-400 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+<a href="/precios" class="text-black text-heading rounded-full bg-gradient-to-r from-teal-200 to-teal-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-teal-400  dark:focus:ring-teal-700 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
   <span class="button-text">PRECIOS</span>
 </a>
 
@@ -73,6 +73,9 @@ const {text} = Astro.props;
     background: linear-gradient(to right, transparent 1%, rgba(255, 26, 26, 0.3) 40%, rgba(255, 26, 26, 0.3) 60%, transparent 100%);
     pointer-events: none;
     z-index: 5;
+    /* Optimización de rendimiento - propiedades compuestas */
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .button:hover:before {
@@ -102,6 +105,10 @@ const {text} = Astro.props;
       70px 30px;
     animation: snowfall-slow 12s linear infinite;
     opacity: 0.95;
+    /* Optimización de rendimiento - propiedades compuestas */
+    will-change: transform, opacity;
+    contain: layout style paint;
+    transform: translateZ(0);
   }
 
   /* Capa 2: Copos medianos (usando el texto wrapper como pseudo-elemento) */
@@ -125,6 +132,10 @@ const {text} = Astro.props;
       10px 70px;
     animation: snowfall-medium 8s linear infinite;
     filter: blur(0.3px);
+    /* Optimización de rendimiento - propiedades compuestas */
+    will-change: transform, opacity;
+    contain: layout style paint;
+    transform: translateZ(0);
   }
 
   /* Capa 3: Copos pequeños y rápidos (usando el texto wrapper) */
@@ -148,12 +159,16 @@ const {text} = Astro.props;
       5px 25px;
     animation: snowfall-fast 5s linear infinite;
     filter: blur(0.5px);
+    /* Optimización de rendimiento - propiedades compuestas */
+    will-change: transform, opacity;
+    contain: layout style paint;
+    transform: translateZ(0);
   }
 
-  /* Animación lenta para copos grandes - ajustada para contenedor limitado */
+  /* Animación lenta para copos grandes - OPTIMIZADA con propiedades compuestas */
   @keyframes snowfall-slow {
     0% {
-      background-position: 0px -50px, 40px 10px, 70px -20px;
+      transform: translateY(-50px) translateZ(0);
       opacity: 0;
     }
     10% {
@@ -163,15 +178,15 @@ const {text} = Astro.props;
       opacity: 0.95;
     }
     100% {
-      background-position: 15px 100px, 55px 160px, 85px 130px;
+      transform: translateY(150px) translateZ(0);
       opacity: 0;
     }
   }
 
-  /* Animación media para copos medianos - ajustada para contenedor limitado */
+  /* Animación media para copos medianos - OPTIMIZADA con propiedades compuestas */
   @keyframes snowfall-medium {
     0% {
-      background-position: 20px -40px, 50px 0px, 10px 30px;
+      transform: translateY(-40px) translateZ(0);
       opacity: 0;
     }
     10% {
@@ -181,15 +196,15 @@ const {text} = Astro.props;
       opacity: 0.85;
     }
     100% {
-      background-position: 10px 100px, 40px 140px, 0px 160px;
+      transform: translateY(140px) translateZ(0);
       opacity: 0;
     }
   }
 
-  /* Animación rápida para copos pequeños - ajustada para contenedor limitado */
+  /* Animación rápida para copos pequeños - OPTIMIZADA con propiedades compuestas */
   @keyframes snowfall-fast {
     0% {
-      background-position: 15px -30px, 35px 20px, 5px -5px;
+      transform: translateY(-30px) translateZ(0);
       opacity: 0;
     }
     15% {
@@ -199,7 +214,7 @@ const {text} = Astro.props;
       opacity: 0.7;
     }
     100% {
-      background-position: 23px 80px, 43px 120px, 13px 95px;
+      transform: translateY(110px) translateZ(0);
       opacity: 0;
     }
   }
