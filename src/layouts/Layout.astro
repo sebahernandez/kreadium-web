@@ -38,15 +38,19 @@ const {
 		<meta name="theme-color" content="#4CD6C0">
 		<meta name="msapplication-TileColor" content="#4CD6C0">
 
-		<!-- Preload critical font files for better performance -->
-		<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-		<link rel="preload" href="/fonts/Inter-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+		<!-- Preconnect to critical third-party origins (highest priority) -->
+		<link rel="preconnect" href="https://www.googletagmanager.com">
 
-		<!-- Preload critical resources -->
-		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp">
-		<link rel="dns-prefetch" href="https://www.googletagmanager.com">
-		<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous" />
+		<!-- Preload critical font files for better performance -->
+		<!-- Only preload fonts that are used above the fold -->
+		<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+		<!-- Preload critical above-the-fold resources -->
+		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp" fetchpriority="high">
+
+		<!-- DNS prefetch for other domains (lower priority) -->
+		<link rel="dns-prefetch" href="https://vercel.live">
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="geo.region" content="CL-RM">
@@ -87,16 +91,43 @@ const {
 
 		<title>{title}</title>
 
-		<!-- Google tag (gtag.js) -->
-	   <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-GTM-5WJQJBJW"></script>
-	    <!-- Google Tag Manager -->
-					<script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-					})(window,document,'script','dataLayer','GTM-5WJQJBJW');
+		<!-- Critical CSS inline for immediate rendering (eliminates render-blocking) -->
+		<style>
+			/* Minimal critical CSS for immediate paint */
+			html{font-family:system-ui,-apple-system,sans-serif;-webkit-text-size-adjust:100%}
+			body{margin:0;background:#000;color:#fff;overflow-x:hidden}
+			/* Prevent layout shift for header */
+			header{height:70px}
+			@media(min-width:768px){header{height:80px}}
+			/* Above-the-fold Hero optimization */
+			#home{min-height:100vh;display:flex;align-items:center;justify-content:center}
+		</style>
+
+		<!-- Deferred Analytics - Load after page is interactive -->
+		<script is:inline>
+			// Defer GTM and Analytics to not block rendering
+			function loadAnalytics() {
+				// Google Tag Manager
+				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','GTM-5WJQJBJW');
+			}
+
+			// Load analytics after page is interactive
+			if ('requestIdleCallback' in window) {
+				requestIdleCallback(loadAnalytics, { timeout: 2000 });
+			} else {
+				// Fallback for browsers without requestIdleCallback
+				if (document.readyState === 'complete') {
+					loadAnalytics();
+				} else {
+					window.addEventListener('load', loadAnalytics);
+				}
+			}
 		</script>
-		<!-- End Google Tag Manager -->
+		<!-- End Deferred Analytics -->
 
 		<!-- Structured Data - Organization Schema -->
 		<script is:inline type="application/ld+json">
