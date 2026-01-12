@@ -44,7 +44,10 @@ const {
 		<!-- Preload critical font files for better performance -->
 		<!-- Only preload fonts that are used above the fold -->
 		<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/Inter-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
 
 		<!-- Preload critical above-the-fold resources -->
 		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp" fetchpriority="high">
@@ -97,10 +100,13 @@ const {
 			html{font-family:system-ui,-apple-system,sans-serif;-webkit-text-size-adjust:100%}
 			body{margin:0;background:#000;color:#fff;overflow-x:hidden}
 			/* Prevent layout shift for header */
-			header{height:70px}
+			header{height:70px;contain:layout style paint}
 			@media(min-width:768px){header{height:80px}}
-			/* Above-the-fold Hero optimization */
-			#home{min-height:100vh;display:flex;align-items:center;justify-content:center}
+			/* Above-the-fold Hero optimization with fixed height to prevent CLS */
+			#home{min-height:100vh;display:flex;align-items:center;justify-content:center;contain:layout style}
+			/* Prevent divider layout shifts */
+			.section-divider-border,.section-divider-glow,.section-divider-gradient{min-height:1px;contain:layout style paint}
+			.section-divider-glow{min-height:120px}
 		</style>
 
 		<!-- Deferred Analytics - Load after page is interactive -->
@@ -219,6 +225,16 @@ const {
 	/* Custom Font Declarations - Inter Font Family */
 	/* Using WOFF2 for maximum compression and performance */
 
+	/* Fallback font adjustments to match Inter metrics and reduce layout shift */
+	@font-face {
+		font-family: 'Inter-fallback';
+		src: local('Arial');
+		ascent-override: 90%;
+		descent-override: 22%;
+		line-gap-override: 0%;
+		size-adjust: 107%;
+	}
+
 	/* Inter Regular - 400 */
 	@font-face {
 		font-family: 'Inter';
@@ -275,8 +291,8 @@ const {
 		--bg-dark: #000000;
 		--text-light: #ffffff;
 
-		/* Custom font stack - Inter with system font fallbacks */
-		--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		/* Custom font stack - Inter with adjusted fallback to minimize FOUT/CLS */
+		--font-sans: 'Inter', 'Inter-fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 		/* Font weight custom properties for consistency */
 		--font-weight-normal: 400;

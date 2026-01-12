@@ -12,6 +12,8 @@ import Analytics from '@vercel/analytics/astro'
 		position: relative;
 		padding: 0;
 		margin: 0;
+		min-height: 1px;
+		contain: layout style paint;
 	}
 
 	.section-divider-gradient::before {
@@ -19,7 +21,7 @@ import Analytics from '@vercel/analytics/astro'
 		position: absolute;
 		top: 0;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translateX(-50%) translateZ(0);
 		width: 100%;
 		max-width: 1400px;
 		height: 1px;
@@ -31,11 +33,14 @@ import Analytics from '@vercel/analytics/astro'
 			rgba(76, 214, 192, 0.1) 85%,
 			transparent 100%
 		);
+		will-change: auto;
 	}
 
 	.section-divider-glow {
 		position: relative;
 		padding-top: 1px;
+		min-height: 120px;
+		contain: layout style paint;
 	}
 
 	.section-divider-glow::before {
@@ -43,7 +48,7 @@ import Analytics from '@vercel/analytics/astro'
 		position: absolute;
 		top: 0;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translateX(-50%) translateZ(0);
 		width: 100%;
 		max-width: 800px;
 		height: 120px;
@@ -54,6 +59,7 @@ import Analytics from '@vercel/analytics/astro'
 			transparent 70%
 		);
 		pointer-events: none;
+		will-change: auto;
 	}
 
 	.section-divider-border {
@@ -61,6 +67,8 @@ import Analytics from '@vercel/analytics/astro'
 		box-shadow:
 			0 1px 0 rgba(76, 214, 192, 0.05),
 			0 -1px 40px rgba(76, 214, 192, 0.02);
+		min-height: 1px;
+		contain: layout style paint;
 	}
 
 	.section-divider-bg-shift {
@@ -71,6 +79,7 @@ import Analytics from '@vercel/analytics/astro'
 			transparent 100%
 		);
 		padding: 80px 0;
+		contain: layout style;
 	}
 
 	/* Page Header Hero */

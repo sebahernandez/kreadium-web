@@ -53,6 +53,45 @@
     background-color: rgba(255, 255, 255, 0.05);
   }
 
+  /* CLS Prevention: Section dividers with fixed dimensions */
+  .section-divider-border {
+    min-height: 1px;
+    contain: layout style paint;
+    will-change: auto;
+  }
+
+  .section-divider-glow {
+    min-height: 120px;
+    contain: layout style paint;
+    will-change: auto;
+  }
+
+  .section-divider-gradient {
+    min-height: 1px;
+    contain: layout style paint;
+    will-change: auto;
+  }
+
+  .section-divider-glow-bottom {
+    min-height: 100px;
+    contain: layout style paint;
+    will-change: auto;
+  }
+
+  .section-divider-bg-shift {
+    contain: layout style;
+  }
+
+  /* CLS Prevention: Page sections with containment */
+  section {
+    contain: layout style;
+  }
+
+  /* Optimize Hero component to prevent margin-based shifts */
+  #home {
+    contain: layout style;
+  }
+
   /* Gradient text components that preserve font weight */
   .gradient-text,
   .accent-gradient {
@@ -94,5 +133,17 @@
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     text-size-adjust: 100%;
+  }
+
+  /* CLS Prevention: Force GPU acceleration for transforms */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: auto;
+  }
+
+  /* CLS Prevention: Content visibility for below-the-fold sections */
+  .lazy-render {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
   }
 }

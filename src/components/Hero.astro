@@ -1,7 +1,14 @@
 
-<section class="absolute inset-0 flex flex-col items-center justify-center text-white text-center pointer-events-none" id="home">
+<section class="absolute inset-0 flex flex-col items-center justify-center text-white text-center pointer-events-none" id="home" style="contain: layout style;">
 
-    <div class="mt-[70px] md:mt-[100px] relative z-10">
+    <div class="relative z-10" style="padding-top: 70px; min-height: 200px;">
+    <style>
+        @media (min-width: 768px) {
+            #home > div {
+                padding-top: 100px !important;
+            }
+        }
+    </style>
         <div class="inline-block">
             <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm font-medium mb-4 md:mb-6"
                  style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
