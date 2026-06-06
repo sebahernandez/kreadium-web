@@ -227,19 +227,16 @@ const ContactForm = () => {
                   required
                 >
                   <option value="" disabled className="bg-gray-900">
-                    Selecciona un plan
+                    Selecciona un servicio
                   </option>
                   <option value="Landing" className="bg-gray-900">
-                    Landing - $150.900/1 vez
+                    Landing para producto - $150.900 (pago único)
                   </option>
                   <option value="Corporativo" className="bg-gray-900">
-                    Corporativo - $360.000/1 vez
+                    Corporativo - $460.000 (pago único)
                   </option>
                   <option value="E-commerce" className="bg-gray-900">
-                    E-commerce - $590.000/1 vez
-                  </option>
-                  <option value="Personalizado" className="bg-gray-900">
-                    Personalizado - Sitio avanzado
+                    E-commerce (Tienda Shopify) - Desde $1.199.900 (pago único)
                   </option>
                 </select>
               </div>
