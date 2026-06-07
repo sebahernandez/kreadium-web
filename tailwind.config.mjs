@@ -17,6 +17,13 @@ export default {
           '"Segoe UI Emoji"',
           '"Segoe UI Symbol"',
         ],
+        geist: [
+          'Geist',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'sans-serif',
+        ],
       },
       fontWeight: {
         // Explicitly define font weights to ensure they work across devices

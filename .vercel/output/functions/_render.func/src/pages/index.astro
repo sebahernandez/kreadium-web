@@ -1,0 +1,454 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServicesItems from '../components/ServicesItems.astro';
+import Hero from '../components/Hero.astro';
+import DarkVeil from '../components/dark-veil/DarkVeil';
+import SpeedInsights  from "@vercel/speed-insights/astro"
+import Analytics from '@vercel/analytics/astro'
+import TechLogos from '../components/TechLogos';
+---
+
+<style>
+	/* Vercel-style Professional Section Dividers */
+
+	/* Subtle gradient line divider */
+	.section-divider-gradient {
+		position: relative;
+		padding: 0;
+		margin: 0;
+		min-height: 1px;
+		contain: layout style paint;
+	}
+
+	.section-divider-gradient::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) translateZ(0);
+		width: 100%;
+		max-width: 1400px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.1) 15%,
+			rgba(76, 214, 192, 0.2) 50%,
+			rgba(76, 214, 192, 0.1) 85%,
+			transparent 100%
+		);
+		will-change: auto;
+	}
+
+	/* Radial glow divider */
+	.section-divider-glow {
+		position: relative;
+		padding-top: 1px;
+		min-height: 120px;
+		contain: layout style paint;
+	}
+
+	.section-divider-glow::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) translateZ(0);
+		width: 100%;
+		max-width: 800px;
+		height: 120px;
+		background: radial-gradient(
+			ellipse at top,
+			rgba(76, 214, 192, 0.08) 0%,
+			rgba(76, 214, 192, 0.03) 30%,
+			transparent 70%
+		);
+		pointer-events: none;
+		will-change: auto;
+	}
+
+	/* Subtle border with glow */
+	.section-divider-border {
+		border-top: 1px solid rgba(255, 255, 255, 0.03);
+		box-shadow:
+			0 1px 0 rgba(76, 214, 192, 0.05),
+			0 -1px 40px rgba(76, 214, 192, 0.02);
+		min-height: 1px;
+		contain: layout style paint;
+	}
+
+	/* Double line divider (ultra subtle) */
+	.section-divider-double {
+		position: relative;
+		padding-top: 2px;
+		min-height: 2px;
+		contain: layout style paint;
+	}
+
+	.section-divider-double::before,
+	.section-divider-double::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%) translateZ(0);
+		width: 100%;
+		max-width: 1200px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(255, 255, 255, 0.03) 20%,
+			rgba(76, 214, 192, 0.08) 50%,
+			rgba(255, 255, 255, 0.03) 80%,
+			transparent 100%
+		);
+		will-change: auto;
+	}
+
+	.section-divider-double::before {
+		top: 0;
+	}
+
+	.section-divider-double::after {
+		top: 2px;
+		opacity: 0.5;
+	}
+
+	/* Glow from bottom divider */
+	.section-divider-glow-bottom {
+		position: relative;
+		padding-bottom: 1px;
+		min-height: 20px;
+		contain: layout style paint;
+	}
+	@media (min-width: 768px) {
+		.section-divider-glow-bottom {
+			min-height: 100px;
+		}
+	}
+
+	.section-divider-glow-bottom::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%) translateZ(0);
+		width: 100%;
+		max-width: 600px;
+		height: 100px;
+		background: radial-gradient(
+			ellipse at bottom,
+			rgba(76, 214, 192, 0.06) 0%,
+			rgba(9, 179, 151, 0.03) 40%,
+			transparent 70%
+		);
+		pointer-events: none;
+		will-change: auto;
+	}
+
+	/* Subtle background transition */
+	.section-divider-bg-shift {
+		background: linear-gradient(
+			to bottom,
+			transparent 0%,
+			rgba(76, 214, 192, 0.008) 50%,
+			transparent 100%
+		);
+		padding: 80px 0;
+		contain: layout style;
+	}
+
+	/* Spotlight effect divider */
+	.section-divider-spotlight {
+		position: relative;
+		min-height: 1px;
+		contain: layout style paint;
+	}
+
+	.section-divider-spotlight::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) translateZ(0);
+		width: 600px;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(76, 214, 192, 0.25) 50%,
+			transparent 100%
+		);
+		box-shadow:
+			0 0 20px rgba(76, 214, 192, 0.1),
+			0 0 40px rgba(76, 214, 192, 0.05);
+		will-change: auto;
+	}
+
+	/* Minimal dot pattern divider */
+	.section-divider-dots {
+		position: relative;
+		padding: 20px 0;
+		min-height: 40px;
+		contain: layout style paint;
+	}
+
+	.section-divider-dots::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) translateZ(0);
+		width: 100%;
+		height: 1px;
+		background-image: radial-gradient(
+			circle,
+			rgba(76, 214, 192, 0.2) 1px,
+			transparent 1px
+		);
+		background-size: 8px 8px;
+		background-position: center;
+		background-repeat: repeat-x;
+		opacity: 0.3;
+		will-change: auto;
+	}
+
+	/* IA Badge glow effect */
+	.ia-badge {
+		background: radial-gradient(
+			ellipse at center,
+			rgba(76, 214, 192, 0.15) 0%,
+			rgba(76, 214, 192, 0.05) 50%,
+			transparent 70%
+		);
+		box-shadow:
+			0 0 30px rgba(76, 214, 192, 0.3),
+			0 0 60px rgba(76, 214, 192, 0.15),
+			inset 0 0 20px rgba(76, 214, 192, 0.1);
+		animation: iaGlow 2s ease-in-out infinite alternate;
+	}
+
+	@keyframes iaGlow {
+		0% {
+			box-shadow:
+				0 0 20px rgba(76, 214, 192, 0.2),
+				0 0 40px rgba(76, 214, 192, 0.1),
+				inset 0 0 15px rgba(76, 214, 192, 0.08);
+		}
+		100% {
+			box-shadow:
+				0 0 40px rgba(76, 214, 192, 0.4),
+				0 0 80px rgba(76, 214, 192, 0.2),
+				inset 0 0 25px rgba(76, 214, 192, 0.15);
+		}
+	}
+</style>
+
+<Layout
+	title="Kreadium | Desarrollo Web Profesional en Chile - WordPress & Shopify"
+	description="Agencia de desarrollo web en Santiago. Expertos en WordPress, Shopify y Next.js. Diseño web responsivo, SEO optimizado y soluciones e-commerce escalables."
+	ogTitle="Kreadium | Desarrollo Web Profesional en Chile - WordPress & Shopify"
+	ogDescription="Agencia de desarrollo web en Santiago. Expertos en WordPress, Shopify y Next.js. Diseño web responsivo, SEO optimizado y soluciones e-commerce escalables."
+	canonical="/"
+>
+	<!-- Vista desktop: Galaxy Hero -->
+	<div id="inicio" class="hidden md:block relative w-full md:h-[560px] lg:h-[620px] h-[560px] overflow-hidden scroll-mt-20 md:scroll-mt-24">
+		<DarkVeil client:only
+		hueShift={54}
+		noiseIntensity={0.15}
+		scanlineIntensity={0.3}
+		speed={0.5}
+		scanlineFrequency={60}
+		warpAmount={0.08}
+		resolutionScale={1}
+		/>
+		<div class="absolute inset-0 z-10">
+			<Hero />
+		</div>
+
+		<!-- Layer 4: Overlay gradient fade to black (behind text) -->
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-0"></div>
+	</div>
+
+	<!-- Vista mobile: Hero sin Galaxy -->
+	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black scroll-mt-20 md:scroll-mt-24">
+		<div class="absolute inset-0 z-10">
+			<Hero />
+		</div>
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-0"></div>
+	</div>
+
+	<!-- Tech Logos Section -->
+	<div class="relative pt-6 pb-2">
+		<div class="container mx-auto max-w-7xl">
+			<TechLogos client:only />
+		</div>
+	</div>
+
+	<!-- Glow from bottom divider -->
+	<div class="section-divider-glow-bottom"></div>
+
+	<!-- AI Integration Section -->
+	<div class="section-divider-spotlight"></div>
+	<section id="fondos-publicos" class="relative py-20 md:py-32 overflow-hidden scroll-mt-20 md:scroll-mt-24">
+		<!-- Background ambient glow -->
+		<div class="absolute inset-0 pointer-events-none">
+			<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-400/[0.04] rounded-full blur-3xl"></div>
+			<div class="absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-teal-500/[0.03] rounded-full blur-3xl"></div>
+		</div>
+
+		<div class="container mx-auto max-w-7xl px-4 relative z-10">
+			<!-- Header -->
+			<div class="text-center mb-16">
+				<div class="inline-block mb-6">
+					<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm font-medium"
+						style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+						<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+						</svg>
+						Fondos Públicos
+					</span>
+				</div>
+				<h2 class="font-geist text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-[-0.03em] leading-[1.1]">
+					Servicios para beneficiarios de <span class="text-teal-300 italic">fondos públicos</span>
+				</h2>
+				<p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+					¿Recibiste un fondo de Sercotec, FOSIS o un programa de apoyo a emprendedores? Podemos ayudarte a ejecutarlo.
+				</p>
+			</div>
+
+			<!-- Main feature highlight -->
+			<div class="rounded-2xl border border-white/[0.06] bg-white/[0.015] p-8 md:p-12 mb-8 relative overflow-hidden">
+				<div class="absolute top-0 right-0 w-[300px] h-[300px] bg-teal-400/[0.05] rounded-full blur-3xl pointer-events-none"></div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
+					<div>
+						<h3 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+							Digitaliza tu negocio <span class="text-teal-300">con nosotros.</span>
+						</h3>
+						<p class="text-gray-400 mb-6 leading-relaxed">
+							Si obtuviste financiamiento para digitalizar tu negocio, podemos ayudarte a implementar tu proyecto con soluciones web profesionales y facturables.
+						</p>
+						<p class="text-sm font-semibold text-teal-300 uppercase tracking-widest mb-4">Programas compatibles</p>
+						<ul class="space-y-3">
+							<li class="flex items-center gap-3 text-gray-300 text-sm">
+								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
+								Sercotec
+							</li>
+							<li class="flex items-center gap-3 text-gray-300 text-sm">
+								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
+								FOSIS
+							</li>
+							<li class="flex items-center gap-3 text-gray-300 text-sm">
+								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
+								CORFO
+							</li>
+							<li class="flex items-center gap-3 text-gray-300 text-sm">
+								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
+								Fondos municipales para emprendimiento
+							</li>
+							<li class="flex items-center gap-3 text-gray-300 text-sm">
+								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
+								Programas de digitalización para pymes
+							</li>
+						</ul>
+					</div>
+					<!-- Logos fondos públicos -->
+					<div class="flex flex-col items-center justify-center gap-6">
+						<div class="grid grid-cols-3 gap-4 w-full">
+							<div class="flex flex-col items-center gap-3">
+								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
+									<img src="/logos/sercotec.png" alt="Sercotec" class="w-full h-full object-contain" loading="lazy" />
+								</div>
+								<span class="text-xs text-gray-400 font-medium text-center">Sercotec</span>
+							</div>
+							<div class="flex flex-col items-center gap-3">
+								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
+									<img src="/logos/fosis.png" alt="FOSIS" class="w-full h-full object-contain" loading="lazy" />
+								</div>
+								<span class="text-xs text-gray-400 font-medium text-center">FOSIS</span>
+							</div>
+							<div class="flex flex-col items-center gap-3">
+								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
+									<img src="/logos/corfo.png" alt="CORFO" class="w-full h-full object-contain" loading="lazy" />
+								</div>
+								<span class="text-xs text-gray-400 font-medium text-center">CORFO</span>
+							</div>
+						</div>
+						<p class="text-xs text-gray-500 text-center">+ Fondos municipales y programas de digitalización</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature cards grid -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				<!-- Card 1 -->
+				<div class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/>
+						</svg>
+					</div>
+					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Facturable y rendible</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">Emitimos facturas compatibles con los requisitos de rendición de cada programa de financiamiento público.</p>
+				</div>
+
+				<!-- Card 2 -->
+				<div class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Acompañamiento completo</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">Te guiamos desde la planificación hasta la entrega final, asegurándonos de cumplir cada etapa del programa.</p>
+				</div>
+
+				<!-- Card 3 -->
+				<div class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
+					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
+						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Entrega en plazo</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">Respetamos los tiempos de ejecución exigidos por el fondo para que puedas rendir sin contratiempos.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="section-divider-gradient"></div>
+
+	<!-- CTA Section - Explore More -->
+	<section id="explorar" class="relative py-20 md:py-32 overflow-hidden scroll-mt-20 md:scroll-mt-24">
+		<div class="absolute inset-0">
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-400/5 rounded-full blur-3xl"></div>
+		</div>
+
+		<div class="container mx-auto max-w-7xl px-4 relative z-10">
+			<div class="text-center mb-16">
+				<h2 class="font-geist text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-[-0.03em] leading-[1.1]">
+					Descubre todo lo que <span class="text-teal-300 italic">Podemos Hacer</span>
+				</h2>
+				<p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+					Desde sitios web corporativos hasta tiendas en línea completas, tenemos la solución perfecta para tu negocio
+				</p>
+			</div>
+
+			<!-- Main CTA -->
+			<div class="text-center">
+				<a
+					href="/servicios"
+					class="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-black bg-gradient-to-r from-teal-300 to-teal-400 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(76,214,192,0.5)] hover:scale-105"
+				>
+					Ver Servicios
+					<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<SpeedInsights />
+	<Analytics />
+</Layout>

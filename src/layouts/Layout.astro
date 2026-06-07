@@ -48,6 +48,9 @@ const {
 		<link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/Inter-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+		<!-- Preload Geist variable font for headings -->
+		<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+		<link rel="preload" href="/fonts/Geist-Italic.woff2" as="font" type="font/woff2" crossorigin>
 
 		<!-- Preload critical above-the-fold resources -->
 		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp" fetchpriority="high">
@@ -222,6 +225,23 @@ const {
 	</body>
 </html>
 <style is:global>
+	/* Geist Font - Used for headings (h1, h2) */
+	@font-face {
+		font-family: 'Geist';
+		src: url('/fonts/Geist-Variable.woff2') format('woff2');
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Geist';
+		src: url('/fonts/Geist-Italic.woff2') format('woff2');
+		font-weight: 100 900;
+		font-style: italic;
+		font-display: swap;
+	}
+
 	/* Custom Font Declarations - Inter Font Family */
 	/* Using WOFF2 for maximum compression and performance */
 
@@ -304,6 +324,8 @@ const {
 
 		/* Custom font stack - Inter with adjusted fallback to minimize FOUT/CLS */
 		--font-sans: 'Inter', 'Inter-fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+		/* Geist for headings */
+		--font-display: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
 		/* Font weight custom properties for consistency */
 		--font-weight-normal: 400;
@@ -355,8 +377,25 @@ const {
 		max-height: 999999px;
 	}
 
-	/* Ensure headings inherit font settings */
-	h1, h2, h3, h4, h5, h6 {
+	/* Headings use Geist font */
+	h1, h2 {
+		font-family: var(--font-display);
+		letter-spacing: -0.03em;
+		line-height: 1.1;
+	}
+
+	h1 {
+		font-weight: 700;
+		font-size: clamp(2rem, 5vw, 4.5rem);
+	}
+
+	h2 {
+		font-weight: 600;
+		font-size: clamp(1.6rem, 3.5vw, 3rem);
+		letter-spacing: -0.025em;
+	}
+
+	h3, h4, h5, h6 {
 		font-family: inherit;
 		font-weight: inherit;
 	}

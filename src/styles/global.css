@@ -17,9 +17,14 @@
     letter-spacing: -0.011em; /* Inter's recommended letter spacing */
   }
 
-  /* Apply Inter's recommended settings for headings */
-  h1, h2, h3, h4, h5, h6 {
-    letter-spacing: -0.022em; /* Tighter spacing for headings */
+  /* h1, h2 use Geist — see Layout.astro for @font-face and base styles */
+  h1, h2 {
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  /* h3–h6 keep Inter */
+  h3, h4, h5, h6 {
+    letter-spacing: -0.018em;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv05" 1, "cv08" 1;
   }
 
