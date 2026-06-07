@@ -118,8 +118,13 @@ import TechLogos from '../components/TechLogos';
 	.section-divider-glow-bottom {
 		position: relative;
 		padding-bottom: 1px;
-		min-height: 100px;
+		min-height: 20px;
 		contain: layout style paint;
+	}
+	@media (min-width: 768px) {
+		.section-divider-glow-bottom {
+			min-height: 100px;
+		}
 	}
 
 	.section-divider-glow-bottom::after {
@@ -247,7 +252,7 @@ import TechLogos from '../components/TechLogos';
 	canonical="/"
 >
 	<!-- Vista desktop: Galaxy Hero -->
-	<div id="inicio" class="hidden md:block relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden scroll-mt-20 md:scroll-mt-24">
+	<div id="inicio" class="hidden md:block relative w-full md:h-[560px] lg:h-[620px] h-[560px] overflow-hidden scroll-mt-20 md:scroll-mt-24">
 		<DarkVeil client:only
 		hueShift={54}
 		noiseIntensity={0.15}
@@ -261,18 +266,20 @@ import TechLogos from '../components/TechLogos';
 			<Hero />
 		</div>
 
-		<!-- Layer 4 (top-most): Overlay gradient fade to black -->
-		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-20"></div>
+		<!-- Layer 4: Overlay gradient fade to black (behind text) -->
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-0"></div>
 	</div>
 
 	<!-- Vista mobile: Hero sin Galaxy -->
 	<div class="block md:hidden relative w-full md:h-[400px] lg:h-[600px] h-[400px] overflow-hidden bg-gradient-to-b from-gray-900 via-slate-800 to-black scroll-mt-20 md:scroll-mt-24">
-		 <Hero />
-		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100"></div>
+		<div class="absolute inset-0 z-10">
+			<Hero />
+		</div>
+		<div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/100 z-0"></div>
 	</div>
 
 	<!-- Tech Logos Section -->
-	<div class="relative py-10">
+	<div class="relative pt-6 pb-2">
 		<div class="container mx-auto max-w-7xl">
 			<TechLogos client:only />
 		</div>
