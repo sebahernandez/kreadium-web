@@ -128,11 +128,11 @@ import Analytics from '@vercel/analytics/astro'
 				"position": 1,
 				"item": {
 					"@type": "Product",
-					"name": "Plan Landing Page",
-					"description": "1 landing page optimizada con hosting y SSL incluido por 1 año",
+					"name": "Landing Marketing",
+					"description": "Una landing page de marketing enfocada en conversión: presenta tu producto o servicio y guía al visitante a una acción. Incluye asesoría de hosting y dominio. Factura con detalle neto $150.900 + IVA $28.671. Valor total $179.571.",
 					"offers": {
 						"@type": "Offer",
-						"price": "150900",
+						"price": "179571",
 						"priceCurrency": "CLP",
 						"availability": "https://schema.org/InStock",
 						"seller": {
@@ -147,11 +147,11 @@ import Analytics from '@vercel/analytics/astro'
 				"position": 2,
 				"item": {
 					"@type": "Product",
-					"name": "Plan Corporativo",
-					"description": "Sitio web completo con 5-7 secciones, SEO avanzado y soporte 24/7",
+					"name": "Plan Pyme",
+					"description": "Sitio web corporativo de hasta 7 secciones, SEO avanzado y soporte prioritario. Diseñado para pymes que adjudican capitales del Estado y fondos concursables (Sercotec, FOSIS, CORFO). Factura con detalle neto $450.900 + IVA $85.671. Valor total $536.571.",
 					"offers": {
 						"@type": "Offer",
-						"price": "360000",
+						"price": "536571",
 						"priceCurrency": "CLP",
 						"availability": "https://schema.org/InStock",
 						"seller": {
@@ -167,10 +167,10 @@ import Analytics from '@vercel/analytics/astro'
 				"item": {
 					"@type": "Product",
 					"name": "Plan E-commerce",
-					"description": "Tienda online completa con Shopify, pasarela de pago y capacitación",
+					"description": "Tienda online completa en Shopify para vender productos, cobrar en línea y gestionar pedidos y envíos. Incluye pasarela de pago y capacitación. Factura con detalle neto $1.199.900 + IVA $227.981. Valor total $1.427.881.",
 					"offers": {
 						"@type": "Offer",
-						"price": "590000",
+						"price": "1427881",
 						"priceCurrency": "CLP",
 						"availability": "https://schema.org/InStock",
 						"seller": {
@@ -209,6 +209,19 @@ import Analytics from '@vercel/analytics/astro'
 
 			<div class="space-y-6">
 				<!-- FAQ Item -->
+				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
+					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
+						¿Por qué los precios muestran el neto, el IVA y el total por separado?
+						<svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<p class="mt-4 text-gray-400 leading-relaxed">
+						Porque los capitales del Estado y fondos concursables en Chile (como Sercotec Capital Semilla, FOSIS y CORFO) entregan el subsidio en <strong class="text-gray-300">valor neto</strong>: el monto adjudicado <strong class="text-gray-300">no cubre el IVA del 19%</strong>. Por bases, los impuestos del proyecto son de cargo del beneficiario.<br><br>
+						Por eso desglosamos cada plan: el <strong class="text-gray-300">neto</strong> es lo que normalmente financia el capital del Estado, y el <strong class="text-gray-300">IVA (19%)</strong> es el aporte que pone el emprendedor de su propio bolsillo. Así sabes con claridad qué cubre el fondo y qué debes financiar tú. Como beneficiario formal, ese IVA además queda como <strong class="text-gray-300">crédito fiscal</strong> a favor de tu empresa.
+					</p>
+				</details>
+
 				<details class="group p-6 rounded-xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
 					<summary class="cursor-pointer text-lg font-semibold text-white flex items-center justify-between">
 						¿Cuánto tiempo toma desarrollar un sitio web?
