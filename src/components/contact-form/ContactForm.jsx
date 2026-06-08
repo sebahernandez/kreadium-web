@@ -229,14 +229,14 @@ const ContactForm = () => {
                   <option value="" disabled className="bg-gray-900">
                     Selecciona un servicio
                   </option>
-                  <option value="Landing" className="bg-gray-900">
-                    Landing Page - Desde $150.900 (pago único)
+                  <option value="Landing Marketing" className="bg-gray-900">
+                    Landing Marketing · Página única de conversión — $179.571 IVA incl.
                   </option>
-                  <option value="Corporativo" className="bg-gray-900">
-                    Corporativo - Desde $460.000 (pago único)
+                  <option value="Plan Pyme" className="bg-gray-900">
+                    Plan Pyme · Sitio web para fondos concursables — $536.571 IVA incl.
                   </option>
                   <option value="E-commerce" className="bg-gray-900">
-                    E-commerce (Tienda Shopify) - Desde $1.199.900 (pago único)
+                    E-commerce · Tienda online en Shopify — $1.427.881 IVA incl.
                   </option>
                 </select>
               </div>
