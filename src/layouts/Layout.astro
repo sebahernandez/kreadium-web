@@ -39,20 +39,14 @@ const {
 		<meta name="msapplication-TileColor" content="#4CD6C0">
 
 		<!-- Preconnect to critical third-party origins (highest priority) -->
-		<link rel="preconnect" href="https://www.googletagmanager.com">
+		<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
-		<!-- Preload critical font files for better performance -->
-		<!-- Only preload fonts that are used above the fold -->
+		<!-- Preload critical font files (max 3 to avoid render blocking) -->
 		<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/fonts/Inter-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
-		<!-- Preload Geist variable font for headings -->
 		<link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href="/fonts/Geist-Italic.woff2" as="font" type="font/woff2" crossorigin>
 
-		<!-- Preload critical above-the-fold resources -->
+		<!-- Preload LCP image -->
 		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp" fetchpriority="high">
 
 		<!-- DNS prefetch for other domains (lower priority) -->

@@ -140,6 +140,18 @@ import Analytics from '@vercel/analytics/astro'
 	ogDescription="Desarrollo web completo: landing pages, sitios corporativos, e-commerce. Hosting incluido, SSL, SEO optimizado y soporte 24/7. Cotiza tu proyecto gratis."
 	canonical="/servicios"
 >
+	<!-- Structured Data - BreadcrumbList Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://kreadium.cl/" },
+			{ "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://kreadium.cl/servicios" }
+		]
+	}
+	</script>
+
 	<!-- Structured Data - Service Schema -->
 	<script is:inline type="application/ld+json">
 	{

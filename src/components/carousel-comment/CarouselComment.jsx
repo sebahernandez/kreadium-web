@@ -33,7 +33,7 @@ const CommentCarousel = ({ comments, interval = 4000 }) => {
   }
 
   return (
-    <div className="testimonials-carousel">
+    <div className="testimonials-carousel py-5 px-4 pb-14">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{
@@ -67,9 +67,9 @@ const CommentCarousel = ({ comments, interval = 4000 }) => {
       >
         {comments.map((comment) => (
           <SwiperSlide key={comment.id}>
-            <div className="group">
+            <div className="group py-3 px-1">
               {/* Card principal */}
-              <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 h-[210px] backdrop-blur-sm hover:bg-[rgba(255,255,255,0.08)] transition-all duration-300 hover:transform hover:scale-[1.02] hover:shadow-xl hover:shadow-[#4CD6C0]/10 flex flex-col">
+              <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 h-[210px] transition-all duration-300 hover:transform hover:scale-[1.02] flex flex-col">
                 {/* Rating stars */}
                 <RatingStars rating={comment.rating} />
 
@@ -121,21 +121,21 @@ const CommentCarousel = ({ comments, interval = 4000 }) => {
       {/* Custom styles for pagination */}
       <style jsx="true">{`
         :global(.testimonial-bullet) {
-          background: rgba(76, 214, 192, 0.3) !important;
+          background: rgba(255, 255, 255, 0.35) !important;
           opacity: 1 !important;
-          width: 12px !important;
-          height: 12px !important;
+          width: 10px !important;
+          height: 10px !important;
           margin: 0 6px !important;
           transition: all 0.3s ease !important;
         }
 
         :global(.testimonial-bullet-active) {
-          background: #4cd6c0 !important;
+          background: rgba(255, 255, 255, 0.9) !important;
           transform: scale(1.2) !important;
         }
 
         :global(.swiper-pagination) {
-          bottom: 0 !important;
+          bottom: -32px !important;
         }
 
         :global(.line-clamp-3) {

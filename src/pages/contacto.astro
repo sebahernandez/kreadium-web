@@ -94,6 +94,18 @@ import Analytics from '@vercel/analytics/astro'
 	ogDescription="Contáctanos para tu proyecto web. Cotización gratuita en 24 horas. Email: contacto@kreadium.cl. Oficina en Providencia, Santiago, Chile."
 	canonical="/contacto"
 >
+	<!-- Structured Data - BreadcrumbList Schema -->
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
+			{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://kreadium.cl/" },
+			{ "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://kreadium.cl/contacto" }
+		]
+	}
+	</script>
+
 	<!-- Structured Data - ContactPage Schema -->
 	<script is:inline type="application/ld+json">
 	{

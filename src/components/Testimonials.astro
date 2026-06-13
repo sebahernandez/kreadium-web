@@ -10,7 +10,7 @@ const comments = testimonials.comments;
 };
 ---
 
-<section class="relative py-20 md:py-28 overflow-hidden" id="testimonials">
+<section class="relative py-20 md:py-28" id="testimonials">
   <!-- Efectos de fondo sutiles -->
   <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(76,214,192,0.03)] to-transparent"></div>
   <div class="absolute top-10 left-4 md:top-20 md:left-10 w-12 h-12 md:w-20 md:h-20 bg-[#4CD6C0] opacity-[0.08] rounded-full blur-[60px] md:blur-[80px]"></div>
@@ -39,6 +39,13 @@ const comments = testimonials.comments;
     <!-- Carousel mejorado -->
     <CommentCarousel comments={comments} client:load />
   </div>
+
+  <style is:global>
+    #testimonials .swiper {
+      padding: 14px 6px !important;
+      box-sizing: border-box;
+    }
+  </style>
 
   <!-- Structured Data - Reviews Schema -->
   <script is:inline type="application/ld+json" define:vars={{ comments }}>
