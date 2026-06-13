@@ -1,8 +1,4 @@
-import { useState } from "react";
-import { Notyf } from "notyf";
-import "notyf/notyf.min.css";
-
-const notyf = new Notyf();
+import { useState, useRef, useEffect } from "react";
 
 const contactFormStyles = `
   .contact-input::placeholder {
@@ -39,6 +35,15 @@ const itemsServices = [
 ];
 
 const ContactForm = () => {
+  const notyfRef = useRef(null);
+
+  useEffect(() => {
+    import("notyf").then(({ Notyf }) => {
+      notyfRef.current = new Notyf();
+    });
+    import("notyf/notyf.min.css");
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -58,15 +63,15 @@ const ContactForm = () => {
   const validateForm = () => {
     const { name, phone, email, message, planType } = formData;
     if (!name || !phone || !email || !message || !planType) {
-      notyf.error("Todos los campos son obligatorios.");
+      notyfRef.current?.error("Todos los campos son obligatorios.");
       return false;
     }
     if (!/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-      notyf.error("Por favor, ingresa un email válido.");
+      notyfRef.current?.error("Por favor, ingresa un email válido.");
       return false;
     }
     if (!/^\d{7,15}$/.test(phone)) {
-      notyf.error("Por favor, ingresa un número de teléfono válido.");
+      notyfRef.current?.error("Por favor, ingresa un número de teléfono válido.");
       return false;
     }
     return true;
@@ -85,7 +90,7 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        notyf.success("¡Mensaje enviado con éxito!");
+        notyfRef.current?.success("¡Mensaje enviado con éxito!");
         setFormData({
           name: "",
           phone: "",
@@ -95,12 +100,12 @@ const ContactForm = () => {
         });
       } else {
         const errorData = await response.json();
-        notyf.error(
+        notyfRef.current?.error(
           errorData.error || "Ocurrió un error al enviar el mensaje."
         );
       }
     } catch (error) {
-      notyf.error("Ocurrió un error al enviar el mensaje.");
+      notyfRef.current?.error("Ocurrió un error al enviar el mensaje.");
       console.error("Error al enviar el mensaje:", error);
     }
   };
