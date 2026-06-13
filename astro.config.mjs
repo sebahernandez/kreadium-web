@@ -9,6 +9,15 @@ export default defineConfig({
   integrations: [react(), tailwind(), icon()],
   adapter: vercel(),
   prefetch: true,
+  build: {
+    inlineStylesheets: 'auto',
+  },
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      assetsInlineLimit: 16384, // inline CSS chunks ≤ 16KB
+    },
+  },
   experimental: {
     fonts: [
       {
