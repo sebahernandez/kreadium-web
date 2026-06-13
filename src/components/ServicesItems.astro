@@ -36,7 +36,7 @@ const services = [
       <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map(service => (
             <div class="flex">
-              <SpotlightCard  className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)" client:only>
+              <SpotlightCard  className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)" client:visible>
                 {service.icon && (
                   <div class="py-3">
                     <Icon name={service.icon} size="46" style={service.color} />
