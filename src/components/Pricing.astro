@@ -1,5 +1,9 @@
 ---
 // Vercel-inspired minimal Pricing component with detailed comparison
+import { Image } from 'astro:assets';
+import logoSercotec from '../assets/logos/sercotec.png';
+import logoFosis from '../assets/logos/fosis.png';
+import logoCorfo from '../assets/logos/corfo.png';
 ---
 
 <style>
@@ -266,9 +270,9 @@
         <!-- Fondos públicos compatibles -->
         <div class="mb-4 pt-4 border-t border-white/[0.06]">
           <div class="flex items-center gap-2 mb-2">
-            <img src="/logos/sercotec.png" alt="Sercotec" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" />
-            <img src="/logos/fosis.png" alt="FOSIS" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" />
-            <img src="/logos/corfo.png" alt="CORFO" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" />
+            <Image src={logoSercotec} alt="Sercotec" width={56} height={56} format="webp" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" loading="lazy" />
+            <Image src={logoFosis} alt="FOSIS" width={56} height={56} format="webp" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" loading="lazy" />
+            <Image src={logoCorfo} alt="CORFO" width={56} height={56} format="webp" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" loading="lazy" />
           </div>
           <p class="text-xs text-gray-400">Compatible con Sercotec, FOSIS, CORFO y otros fondos concursables</p>
         </div>
