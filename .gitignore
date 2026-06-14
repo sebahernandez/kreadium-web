@@ -26,3 +26,6 @@ pnpm-debug.log*
 .bolt/
 .codesandbox/
 auditoria-seo.md
+SEO-AUDIT.md
+.claude/
+skills-lock.json
