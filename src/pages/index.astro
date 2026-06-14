@@ -6,10 +6,6 @@ import DarkVeil from '../components/dark-veil/DarkVeil';
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 import TechLogos from '../components/TechLogos';
-import { Image } from 'astro:assets';
-import logoSercotec from '../assets/logos/sercotec.png';
-import logoFosis from '../assets/logos/fosis.png';
-import logoCorfo from '../assets/logos/corfo.png';
 ---
 
 <style>
@@ -361,19 +357,19 @@ import logoCorfo from '../assets/logos/corfo.png';
 						<div class="grid grid-cols-3 gap-4 w-full">
 							<div class="flex flex-col items-center gap-3">
 								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
-									<Image src={logoSercotec} alt="Sercotec" width={284} height={284} format="webp" class="w-full h-full object-contain" loading="lazy" />
+									<img src="/logos/sercotec.png" alt="Sercotec" class="w-full h-full object-contain" loading="lazy" />
 								</div>
 								<span class="text-xs text-gray-400 font-medium text-center">Sercotec</span>
 							</div>
 							<div class="flex flex-col items-center gap-3">
 								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
-									<Image src={logoFosis} alt="FOSIS" width={284} height={284} format="webp" class="w-full h-full object-contain" loading="lazy" />
+									<img src="/logos/fosis.png" alt="FOSIS" class="w-full h-full object-contain" loading="lazy" />
 								</div>
 								<span class="text-xs text-gray-400 font-medium text-center">FOSIS</span>
 							</div>
 							<div class="flex flex-col items-center gap-3">
 								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
-									<Image src={logoCorfo} alt="CORFO" width={284} height={284} format="webp" class="w-full h-full object-contain" loading="lazy" />
+									<img src="/logos/corfo.png" alt="CORFO" class="w-full h-full object-contain" loading="lazy" />
 								</div>
 								<span class="text-xs text-gray-400 font-medium text-center">CORFO</span>
 							</div>
