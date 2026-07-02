@@ -7,7 +7,7 @@ Disallow: /_astro/
 Disallow: /dist/
 
 # Sitemap
-Sitemap: https://kreadium.cl/sitemap.xml
+Sitemap: https://www.kreadium.cl/sitemap.xml
 
 # Google Bot Specific
 User-agent: Googlebot

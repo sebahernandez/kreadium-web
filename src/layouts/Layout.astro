@@ -20,101 +20,165 @@ const {
 	description = "Agencia de desarrollo web profesional en Santiago, Chile. Expertos en Shopify, WordPress y Next.js. Diseño web responsivo, SEO optimizado y soluciones e-commerce escalables.",
 	ogTitle = title,
 	ogDescription = description,
-	ogImage = "https://kreadium.cl/og-tags.png",
+	ogImage = "https://www.kreadium.cl/og-tags.png",
 	canonical = Astro.url.pathname,
-	noindex = false
+	noindex = false,
 } = Astro.props;
-
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+		/>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		/>
 
 		<!-- Theme color meta tags -->
-		<meta name="theme-color" content="#4CD6C0">
-		<meta name="msapplication-TileColor" content="#4CD6C0">
+		<meta name="theme-color" content="#4CD6C0" />
+		<meta name="msapplication-TileColor" content="#4CD6C0" />
 
 		<!-- Preconnect to critical third-party origins (highest priority) -->
-		<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+		<link
+			rel="preconnect"
+			href="https://www.googletagmanager.com"
+			crossorigin
+		/>
 
 		<!-- Fuentes gestionadas por Astro (genera @font-face + preload automáticamente) -->
 		<Font cssVariable="--font-inter" preload />
 		<Font cssVariable="--font-geist" preload />
 
 		<!-- Preload LCP image -->
-		<link rel="preload" href="/images/logo-kreadium.webp" as="image" type="image/webp" fetchpriority="high">
+		<link
+			rel="preload"
+			href="/images/logo-kreadium.webp"
+			as="image"
+			type="image/webp"
+			fetchpriority="high"
+		/>
 
 		<!-- DNS prefetch for other domains (lower priority) -->
-		<link rel="dns-prefetch" href="https://vercel.live">
+		<link rel="dns-prefetch" href="https://vercel.live" />
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="geo.region" content="CL-RM">
-        <meta name="geo.placename" content="Santiago, Chile">
+		<meta name="geo.region" content="CL-RM" />
+		<meta name="geo.placename" content="Santiago, Chile" />
 		<!-- Open Graph Meta Tags -->
-		<meta property="og:title" content={ogTitle}>
-		<meta property="og:description" content={ogDescription}>
-		<meta property="og:image" content={ogImage}>
-		<meta property="og:url" content={`https://kreadium.cl${canonical}`}>
-		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="Kreadium">
-		<meta property="og:locale" content="es_CL">
+		<meta property="og:title" content={ogTitle} />
+		<meta property="og:description" content={ogDescription} />
+		<meta property="og:image" content={ogImage} />
+		<meta
+			property="og:url"
+			content={`https://www.kreadium.cl${canonical}`}
+		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Kreadium" />
+		<meta property="og:locale" content="es_CL" />
 		<!-- Twitter Card Meta Tags -->
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content={ogTitle}>
-		<meta name="twitter:description" content={ogDescription}>
-		<meta name="twitter:image" content={ogImage}>
-		<meta name="twitter:site" content="@kreadium">
-		<meta name="twitter:creator" content="@kreadium">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={ogTitle} />
+		<meta name="twitter:description" content={ogDescription} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:site" content="@kreadium" />
+		<meta name="twitter:creator" content="@kreadium" />
 
 		<!-- Meta Tags adicionales recomendados -->
-		<meta name="description" content={description}>
-		<meta name="author" content="Kreadium SpA">
-		<meta name="robots" content={noindex ? "noindex, follow" : "index, follow"}>
+		<meta name="description" content={description} />
+		<meta name="author" content="Kreadium SpA" />
+		<meta
+			name="robots"
+			content={noindex ? "noindex, follow" : "index, follow"}
+		/>
 
 		<!-- Favicon -->
-		<link rel="icon" type="image/x-icon" href="/favicon.ico">
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 		<!-- Canonical URL -->
-		<link rel="canonical" href={`https://kreadium.cl${canonical}`}>
+		<link rel="canonical" href={`https://www.kreadium.cl${canonical}`} />
 
 		<!-- Search Console -->
-		<meta name="google-site-verification" content="nym61f8HzIaAPGnOQEDUEEaCC3UwC-jJ0cUkCCpG_UM" />
+		<meta
+			name="google-site-verification"
+			content="nym61f8HzIaAPGnOQEDUEEaCC3UwC-jJ0cUkCCpG_UM"
+		/>
 
 		<!-- Robots -->
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
 
 		<title>{title}</title>
 
 		<!-- Critical CSS inline for immediate rendering (eliminates render-blocking) -->
 		<style>
 			/* Minimal critical CSS for immediate paint */
-			html{font-family:system-ui,-apple-system,sans-serif;-webkit-text-size-adjust:100%}
-			body{margin:0;background:#000;color:#fff;overflow-x:hidden}
+			html {
+				font-family:
+					system-ui,
+					-apple-system,
+					sans-serif;
+				-webkit-text-size-adjust: 100%;
+			}
+			body {
+				margin: 0;
+				background: #000;
+				color: #fff;
+				overflow-x: hidden;
+			}
 			/* Prevent layout shift for header */
-			header{height:70px;contain:layout style paint}
-			@media(min-width:768px){header{height:80px}}
+			header {
+				height: 70px;
+				contain: layout style paint;
+			}
+			@media (min-width: 768px) {
+				header {
+					height: 80px;
+				}
+			}
 			/* Above-the-fold Hero optimization with fixed height to prevent CLS */
-			#home{min-height:100vh;display:flex;align-items:center;justify-content:center;contain:layout style}
+			#home {
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				contain: layout style;
+			}
 			/* Prevent divider layout shifts */
-			.section-divider-border,.section-divider-glow,.section-divider-gradient{min-height:1px;contain:layout style paint}
-			.section-divider-glow{min-height:120px}
+			.section-divider-border,
+			.section-divider-glow,
+			.section-divider-gradient {
+				min-height: 1px;
+				contain: layout style paint;
+			}
+			.section-divider-glow {
+				min-height: 120px;
+			}
 		</style>
 
 		<!-- Defer non-critical external stylesheets (large CSS bundles not inlined by Astro) -->
 		<script is:inline>
-			new MutationObserver(function(mutations) {
-				mutations.forEach(function(m) {
-					m.addedNodes.forEach(function(node) {
-						if (node.nodeName === 'LINK' && node.rel === 'stylesheet') {
-							node.rel = 'preload';
-							node.as = 'style';
-							node.onload = function() { this.onload = null; this.rel = 'stylesheet'; };
+			new MutationObserver(function (mutations) {
+				mutations.forEach(function (m) {
+					m.addedNodes.forEach(function (node) {
+						if (
+							node.nodeName === "LINK" &&
+							node.rel === "stylesheet"
+						) {
+							node.rel = "preload";
+							node.as = "style";
+							node.onload = function () {
+								this.onload = null;
+								this.rel = "stylesheet";
+							};
 						}
 					});
 				});
@@ -126,22 +190,31 @@ const {
 			// Defer GTM and Analytics to not block rendering
 			function loadAnalytics() {
 				// Google Tag Manager
-				(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-				})(window,document,'script','dataLayer','GTM-5WJQJBJW');
+				(function (w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({
+						"gtm.start": new Date().getTime(),
+						event: "gtm.js",
+					});
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != "dataLayer" ? "&l=" + l : "";
+					j.async = true;
+					j.src =
+						"https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, "script", "dataLayer", "GTM-5WJQJBJW");
 			}
 
 			// Load analytics after page is interactive
-			if ('requestIdleCallback' in window) {
+			if ("requestIdleCallback" in window) {
 				requestIdleCallback(loadAnalytics, { timeout: 2000 });
 			} else {
 				// Fallback for browsers without requestIdleCallback
-				if (document.readyState === 'complete') {
+				if (document.readyState === "complete") {
 					loadAnalytics();
 				} else {
-					window.addEventListener('load', loadAnalytics);
+					window.addEventListener("load", loadAnalytics);
 				}
 			}
 		</script>
@@ -149,78 +222,78 @@ const {
 
 		<!-- Structured Data - Organization Schema -->
 		<script is:inline type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Kreadium SpA",
-			"url": "https://kreadium.cl",
-			"logo": "https://kreadium.cl/images/logo-kreadium.webp",
-			"description": "Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce",
-			"address": {
-				"@type": "PostalAddress",
-				"streetAddress": "Antonio Bellet 193 OF 1210",
-				"addressLocality": "Providencia",
-				"addressRegion": "Santiago",
-				"addressCountry": "CL"
-			},
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"email": "contacto@kreadium.cl",
-				"contactType": "customer service",
-				"availableLanguage": "Spanish"
-			},
-			"sameAs": [
-				"https://www.linkedin.com/company/kreadium-spa/",
-				"https://www.instagram.com/agencia_kreadium/"
-			],
-			"areaServed": {
-				"@type": "Country",
-				"name": "Chile"
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Kreadium SpA",
+				"url": "https://www.kreadium.cl",
+				"logo": "https://www.kreadium.cl/images/logo-kreadium.webp",
+				"description": "Agencia de desarrollo web en Chile especializada en WordPress, Shopify y ecommerce",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Antonio Bellet 193 OF 1210",
+					"addressLocality": "Providencia",
+					"addressRegion": "Santiago",
+					"addressCountry": "CL"
+				},
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"email": "contacto@kreadium.cl",
+					"contactType": "customer service",
+					"availableLanguage": "Spanish"
+				},
+				"sameAs": [
+					"https://www.linkedin.com/company/kreadium-spa/",
+					"https://www.instagram.com/agencia_kreadium/"
+				],
+				"areaServed": {
+					"@type": "Country",
+					"name": "Chile"
+				}
 			}
-		}
 		</script>
 
 		<!-- Structured Data - LocalBusiness Schema -->
 		<script is:inline type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "LocalBusiness",
-			"@id": "https://kreadium.cl",
-			"name": "Kreadium SpA",
-			"image": "https://kreadium.cl/images/logo-kreadium.webp",
-			"email": "contacto@kreadium.cl",
-			"address": {
-				"@type": "PostalAddress",
-				"streetAddress": "Antonio Bellet 193 OF 1210",
-				"addressLocality": "Providencia",
-				"addressRegion": "RM",
-				"addressCountry": "CL"
-			},
-			"geo": {
-				"@type": "GeoCoordinates",
-				"latitude": -33.4372,
-				"longitude": -70.6506
-			},
-			"openingHours": "Mo-Fr 09:00-18:00",
-			"priceRange": "$$"
-		}
+			{
+				"@context": "https://schema.org",
+				"@type": "LocalBusiness",
+				"@id": "https://www.kreadium.cl",
+				"name": "Kreadium SpA",
+				"image": "https://www.kreadium.cl/images/logo-kreadium.webp",
+				"email": "contacto@kreadium.cl",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Antonio Bellet 193 OF 1210",
+					"addressLocality": "Providencia",
+					"addressRegion": "RM",
+					"addressCountry": "CL"
+				},
+				"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": -33.4372,
+					"longitude": -70.6506
+				},
+				"openingHours": "Mo-Fr 09:00-18:00",
+				"priceRange": "$$"
+			}
 		</script>
 
 		<!-- Structured Data - WebSite Schema with SearchAction -->
 		<script is:inline type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "WebSite",
-			"name": "Kreadium",
-			"url": "https://kreadium.cl",
-			"potentialAction": {
-				"@type": "SearchAction",
-				"target": "https://kreadium.cl/buscar?q={search_term_string}",
-				"query-input": "required name=search_term_string"
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": "Kreadium",
+				"url": "https://www.kreadium.cl",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "https://www.kreadium.cl/buscar?q={search_term_string}",
+					"query-input": "required name=search_term_string"
+				}
 			}
-		}
 		</script>
-		</head>
+	</head>
 	<body>
 		<WhatsappButton />
 		<Header />
@@ -228,8 +301,13 @@ const {
 		<Footer />
 
 		<!-- Google Tag Manager (noscript) -->
-			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WJQJBJW"
-			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-5WJQJBJW"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
 		<!-- End Google Tag Manager (noscript) -->
 	</body>
 </html>
@@ -246,15 +324,19 @@ const {
 	}
 
 	:root {
-		--accent: #4CD6C0;
+		--accent: #4cd6c0;
 		--accent-hover: #09b397;
 		--bg-dark: #000000;
 		--text-light: #ffffff;
 
 		/* Custom font stack - gestionado por Astro font system */
-		--font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		--font-sans:
+			var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+			Roboto, "Helvetica Neue", Arial, sans-serif;
 		/* Geist for headings */
-		--font-display: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+		--font-display:
+			var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI",
+			sans-serif;
 
 		/* Font weight custom properties for consistency */
 		--font-weight-normal: 400;
@@ -302,12 +384,28 @@ const {
 	}
 
 	/* Prevent font boosting on Android Chrome */
-	body, html, h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select {
+	body,
+	html,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span,
+	div,
+	a,
+	button,
+	input,
+	textarea,
+	select {
 		max-height: 999999px;
 	}
 
 	/* Headings use Geist font */
-	h1, h2 {
+	h1,
+	h2 {
 		font-family: var(--font-display);
 		letter-spacing: -0.03em;
 		line-height: 1.1;
@@ -324,13 +422,19 @@ const {
 		letter-spacing: -0.025em;
 	}
 
-	h3, h4, h5, h6 {
+	h3,
+	h4,
+	h5,
+	h6 {
 		font-family: inherit;
 		font-weight: inherit;
 	}
 
 	/* Ensure form elements use consistent fonts */
-	input, textarea, select, button {
+	input,
+	textarea,
+	select,
+	button {
 		font-family: inherit;
 	}
 

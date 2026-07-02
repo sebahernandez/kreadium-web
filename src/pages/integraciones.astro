@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Integrations from '../components/Integrations.astro';
-import SpeedInsights from "@vercel/speed-insights/astro"
-import Analytics from '@vercel/analytics/astro'
+import Layout from "../layouts/Layout.astro";
+import Integrations from "../components/Integrations.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <style>
@@ -16,7 +16,7 @@ import Analytics from '@vercel/analytics/astro'
 	}
 
 	.section-divider-gradient::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 50%;
@@ -47,7 +47,11 @@ import Analytics from '@vercel/analytics/astro'
 	.page-hero {
 		position: relative;
 		padding: 140px 0 80px;
-		background: linear-gradient(to bottom, rgba(76, 214, 192, 0.05) 0%, transparent 100%);
+		background: linear-gradient(
+			to bottom,
+			rgba(76, 214, 192, 0.05) 0%,
+			transparent 100%
+		);
 	}
 
 	@media (max-width: 768px) {
@@ -57,7 +61,7 @@ import Analytics from '@vercel/analytics/astro'
 	}
 
 	.page-hero::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 50%;
@@ -104,29 +108,46 @@ import Analytics from '@vercel/analytics/astro'
 >
 	<!-- Structured Data - BreadcrumbList Schema -->
 	<script is:inline type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		"itemListElement": [
-			{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://kreadium.cl/" },
-			{ "@type": "ListItem", "position": 2, "name": "Integraciones", "item": "https://kreadium.cl/integraciones" }
-		]
-	}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Inicio",
+					"item": "https://www.kreadium.cl/"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Integraciones",
+					"item": "https://www.kreadium.cl/integraciones"
+				}
+			]
+		}
 	</script>
 
 	<!-- Page Hero Section -->
 	<section id="integraciones" class="page-hero scroll-mt-20 md:scroll-mt-24">
 		<div class="container mx-auto max-w-7xl px-6 text-center relative z-10">
-			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
-				 style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
+			<div
+				class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
+				style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);"
+			>
 				Integraciones
 			</div>
-			<h1 class="font-geist text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-[-0.03em] text-white">
+			<h1
+				class="font-geist text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-[-0.03em] text-white"
+			>
 				Pasarelas de pago<br />
 				<span class="gradient-text italic">conectadas y listas</span>
 			</h1>
-			<p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
-				Conectamos tu tienda con las principales plataformas de pago en Chile y Latinoamérica.
+			<p
+				class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto"
+			>
+				Conectamos tu tienda con las principales plataformas de pago en
+				Chile y Latinoamérica.
 			</p>
 		</div>
 	</section>
@@ -141,93 +162,202 @@ import Analytics from '@vercel/analytics/astro'
 	<div class="section-divider-border"></div>
 
 	<!-- Benefits Section -->
-	<section id="beneficios" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+	<section
+		id="beneficios"
+		class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24"
+	>
 		<div class="container mx-auto max-w-7xl px-6">
 			<div class="text-center mb-16">
-				<h2 class="font-geist text-3xl md:text-5xl font-bold text-white mb-6 tracking-[-0.025em] leading-[1.1]">
-					Beneficios de <span class="italic">Nuestras Integraciones</span>
+				<h2
+					class="font-geist text-3xl md:text-5xl font-bold text-white mb-6 tracking-[-0.025em] leading-[1.1]"
+				>
+					Beneficios de <span class="italic"
+						>Nuestras Integraciones</span
+					>
 				</h2>
 				<p class="text-lg text-gray-400 max-w-2xl mx-auto">
-					Soluciones de pago seguras, rápidas y adaptadas al mercado chileno
+					Soluciones de pago seguras, rápidas y adaptadas al mercado
+					chileno
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				<!-- Benefit 1 -->
-				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
-					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
-						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+				<div
+					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
+				>
+					<div
+						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
+					>
+						<svg
+							class="w-6 h-6 text-[#4CD6C0]"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+							></path>
 						</svg>
 					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">Pagos Seguros</h3>
+					<h3 class="text-xl font-semibold text-white mb-3">
+						Pagos Seguros
+					</h3>
 					<p class="text-gray-400 leading-relaxed">
-						Todas las transacciones están protegidas con certificados SSL y cumplen con estándares PCI DSS
+						Todas las transacciones están protegidas con
+						certificados SSL y cumplen con estándares PCI DSS
 					</p>
 				</div>
 
 				<!-- Benefit 2 -->
-				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
-					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
-						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+				<div
+					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
+				>
+					<div
+						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
+					>
+						<svg
+							class="w-6 h-6 text-[#4CD6C0]"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M13 10V3L4 14h7v7l9-11h-7z"></path>
 						</svg>
 					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">Procesamiento Rápido</h3>
+					<h3 class="text-xl font-semibold text-white mb-3">
+						Procesamiento Rápido
+					</h3>
 					<p class="text-gray-400 leading-relaxed">
-						Confirmaciones instantáneas y acreditación automática para una mejor experiencia de usuario
+						Confirmaciones instantáneas y acreditación automática
+						para una mejor experiencia de usuario
 					</p>
 				</div>
 
 				<!-- Benefit 3 -->
-				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
-					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
-						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+				<div
+					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
+				>
+					<div
+						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
+					>
+						<svg
+							class="w-6 h-6 text-[#4CD6C0]"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+							></path>
 						</svg>
 					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">Múltiples Métodos</h3>
+					<h3 class="text-xl font-semibold text-white mb-3">
+						Múltiples Métodos
+					</h3>
 					<p class="text-gray-400 leading-relaxed">
-						Tarjetas de crédito, débito, transferencias y medios de pago alternativos
+						Tarjetas de crédito, débito, transferencias y medios de
+						pago alternativos
 					</p>
 				</div>
 
 				<!-- Benefit 4 -->
-				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
-					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
-						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+				<div
+					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
+				>
+					<div
+						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
+					>
+						<svg
+							class="w-6 h-6 text-[#4CD6C0]"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+							></path>
 						</svg>
 					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">Protección Antifraude</h3>
+					<h3 class="text-xl font-semibold text-white mb-3">
+						Protección Antifraude
+					</h3>
 					<p class="text-gray-400 leading-relaxed">
-						Sistemas avanzados de detección de fraude y verificación de transacciones
+						Sistemas avanzados de detección de fraude y verificación
+						de transacciones
 					</p>
 				</div>
 
 				<!-- Benefit 5 -->
-				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
-					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
-						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+				<div
+					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
+				>
+					<div
+						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
+					>
+						<svg
+							class="w-6 h-6 text-[#4CD6C0]"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+							></path>
 						</svg>
 					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">Reportes Detallados</h3>
+					<h3 class="text-xl font-semibold text-white mb-3">
+						Reportes Detallados
+					</h3>
 					<p class="text-gray-400 leading-relaxed">
-						Dashboards con métricas de ventas, conciliación automática y reportería completa
+						Dashboards con métricas de ventas, conciliación
+						automática y reportería completa
 					</p>
 				</div>
 
 				<!-- Benefit 6 -->
-				<div class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all">
-					<div class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent">
-						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+				<div
+					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
+				>
+					<div
+						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
+					>
+						<svg
+							class="w-6 h-6 text-[#4CD6C0]"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+							></path>
 						</svg>
 					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">Comisiones Competitivas</h3>
+					<h3 class="text-xl font-semibold text-white mb-3">
+						Comisiones Competitivas
+					</h3>
 					<p class="text-gray-400 leading-relaxed">
-						Negociamos las mejores tarifas con las pasarelas para maximizar tu rentabilidad
+						Negociamos las mejores tarifas con las pasarelas para
+						maximizar tu rentabilidad
 					</p>
 				</div>
 			</div>
@@ -238,25 +368,45 @@ import Analytics from '@vercel/analytics/astro'
 	<div class="section-divider-border"></div>
 
 	<!-- CTA Section -->
-	<section id="cta-integraciones" class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24">
+	<section
+		id="cta-integraciones"
+		class="relative py-20 md:py-28 scroll-mt-20 md:scroll-mt-24"
+	>
 		<div class="container mx-auto max-w-4xl px-6 text-center">
-			<div class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent">
-				<h2 class="font-geist text-3xl md:text-4xl font-semibold text-white mb-4 tracking-[-0.025em]">
+			<div
+				class="p-8 md:p-12 rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent"
+			>
+				<h2
+					class="font-geist text-3xl md:text-4xl font-semibold text-white mb-4 tracking-[-0.025em]"
+				>
 					¿Necesitas <span class="italic">integrar pagos</span> en tu sitio?
 				</h2>
 				<p class="text-gray-400 mb-8 text-lg">
 					Implementamos la pasarela de pago ideal para tu negocio
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a href="/contacto"
-						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors">
+					<a
+						href="/contacto"
+						class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-white text-black hover:bg-gray-100 transition-colors"
+					>
 						Solicitar Integración
-						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+						<svg
+							class="w-4 h-4 ml-2"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M9 5l7 7-7 7"></path>
 						</svg>
 					</a>
-					<a href="/precios"
-						 class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors">
+					<a
+						href="/precios"
+						class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-white/[0.1] text-white hover:bg-white/[0.05] transition-colors"
+					>
 						Ver Precios
 					</a>
 				</div>
