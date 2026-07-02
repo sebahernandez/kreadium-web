@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [react(), tailwind(), icon()],
   adapter: vercel(),
   prefetch: true,
+  site: "https://kreadium.com",
   build: {
     inlineStylesheets: 'auto',
   },
