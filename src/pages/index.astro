@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ServicesItems from '../components/ServicesItems.astro';
 import Hero from '../components/Hero.astro';
+import Testimonials from '../components/Testimonials.astro';
 import DarkVeil from '../components/dark-veil/DarkVeil';
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
@@ -466,6 +467,10 @@ import {Image} from 'astro:assets';
 			</div>
 		</div>
 	</section>
+	<div class="section-divider-gradient"></div>
+
+	<!-- Testimonials Section -->
+	<Testimonials title="Personas que han confiado en nosotros" />
 
 	<SpeedInsights />
 	<Analytics />
