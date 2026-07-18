@@ -44,14 +44,14 @@
     },
     {
       "id": 7,
-      "image": "/src/assets/images/adrian-carcamo.png",
+      "image": "/images/adrian-carcamo.png",
       "name": "Adrián Cárcamo",
       "rating": 5,
       "description": "Excelente trabajo de Kreadium con mi empresa Maldito Humo."
     },
     {
       "id": 8,
-      "image": "/src/assets/images/luis-morales.png",
+      "image": "/images/luis-morales.png",
       "name": "Luis Morales",
       "rating": 5,
       "description": "Muchas gracias Kreadium por su trabajo, quedo maravilloso el sitio web de mi empresa, 100% recomendables."
