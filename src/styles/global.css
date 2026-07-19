@@ -151,4 +151,11 @@
     content-visibility: auto;
     contain-intrinsic-size: 0 500px;
   }
+
+  /* Subtle teal halo for teal-300 titles/subtitles */
+  .teal-halo {
+    text-shadow:
+      0 0 10px rgba(94, 234, 212, 0.3),
+      0 0 24px rgba(45, 212, 191, 0.15);
+  }
 }

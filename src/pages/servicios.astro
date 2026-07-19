@@ -135,6 +135,165 @@ import Analytics from "@vercel/analytics/astro";
 			color: #e5e5e5;
 		}
 	}
+
+	/* ===== Industry cards - impact enhancements ===== */
+	.industry-card {
+		position: relative;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		background: rgba(255, 255, 255, 0.01);
+		transition:
+			transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+			opacity 0.5s ease,
+			border-color 0.3s ease,
+			background 0.3s ease,
+			box-shadow 0.4s ease;
+		will-change: transform;
+	}
+
+	/* Soft radial glow that blooms on hover */
+	.industry-card::before {
+		content: "";
+		position: absolute;
+		top: -30%;
+		left: 50%;
+		width: 130%;
+		height: 130%;
+		transform: translateX(-50%);
+		background: radial-gradient(
+			ellipse at center,
+			rgba(76, 214, 192, 0.16) 0%,
+			transparent 60%
+		);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+		pointer-events: none;
+	}
+
+	/* Animated top accent line */
+	.industry-card::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(76, 214, 192, 0.85),
+			transparent
+		);
+		transform: scaleX(0);
+		transition: transform 0.45s ease;
+		pointer-events: none;
+	}
+
+	.industry-card:hover {
+		transform: translateY(-6px);
+		border-color: rgba(76, 214, 192, 0.45);
+		background: rgba(255, 255, 255, 0.03);
+		box-shadow: 0 24px 50px -24px rgba(76, 214, 192, 0.35);
+	}
+
+	.industry-card:hover::before {
+		opacity: 1;
+	}
+
+	.industry-card:hover::after {
+		transform: scaleX(1);
+	}
+
+	/* Keep content above the glow layer */
+	.industry-card > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	.industry-icon {
+		transition:
+			transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+			background 0.3s ease;
+	}
+
+	.industry-card:hover .industry-icon {
+		transform: scale(1.1) rotate(-4deg);
+		background: linear-gradient(
+			to bottom right,
+			rgba(76, 214, 192, 0.4),
+			transparent
+		);
+	}
+
+	/* Scroll reveal — progressive enhancement, only active once JS opts in */
+	.industry-grid.reveal-ready .industry-card {
+		opacity: 0;
+		transform: translateY(28px);
+	}
+
+	.industry-grid.reveal-ready.revealed .industry-card {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(1) { transition-delay: 0.04s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(2) { transition-delay: 0.10s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(3) { transition-delay: 0.16s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(4) { transition-delay: 0.22s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(5) { transition-delay: 0.28s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(6) { transition-delay: 0.10s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(7) { transition-delay: 0.16s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(8) { transition-delay: 0.22s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(9) { transition-delay: 0.28s; }
+	.industry-grid.reveal-ready.revealed .industry-card:nth-child(10) { transition-delay: 0.34s; }
+
+	/* Sweeping light beam (haz de luz) on hover */
+	.industry-shine {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 55%;
+		height: 100%;
+		transform: skewX(-20deg) translateX(-220%);
+		background: linear-gradient(
+			90deg,
+			transparent 0%,
+			rgba(255, 255, 255, 0.1) 35%,
+			rgba(76, 214, 192, 0.4) 50%,
+			rgba(255, 255, 255, 0.1) 65%,
+			transparent 100%
+		);
+		opacity: 0;
+		pointer-events: none;
+		z-index: 2;
+		transition:
+			transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+			opacity 0.2s ease;
+	}
+
+	.industry-card:hover .industry-shine {
+		opacity: 1;
+		transform: skewX(-20deg) translateX(320%);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.industry-card,
+		.industry-card::before,
+		.industry-card::after,
+		.industry-icon {
+			transition: none;
+		}
+		.industry-grid.reveal-ready .industry-card {
+			opacity: 1;
+			transform: none;
+		}
+		.industry-card:hover {
+			transform: none;
+		}
+		.industry-shine {
+			display: none;
+		}
+	}
 </style>
 
 <Layout
@@ -934,77 +1093,6 @@ import Analytics from "@vercel/analytics/astro";
 					</ul>
 				</div>
 
-				<!-- Hosting Premium -->
-				<div
-					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
-				>
-					<div
-						class="w-12 h-12 rounded-xl mb-6 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
-					>
-						<svg
-							class="w-6 h-6 text-[#4CD6C0]"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-							></path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-semibold text-white mb-3">
-						Hosting Premium
-					</h3>
-					<p class="text-gray-400 mb-4">
-						Alojamiento de alta velocidad con CDN global y recursos
-						dedicados para máximo rendimiento.
-					</p>
-					<ul class="space-y-2 text-sm text-gray-500">
-						<li class="flex items-center gap-2">
-							<svg
-								class="w-4 h-4 text-[#4CD6C0]"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-									clip-rule="evenodd"></path>
-							</svg>
-							99.9% uptime garantizado
-						</li>
-						<li class="flex items-center gap-2">
-							<svg
-								class="w-4 h-4 text-[#4CD6C0]"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-									clip-rule="evenodd"></path>
-							</svg>
-							Soporte prioritario
-						</li>
-						<li class="flex items-center gap-2">
-							<svg
-								class="w-4 h-4 text-[#4CD6C0]"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-							>
-								<path
-									fill-rule="evenodd"
-									d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-									clip-rule="evenodd"></path>
-							</svg>
-							SSL certificado premium
-						</li>
-					</ul>
-				</div>
-
 				<!-- Migración Web -->
 				<div
 					class="p-8 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] transition-all"
@@ -1180,14 +1268,15 @@ import Analytics from "@vercel/analytics/astro";
 			</div>
 
 			<div
-				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+				class="industry-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 md:gap-6"
 			>
 				<!-- Abogados -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1268,10 +1357,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Dentistas -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1352,10 +1442,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Veterinarias -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1436,10 +1527,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Corredores de propiedades -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1520,10 +1612,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Psicólogos y Terapeutas -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1604,10 +1697,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Centros de Estética y Kinesiología -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1688,10 +1782,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Contadores y Asesores Tributarios -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1772,10 +1867,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Hoteles Caninos o Adiestradores -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1855,10 +1951,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Centros de Pádel o Gimnasios -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -1939,10 +2036,11 @@ import Analytics from "@vercel/analytics/astro";
 
 				<!-- Servicios de Control de Plagas -->
 				<div
-					class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-[#4CD6C0]/40 transition-all"
+					class="industry-card group p-6 rounded-2xl"
 				>
+					<span class="industry-shine" aria-hidden="true"></span>
 					<div
-						class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all"
+						class="industry-icon w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent"
 					>
 						<svg
 							class="w-6 h-6 text-[#4CD6C0]"
@@ -2215,4 +2313,27 @@ import Analytics from "@vercel/analytics/astro";
 
 	<SpeedInsights />
 	<Analytics />
+
+	<script>
+		const grid = document.querySelector(".industry-grid");
+		const prefersReduced = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+
+		if (grid && !prefersReduced && "IntersectionObserver" in window) {
+			grid.classList.add("reveal-ready");
+			const observer = new IntersectionObserver(
+				(entries, obs) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("revealed");
+							obs.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15 },
+			);
+			observer.observe(grid);
+		}
+	</script>
 </Layout>
