@@ -161,7 +161,7 @@ const ContactForm = () => {
               <h3 className="text-2xl font-semibold text-white ">
                 Cuéntanos sobre tu proyecto
               </h3>
-              <span>Tenemos descuentos exclusivos para <strong>Pymes Sercotec</strong></span>
+              <span>Tenemos planes especiales para <strong>pymes y emprendedores</strong></span>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -235,13 +235,13 @@ const ContactForm = () => {
                     Selecciona un servicio
                   </option>
                   <option value="Landing Marketing" className="bg-gray-900">
-                    Landing Marketing · Página única de conversión — $179.571 IVA incl.
+                    Landing Marketing · Página única de conversión — $14.990/mes IVA incl.
                   </option>
                   <option value="Plan Pyme" className="bg-gray-900">
-                    Plan Pyme · Sitio web para fondos concursables — $536.571 IVA incl.
+                    Plan Pyme · Sitio web corporativo profesional — $35.990/mes IVA incl.
                   </option>
                   <option value="E-commerce" className="bg-gray-900">
-                    E-commerce · Tienda online en Shopify — $1.427.881 IVA incl.
+                    E-commerce · Tienda Shopify — implementación $1.499.990 + Shopify USD $65/mes
                   </option>
                 </select>
               </div>

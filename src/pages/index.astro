@@ -7,7 +7,6 @@ import DarkVeil from '../components/dark-veil/DarkVeil';
 import SpeedInsights  from "@vercel/speed-insights/astro"
 import Analytics from '@vercel/analytics/astro'
 import TechLogos from '../components/TechLogos';
-import {Image} from 'astro:assets';
 ---
 
 <style>
@@ -290,9 +289,9 @@ import {Image} from 'astro:assets';
 	<!-- Glow from bottom divider -->
 	<div class="section-divider-glow-bottom"></div>
 
-	<!-- AI Integration Section -->
+	<!-- Pymes Section -->
 	<div class="section-divider-spotlight"></div>
-	<section id="fondos-publicos" class="relative py-20 md:py-32 overflow-hidden scroll-mt-20 md:scroll-mt-24">
+	<section id="pymes" class="relative py-20 md:py-32 overflow-hidden scroll-mt-20 md:scroll-mt-24">
 		<!-- Background ambient glow -->
 		<div class="absolute inset-0 pointer-events-none">
 			<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-400/[0.04] rounded-full blur-3xl"></div>
@@ -306,16 +305,16 @@ import {Image} from 'astro:assets';
 					<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs md:text-sm font-medium"
 						style="background: rgba(76, 214, 192, 0.1); border: 1px solid rgba(76, 214, 192, 0.2); color: rgba(76, 214, 192, 0.9);">
 						<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
 						</svg>
-						Fondos Públicos
+						Hecho para Pymes
 					</span>
 				</div>
 				<h2 class="font-geist text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-[-0.03em] leading-[1.1]">
-					Servicios para beneficiarios de <p class="text-teal-300 italic">fondos públicos</p>
+					La presencia digital que tu <p class="text-teal-300 italic">pyme merece</p>
 				</h2>
 				<p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
-					¿Recibiste un fondo de Sercotec, FOSIS o un programa de apoyo a emprendedores? Te ayudamos a ejecutarlo y a construir una presencia digital sólida y permanente para tu pyme.
+					Diseñamos y desarrollamos sitios web profesionales pensados para pequeñas y medianas empresas: dominio propio, hosting, SSL y SEO que trabajan por tu negocio todos los días del año.
 				</p>
 			</div>
 
@@ -325,58 +324,81 @@ import {Image} from 'astro:assets';
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
 					<div>
 						<h3 class="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-							Digitaliza tu negocio <span class="text-teal-300">con nosotros.</span>
+							Haz crecer tu negocio <span class="text-teal-300">en internet.</span>
 						</h3>
 						<p class="text-gray-400 mb-6 leading-relaxed">
-							Si obtuviste financiamiento para digitalizar tu negocio, podemos ayudarte a implementar tu proyecto con soluciones web profesionales y facturables. No entregamos un sitio temporal: construimos una <span class="text-gray-200 font-medium">presencia digital sólida y permanente</span> —dominio propio, hosting, SSL y SEO— que sigue trabajando por tu pyme mucho después de rendir el fondo.
+							Tus clientes te buscan en Google antes de comprar. Te ayudamos a que te encuentren con una <span class="text-gray-200 font-medium">presencia digital sólida y permanente</span> —dominio propio, hosting, certificado SSL y SEO— que genera confianza, atrae contactos y sigue trabajando por tu pyme mes a mes. Sin sitios temporales: construimos algo que crece contigo.
 						</p>
-						<p class="text-sm font-semibold text-teal-300 uppercase tracking-widest mb-4">Programas compatibles</p>
+						<p class="text-sm font-semibold text-teal-300 uppercase tracking-widest mb-4">Ideal para</p>
 						<ul class="space-y-3">
 							<li class="flex items-center gap-3 text-gray-300 text-sm">
 								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
-								Sercotec
+								Emprendedores que lanzan su negocio
 							</li>
 							<li class="flex items-center gap-3 text-gray-300 text-sm">
 								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
-								FOSIS
+								Pymes que quieren profesionalizar su marca
 							</li>
 							<li class="flex items-center gap-3 text-gray-300 text-sm">
 								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
-								CORFO
+								Negocios locales que buscan más clientes
 							</li>
 							<li class="flex items-center gap-3 text-gray-300 text-sm">
 								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
-								Fondos municipales para emprendimiento
+								Empresas que venden productos o servicios online
 							</li>
 							<li class="flex items-center gap-3 text-gray-300 text-sm">
 								<div class="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0"></div>
-								Programas de digitalización para pymes
+								Profesionales independientes y consultoras
 							</li>
 						</ul>
 					</div>
-					<!-- Logos fondos públicos -->
-					<div class="flex flex-col items-center justify-center gap-6">
-						<div class="grid grid-cols-3 gap-4 w-full">
-							<div class="flex flex-col items-center gap-3">
-								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
-									<Image src="/logos/sercotec.png" alt="Sercotec" width={284} height={284} format="webp" class="w-full h-full object-contain" loading="lazy" />
-								</div>
-								<span class="text-xs text-gray-400 font-medium text-center">Sercotec</span>
+					<!-- Beneficios clave -->
+					<div class="grid grid-cols-2 gap-4">
+						<div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 flex flex-col gap-3">
+							<div class="w-11 h-11 rounded-xl flex items-center justify-center bg-teal-400/15">
+								<svg class="w-6 h-6 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+								</svg>
 							</div>
-							<div class="flex flex-col items-center gap-3">
-								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
-									<Image src="/logos/fosis.png" alt="FOSIS" width={284} height={284} format="webp" class="w-full h-full object-contain" loading="lazy" />
-								</div>
-								<span class="text-xs text-gray-400 font-medium text-center">FOSIS</span>
-							</div>
-							<div class="flex flex-col items-center gap-3">
-								<div class="w-full aspect-square rounded-2xl bg-white flex items-center justify-center p-4 shadow-lg">
-									<Image src="/logos/corfo.png" alt="CORFO" width={284} height={284} format="webp" class="w-full h-full object-contain" loading="lazy" />
-								</div>
-								<span class="text-xs text-gray-400 font-medium text-center">CORFO</span>
+							<div>
+								<h4 class="text-white font-semibold text-sm mb-1">Dominio propio</h4>
+								<p class="text-gray-400 text-xs leading-relaxed">Tu marca con su propia dirección .cl o .com.</p>
 							</div>
 						</div>
-						<p class="text-xs text-gray-500 text-center">+ Fondos municipales y programas de digitalización</p>
+						<div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 flex flex-col gap-3">
+							<div class="w-11 h-11 rounded-xl flex items-center justify-center bg-teal-400/15">
+								<svg class="w-6 h-6 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="text-white font-semibold text-sm mb-1">Hosting incluido</h4>
+								<p class="text-gray-400 text-xs leading-relaxed">Alojamiento rápido y estable, sin sorpresas.</p>
+							</div>
+						</div>
+						<div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 flex flex-col gap-3">
+							<div class="w-11 h-11 rounded-xl flex items-center justify-center bg-teal-400/15">
+								<svg class="w-6 h-6 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="text-white font-semibold text-sm mb-1">Certificado SSL</h4>
+								<p class="text-gray-400 text-xs leading-relaxed">Sitio seguro (https) que genera confianza.</p>
+							</div>
+						</div>
+						<div class="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 flex flex-col gap-3">
+							<div class="w-11 h-11 rounded-xl flex items-center justify-center bg-teal-400/15">
+								<svg class="w-6 h-6 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="text-white font-semibold text-sm mb-1">SEO optimizado</h4>
+								<p class="text-gray-400 text-xs leading-relaxed">Para aparecer cuando te buscan en Google.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -390,9 +412,9 @@ import {Image} from 'astro:assets';
 						</svg>
 					</div>
 					<div>
-						<h4 class="text-lg md:text-xl font-semibold text-white mb-2">Precios pensados para fondos del Estado</h4>
+						<h4 class="text-lg md:text-xl font-semibold text-white mb-2">Facturación clara para tu empresa</h4>
 						<p class="text-gray-400 text-sm md:text-base leading-relaxed">
-							Los capitales del Estado (Sercotec, FOSIS, CORFO) entregan el subsidio en <span class="text-gray-200 font-medium">valor neto</span> y <span class="text-gray-200 font-medium">no cubren el IVA del 19%</span>. Por eso desglosamos cada plan en neto e IVA: así sabes con claridad qué financia el capital del Estado y cuánto pones de tu bolsillo. Ese IVA, además, te queda como <span class="text-gray-200 font-medium">crédito fiscal</span> a favor de tu empresa.
+							Emitimos <span class="text-gray-200 font-medium">factura con detalle de neto e IVA (19%)</span>, así tu inversión queda formalmente documentada. Si tu pyme está afecta a IVA, ese <span class="text-gray-200 font-medium">19% te queda como crédito fiscal</span> a favor de tu empresa. Precios transparentes, pago único y sin costos ocultos.
 						</p>
 					</div>
 				</div>
@@ -407,8 +429,8 @@ import {Image} from 'astro:assets';
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/>
 						</svg>
 					</div>
-					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Facturable y rendible</h3>
-					<p class="text-gray-400 text-sm leading-relaxed">Emitimos facturas compatibles con los requisitos de rendición de cada programa de financiamiento público.</p>
+					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Factura tu inversión</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">Emitimos factura con detalle de neto + IVA. El 19% te queda como crédito fiscal a favor de tu empresa.</p>
 				</div>
 
 				<!-- Card 2 -->
@@ -418,19 +440,19 @@ import {Image} from 'astro:assets';
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
 						</svg>
 					</div>
-					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Acompañamiento completo</h3>
-					<p class="text-gray-400 text-sm leading-relaxed">Te guiamos desde la planificación hasta la entrega final, asegurándonos de cumplir cada etapa del programa.</p>
+					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Acompañamiento cercano</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">Te guiamos desde la primera idea hasta la puesta en línea, con soporte directo por WhatsApp en cada etapa.</p>
 				</div>
 
 				<!-- Card 3 -->
 				<div class="group p-6 rounded-2xl border border-white/[0.05] bg-white/[0.01] hover:bg-white/[0.03] hover:border-teal-400/30 transition-all duration-300">
 					<div class="w-12 h-12 rounded-xl mb-4 flex items-center justify-center bg-gradient-to-br from-[#4CD6C0]/20 to-transparent group-hover:from-[#4CD6C0]/30 transition-all">
 						<svg class="w-6 h-6 text-[#4CD6C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
 						</svg>
 					</div>
-					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Entrega en plazo</h3>
-					<p class="text-gray-400 text-sm leading-relaxed">Respetamos los tiempos de ejecución exigidos por el fondo para que puedas rendir sin contratiempos.</p>
+					<h3 class="text-lg font-semibold text-white mb-2 group-hover:text-teal-300 transition-colors">Presencia que crece contigo</h3>
+					<p class="text-gray-400 text-sm leading-relaxed">No entregamos un sitio temporal: construimos una base digital permanente que sigue trabajando por tu pyme.</p>
 				</div>
 			</div>
 		</div>
