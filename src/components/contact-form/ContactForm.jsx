@@ -235,13 +235,13 @@ const ContactForm = () => {
                     Selecciona un servicio
                   </option>
                   <option value="Landing Marketing" className="bg-gray-900">
-                    Landing Marketing · Página única de conversión — $14.990/mes IVA incl.
+                    Landing Marketing · Página única de conversión — $14.990/mes (neto $12.597 + IVA $2.393)
                   </option>
                   <option value="Plan Pyme" className="bg-gray-900">
-                    Plan Pyme · Sitio web corporativo profesional — $35.990/mes IVA incl.
+                    Plan Pyme · Sitio web corporativo profesional — $35.990/mes (neto $30.244 + IVA $5.746)
                   </option>
                   <option value="E-commerce" className="bg-gray-900">
-                    E-commerce · Tienda Shopify — implementación $1.499.990 + Shopify USD $65/mes
+                    E-commerce · Tienda Shopify — $1.499.990 (neto $1.260.496 + IVA $239.494) + Shopify USD $65/mes
                   </option>
                 </select>
               </div>
