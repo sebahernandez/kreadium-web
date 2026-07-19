@@ -1,0 +1,106 @@
+---
+// Scroll reveal global con GSAP + ScrollTrigger.
+// Detecta automáticamente las "cards" del sitio (clases semánticas + patrón
+// rounded + border + padding) y las revela con un stagger profesional al
+// entrar en el viewport. Respeta prefers-reduced-motion y es progresivo:
+// si el JS no carga, el contenido permanece visible.
+---
+
+<script>
+	import gsap from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	// Clases semánticas de cards ya presentes en el sitio + opt-in manual.
+	const SEMANTIC = [
+		".service-card",
+		".feature-card",
+		".pricing-card",
+		".popular-card",
+		".stat-item",
+		".video-container",
+		"[data-reveal]",
+	].join(",");
+
+	// Heurística para detectar cards genéricas (borde + esquinas + padding).
+	// Los wrappers de íconos (w-11 h-11 rounded-xl) quedan excluidos porque no
+	// tienen borde ni padding grande.
+	function isCard(el: Element) {
+		if (el.matches(SEMANTIC)) return true;
+		const c = el.getAttribute("class") || "";
+		const rounded = /rounded-(xl|2xl|3xl)/.test(c);
+		const bordered = /(^|\s)border(\s|$)/.test(c) || /border-white/.test(c);
+		const padded = /(^|\s)p-([5-9]|1[0-2])(\s|$)/.test(c) || /(^|\s)md:p-/.test(c);
+		return rounded && bordered && padded;
+	}
+
+	function collectCards(): HTMLElement[] {
+		const candidates = new Set<HTMLElement>();
+		document
+			.querySelectorAll<HTMLElement>(SEMANTIC)
+			.forEach((el) => candidates.add(el));
+		document
+			.querySelectorAll<HTMLElement>(
+				'[class*="rounded-xl"],[class*="rounded-2xl"],[class*="rounded-3xl"]',
+			)
+			.forEach((el) => {
+				if (isCard(el)) candidates.add(el);
+			});
+
+		// Solo la card más externa: si un ancestro también es card, se omite
+		// para evitar animaciones anidadas.
+		const cards = [...candidates].filter((el) => {
+			let p = el.parentElement;
+			while (p) {
+				if (candidates.has(p)) return false;
+				p = p.parentElement;
+			}
+			return true;
+		});
+
+		// Orden de documento para que el stagger fluya de arriba hacia abajo.
+		cards.sort((a, b) =>
+			a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING
+				? -1
+				: 1,
+		);
+		return cards;
+	}
+
+	function initReveal() {
+		const reduce = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+		if (reduce) return; // Contenido visible tal cual, sin animación.
+
+		const cards = collectCards();
+		if (!cards.length) return;
+
+		gsap.set(cards, { opacity: 0, y: 40 });
+
+		ScrollTrigger.batch(cards, {
+			start: "top 88%",
+			once: true,
+			onEnter: (batch) =>
+				gsap.to(batch, {
+					opacity: 1,
+					y: 0,
+					duration: 0.7,
+					ease: "power3.out",
+					stagger: 0.1,
+					overwrite: true,
+					// Limpia el transform al terminar para no romper hover:scale.
+					clearProps: "transform",
+				}),
+		});
+
+		// Recalcula posiciones cuando cargan fuentes/imágenes.
+		window.addEventListener("load", () => ScrollTrigger.refresh());
+	}
+
+	// Ejecuta ahora (el módulo corre tras el parseo del DOM) y re-inicializa
+	// si en el futuro se activan las View Transitions de Astro.
+	initReveal();
+	document.addEventListener("astro:after-swap", initReveal);
+</script>
